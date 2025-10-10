@@ -1,286 +1,306 @@
-import os, re, io, ssl, smtplib, time, math, json, traceback
+# notifier.py
+# Daily insider buy notifier with OpenInsider + SEC fallback and Gmail SMTP email
+# Paste this whole file into your repo. Requires: requests, pandas, lxml (or html5lib)
+
+import os
+import re
+import smtplib
+import traceback
+from email.mime.text import MIMEText
+from email.utils import formatdate
+
 import numpy as np
 import pandas as pd
 import requests
-import concurrent.futures as cf
-import yfinance as yf
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
-# ----------- CONFIG -----------
-DAYS_LOOKBACK   = 1        # look back N days on OpenInsider
-MAX_RESULTS     = 5000
-MIN_PRICE       = 3.0
-MIN_DVOL        = 2_000_000   # 20D avg dollar volume
-CAP_MIN         = 2_000_000_000
-CEO_ONLY        = False       # True => only CEO; False => CEO or CFO
-TOP_K           = 10
 
-# Composite weights (sum ~ 1)
-W_MOM_TREND   = 0.30  # 12–1 month momentum (higher better)
-W_MOM_CONTRA  = 0.20  # -3M momentum (more negative better)
-W_INSIDER_SZ  = 0.35  # log(Value) (bigger buys better)
-W_CLUSTER     = 0.15  # # filings last 10 calendar days (more better)
+# =========================
+# ------- CONFIG ----------
+# =========================
+DAYS_LOOKBACK   = 1          # look back N days for OpenInsider
+MIN_VALUE       = 100_000    # min $ value of the purchase
+REQUIRE_CEO_CFO = True       # only CEO/CFO roles
+MAX_RESULTS     = 30         # max rows to email
+SUBJECT_PREFIX  = "Insider buys"
+YF_LINK_FMT     = "https://finance.yahoo.com/quote/{sym}"
 
-# Email
-FROM_EMAIL = os.environ.get("GMAIL_USER")
-FROM_PASS  = os.environ.get("GMAIL_APP_PASSWORD")
-TO_EMAIL   = os.environ.get("TO_EMAIL", FROM_EMAIL)
-SUBJECT    = "Daily Insider Buy Signals (screened & scored)"
+# Gmail secrets are read from env
+GMAIL_USER       = os.getenv("GMAIL_USER")
+GMAIL_APP_PASS   = os.getenv("GMAIL_APP_PASSWORD")
+TO_EMAIL         = os.getenv("TO_EMAIL")
 
-# ----------- HELPERS -----------
-def fetch_openinsider(days=DAYS_LOOKBACK, maxresults=MAX_RESULTS, timeout=25):
-    """Fetch latest insider purchases table from OpenInsider."""
-    url = (
-        "https://openinsider.com/screener?"
-        "s=&o=&pl=&ph=&ll=&lh=&fd=0&fdr=&td=&tdr=&fdlyl=&fdlyh="
-        f"&days={days}"
-        "&xp=1&vl=100&vh=&ocl=0"
-        "&sicMin=&sicMax=&sortcol=0&sortdir=0"
-        f"&maxresults={maxresults}&group=filing"
-        "&isOfficer=1&isCEO=1&isCFO=1"
+# SEC wants a meaningful UA with contact info
+SEC_UA = "Mozilla/5.0 (compatible; InsiderBot/1.0; +mailto:{})".format(GMAIL_USER or "you@example.com")
+
+
+# =========================
+# ---- HTTP / FETCHERS ----
+# =========================
+def _session_with_retries(total=5, backoff=0.6):
+    s = requests.Session()
+    r = Retry(
+        total=total,
+        connect=total,
+        read=total,
+        backoff_factor=backoff,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=frozenset(["GET", "HEAD"]),
     )
-    for attempt in range(3):
-        try:
-            r = requests.get(url, timeout=timeout, headers={"User-Agent":"Mozilla/5.0"})
-            r.raise_for_status()
-            tables = pd.read_html(io.StringIO(r.text), displayed_only=False)
-            # Pick table with typical columns
-            wanted = {"Filing Date","Trade Date","Ticker","Company Name","Insider Name","Title","Trade Type","Price","Qty","Value ($)"}
-            best_i, best_score = None, -1
-            for i,t in enumerate(tables):
-                cols = set(map(str,t.columns))
-                score = len(wanted & cols) + (t.shape[1]>=8)*2 + (t.shape[0]>=20)*1
-                if score > best_score:
-                    best_i, best_score = i, score
-            if best_i is None:
-                return pd.DataFrame()
-            df = tables[best_i].copy()
-            return df
-        except Exception:
-            if attempt == 2:
-                raise
-            time.sleep(2 + attempt)
+    s.mount("https://", HTTPAdapter(max_retries=r))
+    s.mount("http://", HTTPAdapter(max_retries=r))
+    return s
 
-def to_num(x):
-    s = str(x).replace(",", "").replace("$","").replace("%","").replace("—","").replace("\u2212","-")
-    s = s.replace("(", "-").replace(")","")
-    return pd.to_numeric(s, errors="coerce")
 
-def norm_cols(df):
-    df = df.rename(columns={c:str(c).replace("\xa0"," ").strip() for c in df.columns})
-    # Keep purchases only
-    if "Trade Type" in df.columns:
-        df = df[df["Trade Type"].astype(str).str.contains("P - Purchase", na=False)]
+def fetch_openinsider(days=DAYS_LOOKBACK, timeout=20):
+    """Scrape OpenInsider screener (purchases, officers, CEO/CFO toggled)."""
+    url = (
+        "https://openinsider.com/screener"
+        "?s=&o=&pl=&ph=&ll=&lh=&fd=0&fdr=&td=&tdr=&fdlyl=&fdlyh="
+        f"&days={days}&xp=1&vl=100&vh=&ocl=0&sicMin=&sicMax=&sortcol=0"
+        "&sortdir=0&maxresults=5000&group=filing&isOfficer=1&isCEO=1&isCFO=1"
+    )
+    sess = _session_with_retries()
+    r = sess.get(url, timeout=timeout, headers={"User-Agent": "Mozilla/5.0"})
+    r.raise_for_status()
+
+    tables = pd.read_html(r.text, displayed_only=False)
+    # pick the most "grid-like" table
+    t = max(tables, key=lambda df: (df.shape[1], df.shape[0]))
+    t.columns = [str(c).strip().replace("\xa0", " ") for c in t.columns]
+
+    # purchase rows only
+    if "Trade Type" in t.columns:
+        t = t[t["Trade Type"].astype(str).str.contains("P - Purchase", na=False)]
+
+    # normalize columns
     rename = {
-        "Ticker":"Ticker","Company Name":"Company","Insider Name":"Insider",
-        "Title":"Title","Trade Type":"Transaction","Price":"Price",
-        "Qty":"Shares","Value ($)":"Value","Trade Date":"Date","Filing Date":"Filing Date"
+        "Ticker": "Ticker", "Company Name": "Company", "Insider Name": "Insider",
+        "Title": "Title", "Trade Type": "Transaction", "Price": "Price",
+        "Qty": "Shares", "Value ($)": "Value", "Trade Date": "Date", "Filing Date": "Filing Date",
     }
-    df = df.rename(columns={k:v for k,v in rename.items() if k in df.columns})
-    if "Ticker" in df.columns:  # remove repeated header rows
-        df = df[df["Ticker"].astype(str) != "Ticker"]
-    for col in ("Price","Shares","Value"):
-        if col in df.columns:
-            df[col] = df[col].map(to_num)
-    for col in ("Date","Filing Date"):
-        if col in df.columns:
-            df[col] = pd.to_datetime(df[col], errors="coerce")
-    # Yahoo symbol
+    t = t.rename(columns={k: v for k, v in rename.items() if k in t.columns})
+    if "Ticker" in t.columns:
+        t = t[t["Ticker"].astype(str) != "Ticker"]  # drop header rows inside body
+
+    # numeric/date cleanup
+    def to_num(x):
+        s = str(x).replace(",", "").replace("$", "").replace("%", "").replace("—", "").replace("\u2212", "-")
+        s = s.replace("(", "-").replace(")", "")
+        return pd.to_numeric(s, errors="coerce")
+
+    for c in ("Price", "Shares", "Value"):
+        if c in t.columns:
+            t[c] = t[c].map(to_num)
+    for c in ("Date", "Filing Date"):
+        if c in t.columns:
+            t[c] = pd.to_datetime(t[c], errors="coerce")
+
+    return t
+
+
+def fetch_sec_current(timeout=30):
+    """
+    Official SEC fallback: 'current insider transactions' page.
+    We filter to purchase transactions and try to keep comparable fields.
+    """
+    url = "https://www.sec.gov/cgi-bin/own-disp?action=getcurrent"
+    sess = _session_with_retries()
+    r = sess.get(url, timeout=timeout, headers={"User-Agent": SEC_UA})
+    r.raise_for_status()
+
+    tables = pd.read_html(r.text, displayed_only=False)
+    t = max(tables, key=lambda df: (df.shape[1], df.shape[0]))
+    t.columns = [str(c).strip().replace("\xa0", " ") for c in t.columns]
+
+    # Map into our schema where possible
+    t = t.rename(columns={
+        "Ticker": "Ticker",
+        "Transaction Date": "Date",
+        "Price": "Price",
+        "Amount": "Shares",
+        "Relationship": "Title",
+        "Company": "Company",
+        "Owner": "Insider",
+        "Transaction": "Transaction",
+    })
+
+    # Purchase code is 'P'
+    if "Transaction Code" in t.columns:
+        t = t[t["Transaction Code"].astype(str).str.fullmatch(r"P", na=False)]
+
+    # Roles (CEO/CFO/Pres etc.)
+    if "Title" in t.columns and REQUIRE_CEO_CFO:
+        t["Title"] = t["Title"].astype(str)
+        role_mask = t["Title"].str.contains(r"\b(CEO|CFO|Chief|President|Pres\.?)\b", flags=re.I, regex=True)
+        t = t[role_mask]
+
+    # numeric/date cleanup
+    def to_num(x):
+        s = str(x).replace(",", "").replace("$", "").replace("%", "").replace("—", "").replace("\u2212", "-")
+        s = s.replace("(", "-").replace(")", "")
+        return pd.to_numeric(s, errors="coerce")
+
+    for c in ("Price", "Shares"):
+        if c in t.columns:
+            t[c] = t[c].map(to_num)
+    if "Date" in t.columns:
+        t["Date"] = pd.to_datetime(t["Date"], errors="coerce")
+
+    if {"Price", "Shares"}.issubset(t.columns):
+        t["Value"] = t["Price"] * t["Shares"]
+
+    keep = [c for c in ["Ticker", "Company", "Insider", "Title", "Transaction",
+                        "Price", "Shares", "Value", "Date", "Filing Date"] if c in t.columns]
+    out = t[keep].dropna(subset=["Ticker", "Date"]).reset_index(drop=True)
+    return out
+
+
+def fetch_insider_rows():
+    """Try OpenInsider first; on error, fall back to SEC."""
+    try:
+        return fetch_openinsider(days=DAYS_LOOKBACK)
+    except Exception as e:
+        print("OpenInsider unreachable; using SEC fallback →", e)
+        return fetch_sec_current()
+
+
+# =========================
+# ----- POST-PROCESS ------
+# =========================
+def standardize(df: pd.DataFrame) -> pd.DataFrame:
+    """Clean tickers, enforce filters, rank by $Value."""
+    if df.empty:
+        return df
+
+    # Ticker → Yahoo symbol format (BRK.B -> BRK-B)
     def to_yahoo(t):
         t = str(t).strip().upper()
-        if not t or t == "NAN": return np.nan
-        return t.replace(".", "-")
+        if not t or t == "NAN":
+            return np.nan
+        t = t.replace(".", "-")
+        t = re.sub(r"[^A-Z0-9\-\_\.]", "", t)
+        return t
+
+    df = df.copy()
+    if "Ticker" not in df.columns:
+        return pd.DataFrame()
+
     df["Yahoo"] = df["Ticker"].map(to_yahoo)
-    # Pick event date = Filing Date preferred, else Trade Date, else Date
-    for name in ["Filing Date","Trade Date","Date"]:
-        if name in df.columns:
-            df["EventDate"] = pd.to_datetime(df[name], errors="coerce")
-            break
-    keep = ["Yahoo","Ticker","Company","Insider","Title","EventDate","Value","Price"]
-    return df[[c for c in keep if c in df.columns]].dropna(subset=["Yahoo","EventDate"]).reset_index(drop=True)
+    df = df.dropna(subset=["Yahoo"])
 
-def download_history(symbols, start, end=None):
-    if not symbols: 
-        return pd.DataFrame()
-    data = yf.download(sorted(symbols), start=start, end=end, auto_adjust=True, progress=False, threads=False)
-    if data.empty:
-        return pd.DataFrame()
-    if isinstance(data.columns, pd.MultiIndex):
-        return data["Close"], data["Volume"]
-    # single ticker case
-    sym = list(symbols)[0]
-    return data[["Close"]].rename(columns={"Close":sym}), data[["Volume"]].rename(columns={"Volume":sym})
+    # Default Event date: Filing Date if present, else Date
+    if "Filing Date" in df.columns:
+        df["EventDate"] = pd.to_datetime(df["Filing Date"], errors="coerce")
+    else:
+        df["EventDate"] = pd.to_datetime(df.get("Date"), errors="coerce")
+    df = df.dropna(subset=["EventDate"])
 
-def compute_features(ins):
-    # momentum & cluster need price rows around each date
-    tickers = sorted(ins["Yahoo"].unique())
-    start = (ins["EventDate"].min() - pd.Timedelta(days=400)).strftime("%Y-%m-%d")
-    close_all, vol_all = download_history(tickers, start=start)
-    if close_all.empty: 
-        return ins.assign(Score=np.nan)
-    idx = close_all.index
+    # Ensure Value numeric
+    if "Value" in df.columns:
+        df["Value"] = pd.to_numeric(df["Value"], errors="coerce")
 
-    # cluster (rolling 10 calendar days by ticker)
-    tmp = ins.sort_values(["Yahoo","EventDate"]).copy()
-    tmp["_one"] = 1
-    cl = (tmp.set_index("EventDate")
-             .groupby("Yahoo")["_one"]
-             .rolling("10D").sum()
-             .reset_index(level=0, drop=True)
-             .reindex(tmp.index))
-    ins["cluster_10d"] = cl.values
+    # CEO/CFO role filter (when requested)
+    if REQUIRE_CEO_CFO and "Title" in df.columns:
+        role_mask = df["Title"].astype(str).str.contains(r"\b(CEO|CFO)\b", case=False, regex=True)
+        df = df[role_mask]
 
-    def price_at(y, dt, off=0):
-        try:
-            i = idx.searchsorted(pd.Timestamp(dt))
-            j = i + off
-            if j < 0 or j >= len(idx): return np.nan
-            return float(close_all[y].iloc[j])
-        except Exception:
-            return np.nan
+    # Min $ filter
+    if "Value" in df.columns:
+        df = df[df["Value"] >= MIN_VALUE]
 
-    def mom_from(y, dt, lb):
-        p0 = price_at(y, dt, 0); pL = price_at(y, dt, -lb)
-        if not np.isfinite(p0) or not np.isfinite(pL) or pL == 0: return np.nan
-        return p0/pL - 1.0
+    # Keep one-most-recent per ticker
+    df = (df.sort_values("EventDate")
+            .groupby("Yahoo", as_index=False)
+            .tail(1))
 
-    def mom_12_1(y, dt):
-        p_1m = price_at(y, dt, -21); p_12m = price_at(y, dt, -252)
-        if not np.isfinite(p_1m) or not np.isfinite(p_12m) or p_12m == 0: return np.nan
-        return p_1m/p_12m - 1.0
+    # Simple score (percentile of log1p(Value)) so email is ranked
+    if "Value" in df.columns:
+        val = np.log1p(pd.to_numeric(df["Value"], errors="coerce"))
+        pct = val.rank(pct=True)
+        df["Score"] = pct.fillna(0.5).round(3)
 
-    ins["mom_3m"]   = [mom_from(y, d, 63) for y,d in zip(ins["Yahoo"], ins["EventDate"])]
-    ins["mom_12_1"] = [mom_12_1(y, d) for y,d in zip(ins["Yahoo"], ins["EventDate"])]
+    # Order for email
+    preferred_cols = [
+        "Yahoo", "EventDate", "Company", "Insider", "Title",
+        "Price", "Shares", "Value", "Score"
+    ]
+    cols = [c for c in preferred_cols if c in df.columns]
+    df = df[cols].sort_values(["Score", "Value", "EventDate"], ascending=[False, False, False])
+    return df.reset_index(drop=True)
 
-    # price_now & 20D dollar volume
-    def px_now(y, d): return price_at(y, d, 0)
-    ins["px_now"] = [px_now(y, d) for y,d in zip(ins["Yahoo"], ins["EventDate"])]
-    def dvol20(y, d):
-        try:
-            i = idx.searchsorted(pd.Timestamp(d))
-            lo, hi = max(0, i-19), i+1
-            px = close_all[y].iloc[lo:hi].astype(float)
-            vo = vol_all[y].iloc[lo:hi].astype(float)
-            if px.empty or vo.empty: return np.nan
-            return float((px*vo).mean())
-        except Exception:
-            return np.nan
-    ins["dvol20"] = [dvol20(y, d) for y,d in zip(ins["Yahoo"], ins["EventDate"])]
 
-    # market cap (few tickers → parallel info calls)
-    def cap_one(t):
-        try:
-            return yf.Ticker(t).fast_info.market_cap or yf.Ticker(t).info.get("marketCap")
-        except Exception:
-            return np.nan
-    with cf.ThreadPoolExecutor(max_workers=8) as ex:
-        caps = list(ex.map(cap_one, ins["Yahoo"]))
-    ins["marketCap"] = pd.to_numeric(caps, errors="coerce")
+# =========================
+# -------- EMAIL ----------
+# =========================
+def send_email(subject: str, body_text: str, body_html: str = None):
+    assert GMAIL_USER and GMAIL_APP_PASS and TO_EMAIL, \
+        "Missing GMAIL_USER, GMAIL_APP_PASSWORD or TO_EMAIL env vars."
 
-    # CEO/CFO filter
-    title = ins.get("Title", "").astype(str)
-    ins["is_CEO"] = title.str.contains(r"\bCEO\b", case=False, regex=True)
-    ins["is_CFO"] = title.str.contains(r"\bCFO\b", case=False, regex=True)
+    msg = MIMEText(body_html or body_text, "html" if body_html else "plain", "utf-8")
+    msg["Subject"] = subject
+    msg["From"]    = GMAIL_USER
+    msg["To"]      = TO_EMAIL
+    msg["Date"]    = formatdate(localtime=True)
 
-    # HARD FILTERS
-    role_ok  = ins["is_CEO"] if CEO_ONLY else (ins["is_CEO"] | ins["is_CFO"])
-    price_ok = pd.to_numeric(ins["px_now"], errors="coerce") >= MIN_PRICE
-    vol_ok   = pd.to_numeric(ins["dvol20"], errors="coerce") >= MIN_DVOL
-    cap_ok   = pd.to_numeric(ins["marketCap"], errors="coerce") >= CAP_MIN
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+        smtp.login(GMAIL_USER, GMAIL_APP_PASS)
+        smtp.sendmail(GMAIL_USER, [TO_EMAIL], msg.as_string())
 
-    eligible = (role_ok.fillna(False) & price_ok.fillna(False) &
-                vol_ok.fillna(False)  & cap_ok.fillna(False))
 
-    if eligible.sum() == 0:
-        return ins.assign(Score=np.nan, eligible=False)
-
-    # Features for scoring
-    ins["f_insider_size"] = np.log1p(pd.to_numeric(ins.get("Value"), errors="coerce")).replace([np.inf,-np.inf], np.nan)
-    ins["f_cluster"]      = ins["cluster_10d"].astype(float)
-    ins["f_mom_trend"]    = ins["mom_12_1"].astype(float)    # higher better
-    ins["f_mom_contra"]   = (-ins["mom_3m"]).astype(float)   # more negative 3m is better
-
-    # Rank to [0,1] within the SAME EVENT DATE (to avoid look-ahead)
-    def rank01(s):
-        r = s.rank(pct=True, method="average")
-        return r.fillna(0.5) if not r.isna().all() else pd.Series(0.5, index=s.index)
-
-    for col in ["f_insider_size","f_cluster","f_mom_trend","f_mom_contra"]:
-        ins[col+"_n"] = ins.groupby("EventDate")[col].transform(rank01)
-
-    ins["Score"] = (
-        W_INSIDER_SZ*ins["f_insider_size_n"] +
-        W_CLUSTER   *ins["f_cluster_n"] +
-        W_MOM_TREND *ins["f_mom_trend_n"] +
-        W_MOM_CONTRA*ins["f_mom_contra_n"]
-    )
-
-    ins["eligible"] = eligible
-    return ins
-
-def email_table(df):
+def df_to_html_table(df: pd.DataFrame) -> str:
     if df.empty:
-        return "<p>No signals passed today.</p>"
-    show = df.copy()
-    # nice columns
-    keep = ["Ticker","EventDate","Title","Value","px_now","dvol20","marketCap","Score"]
-    keep = [c for c in keep if c in show.columns]
-    show = show[keep].sort_values("Score", ascending=False)
-    # prettify
-    def fmt_money(x):
-        try:
-            x = float(x)
-            if not np.isfinite(x): return ""
-            if abs(x) >= 1e9: return f"{x/1e9:.1f}B"
-            if abs(x) >= 1e6: return f"{x/1e6:.1f}M"
-            return f"{x:,.0f}"
-        except: return ""
-    if "Value" in show.columns:    show["Value"]    = show["Value"].map(fmt_money)
-    if "dvol20" in show.columns:   show["dvol20"]   = show["dvol20"].map(fmt_money)
-    if "marketCap" in show.columns:show["marketCap"]= show["marketCap"].map(fmt_money)
-    if "px_now" in show.columns:   show["px_now"]   = show["px_now"].map(lambda x: f"{x:.2f}" if pd.notna(x) else "")
-    if "Score" in show.columns:    show["Score"]    = show["Score"].map(lambda x: f"{x:.3f}" if pd.notna(x) else "")
+        return "<p>No qualifying trades today.</p>"
+    df = df.copy()
+    # Add Yahoo links
+    if "Yahoo" in df.columns:
+        df["Yahoo"] = df["Yahoo"].apply(lambda s: f'<a href="{YF_LINK_FMT.format(sym=s)}">{s}</a>')
+    fmt = {
+        "EventDate": lambda x: pd.to_datetime(x).strftime("%Y-%m-%d %H:%M"),
+        "Price":     lambda x: f"${x:,.2f}",
+        "Shares":    lambda x: f"{int(x):,}" if pd.notna(x) else "",
+        "Value":     lambda x: f"${x:,.0f}" if pd.notna(x) else "",
+        "Score":     lambda x: f"{x:.3f}" if pd.notna(x) else "",
+    }
+    for c, f in fmt.items():
+        if c in df.columns:
+            df[c] = df[c].apply(lambda v: f(v) if pd.notna(v) else "")
+    return df.to_html(index=False, escape=False)
 
-    return show.to_html(index=False, escape=False)
 
-def send_email(html):
-    assert FROM_EMAIL and FROM_PASS and TO_EMAIL, "Missing email env vars."
-    msg = MIMEMultipart("alternative")
-    msg["From"] = FROM_EMAIL
-    msg["To"]   = TO_EMAIL
-    msg["Subject"] = SUBJECT
-    msg.attach(MIMEText(html, "html"))
-    ctx = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ctx) as server:
-        server.login(FROM_EMAIL, FROM_PASS)
-        server.sendmail(FROM_EMAIL, [TO_EMAIL], msg.as_string())
-
+# =========================
+# --------- MAIN ----------
+# =========================
 def main():
     try:
-        raw = fetch_openinsider()
-        if raw is None or raw.empty:
-            send_email("<p>OpenInsider fetch returned no data.</p>")
-            return
-        base = norm_cols(raw)
-        if base.empty:
-            send_email("<p>No purchase rows found today.</p>")
-            return
+        raw = fetch_insider_rows()  # robust fetcher with SEC fallback
+        clean = standardize(raw)
+        top = clean.head(MAX_RESULTS)
 
-        scored = compute_features(base)
-        passed = scored[scored["eligible"]].copy()
-        top = passed.sort_values("Score", ascending=False).head(TOP_K)
+        source = "OpenInsider" if "Filing Date" in raw.columns else "SEC"
+        subject = f"{SUBJECT_PREFIX}: {len(top)} signals (src: {source})"
 
         html = f"""
-        <h3>Daily Insider Buy Signals (screened & scored)</h3>
-        <p>Criteria: Price ≥ ${MIN_PRICE}, 20D $Vol ≥ ${MIN_DVOL:,}, MarketCap ≥ ${CAP_MIN/1e9:.1f}B, Role: {'CEO' if CEO_ONLY else 'CEO/CFO'}</p>
-        <p>Found {len(passed)} eligible out of {len(scored)}; showing top {min(TOP_K, len(passed))} by Score.</p>
-        {email_table(top)}
+        <h3>{SUBJECT_PREFIX} — {len(top)} qualifying trades</h3>
+        <p>Source: <b>{source}</b> | Lookback: {DAYS_LOOKBACK} day(s) | Min value: ${MIN_VALUE:,} | CEO/CFO only: {REQUIRE_CEO_CFO}</p>
+        {df_to_html_table(top)}
+        <p style="color:#999">Auto-generated from public data. This is not investment advice.</p>
         """
-        send_email(html)
+
+        send_email(subject, body_text="HTML required", body_html=html)
+
     except Exception as e:
+        # On error, email the traceback so you see it in your inbox
         tb = traceback.format_exc()
-        send_email(f"<h3>Insider bot error</h3><pre>{tb}</pre>")
+        subject = f"Insider bot error"
+        body = f"<pre>{tb}</pre>"
+        try:
+            send_email(subject, body_text=tb, body_html=body)
+        except Exception:
+            # If even email fails, print to logs
+            print("Fatal error & email send failed:\n", tb)
+
 
 if __name__ == "__main__":
     main()
