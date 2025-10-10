@@ -1,12 +1,14 @@
 # notifier.py
 # Daily SEC insider purchase scanner + scorer + Gmail emailer.
-# No API keys. Requires: pandas, requests, lxml (or html5lib), yfinance, python-dateutil.
+# Uses official EDGAR daily master index + index.json + ownership XML (no scraping).
+# Requires: pandas, requests, lxml (or html5lib), yfinance
 
-import os, re, math, time, traceback
-from datetime import datetime, timedelta
+import os, re, time, math, traceback, json
+from datetime import datetime, timedelta, date
 from email.mime.text import MIMEText
 from email.utils import formatdate
 import smtplib
+import xml.etree.ElementTree as ET
 
 import numpy as np
 import pandas as pd
@@ -14,15 +16,12 @@ import requests
 from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 import yfinance as yf
-from dateutil.parser import parse as dtparse
 
 # =========================
 # ------- CONFIG ----------
 # =========================
-# SEC fetch
-DAYS_LOOKBACK   = 1          # kept for compatibility (today)
-LOOKBACK_TODAY  = 1
-LOOKBACK_WEEK   = 7          # rolling 7 days section
+LOOKBACK_TODAY  = 1          # today (via daily master index)
+LOOKBACK_WEEK   = 7          # rolling 7 calendar days
 
 REQUIRE_CEO_CFO = True       # role filter
 MIN_VALUE       = 100_000    # min $ value
@@ -49,20 +48,17 @@ UA_EMAIL        = GMAIL_USER if GMAIL_USER else "you@example.com"
 SUBJECT_PREFIX  = "Insider buys (SEC)"
 YF_LINK_FMT     = "https://finance.yahoo.com/quote/{sym}"
 
-SEC_URL         = "https://www.sec.gov/cgi-bin/own-disp?action=getcurrent"
-SEC_HEADERS     = {"User-Agent": f"InsiderBot/1.0 (+mailto:{UA_EMAIL})"}
-
-#heartbeat start
-# add near top of notifier.py
-def send_heartbeat(note: str):
-    try:
-        send_email("[bot heartbeat] notifier ran", f"<p>{note}</p>")
-    except Exception as e:
-        print("Heartbeat email failed:", e)
-
+# Polite headers for SEC
+SEC_HEADERS = {
+    "User-Agent": f"Mozilla/5.0 (compatible; InsiderBot/1.0; +mailto:{UA_EMAIL})",
+    "From": UA_EMAIL,
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Connection": "keep-alive",
+}
 
 # =========================
-# ---- HTTP / SEC FETCH ---
+# ---- HTTP / UTILITIES ---
 # =========================
 def session_with_retries(total=5, backoff=0.6):
     s = requests.Session()
@@ -79,167 +75,198 @@ def to_num(x):
     s = s.replace("(", "-").replace(")","")
     return pd.to_numeric(s, errors="coerce")
 
-def best_table_by_aliases(tables):
-    aliases = {
-        "ticker": ["Ticker","Symbol","Issuer Trading Symbol","Trading Symbol","Ticker Symbol"],
-        "date":   ["Transaction Date","Date","Reporting Date"],
-        "price":  ["Price","Transaction Price Per Share","Price Per Share"],
-        "shares": ["Amount","Shares","Quantity","Number of Securities Transacted"],
-    }
-    def score(df):
-        cols = {str(c).strip().replace("\xa0"," ") for c in df.columns}
-        sc = 0
-        for names in aliases.values():
-            sc += int(any(n in cols for n in names))
-        return (sc, df.shape[1], df.shape[0])
-    best, key = None, (-1,-1,-1)
-    for t in tables:
-        t.columns = [str(c).strip().replace("\xa0"," ") for c in t.columns]
-        k = score(t)
-        if k > key:
-            best, key = t, k
-    return best
+# =========================
+# ---- EDGAR DAILY INDEX --
+# =========================
+def _qtr_of(dt: date) -> int:
+    return (dt.month - 1)//3 + 1
 
-def fetch_sec_current(days=LOOKBACK_TODAY):
-    """
-    SEC 'current insider transactions' page -> return ALL purchase rows (code 'P'),
-    with flexible header mapping. NO role or $ filters here; we do that later so
-    the 'forced' list always has content when any purchases exist.
+def _daily_master_url(dt: date) -> str:
+    # Example: https://www.sec.gov/Archives/edgar/daily-index/2025/QTR4/master.20251010.idx
+    y, q = dt.year, _qtr_of(dt)
+    return f"https://www.sec.gov/Archives/edgar/daily-index/{y}/QTR{q}/master.{dt:%Y%m%d}.idx"
 
-    days: rolling calendar-day window (e.g., 1 for 'today', 7 for 'this week').
+def _fetch_master_form4(dt: date) -> pd.DataFrame:
     """
-    sess = session_with_retries()
-    r = sess.get(SEC_URL, headers=SEC_HEADERS, timeout=30)
+    Return rows from the daily master index for Form 4 / 4/A.
+    Columns: cik, company, form, filed, path
+    """
+    url = _daily_master_url(dt)
+    sess = session_with_retries(total=4, backoff=0.8)
+    r = sess.get(url, headers=SEC_HEADERS, timeout=30)
+    if r.status_code == 404:
+        return pd.DataFrame(columns=["cik","company","form","filed","path"])
     r.raise_for_status()
+    lines = r.text.splitlines()
 
-    tables = pd.read_html(r.text, displayed_only=False)
-    t = best_table_by_aliases(tables)
-    if t is None or t.empty:
-        return pd.DataFrame(columns=["Ticker","Company","Insider","Title","Transaction",
-                                     "Price","Shares","Value","Date","Filing Date","Yahoo"])
+    rows, started = [], False
+    for line in lines:
+        if not started:
+            if line.strip().startswith("-----"):
+                started = True
+            continue
+        parts = line.split("|")
+        if len(parts) < 5:
+            continue
+        cik, company, form, filed, path = parts[:5]
+        form = form.strip().upper()
+        if form in ("4", "4/A"):
+            rows.append((cik.strip(), company.strip(), form, filed.strip(), path.strip()))
+    return pd.DataFrame(rows, columns=["cik","company","form","filed","path"])
 
-    # normalize headers
-    t = t.copy()
-    t.columns = [str(c).strip().replace("\xa0", " ") for c in t.columns]
-
-    # helper to pick a column among aliases
-    def pick(names):
-        for n in names:
-            if n in t.columns: return n
-        low = {c.lower(): c for c in t.columns}
-        for n in names:
-            if n.lower() in low: return low[n.lower()]
+def _accession_base_from_path(path: str) -> str | None:
+    # master path: edgar/data/320193/0000320193-25-000012.txt
+    # index.json : https://www.sec.gov/Archives/edgar/data/320193/000032019325000012/index.json
+    m = re.search(r"edgar/data/(\d+)/(\d{10})-(\d{2})-(\d{6})\.txt$", path)
+    if not m:
         return None
+    cik, a, b, c = m.groups()
+    acc_nodash = f"{a}{b}{c}"
+    return f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}"
 
-    c_ticker = pick(["Ticker","Symbol","Issuer Trading Symbol","Trading Symbol","Ticker Symbol"])
-    c_date   = pick(["Transaction Date","Date","Reporting Date"])
-    c_price  = pick(["Price","Transaction Price Per Share","Price Per Share"])
-    c_shares = pick(["Amount","Shares","Quantity","Number of Securities Transacted"])
-    c_title  = pick(["Relationship","Reporting Owner Relationship","Officer Title"])
-    c_owner  = pick(["Reporting Owner","Owner","Reporting Owner Name"])
-    c_comp   = pick(["Issuer","Company","Issuer Name","Company Name"])
-    c_code   = pick(["Transaction Code","Trans Code","Code"])
-    c_desc   = pick(["Transaction","Transaction Description"])
+def _choose_ownership_xml(files: list[dict]) -> str | None:
+    # prefer ownership or primary xml
+    candidates = []
+    for f in files:
+        name = f.get("name","").lower()
+        if name.endswith(".xml") and ("ownership" in name or "primary" in name):
+            candidates.append(f["name"])
+    if not candidates:
+        for f in files:
+            name = f.get("name","").lower()
+            if name.endswith(".xml"):
+                candidates.append(f["name"])
+    return candidates[0] if candidates else None
 
-    if not c_ticker or not c_date:
-        return pd.DataFrame(columns=["Ticker","Company","Insider","Title","Transaction",
-                                     "Price","Shares","Value","Date","Filing Date","Yahoo"])
+def _parse_form4_ownership_xml(xml_text: str) -> list[dict]:
+    """
+    Extract non-derivative purchases (transactionCode=='P').
+    Returns dicts: Yahoo, Date, Company, Insider, Title, Price, Shares, Value, Transaction
+    """
+    out = []
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return out
 
-    df = pd.DataFrame()
-    df["Ticker"] = t[c_ticker].astype(str).str.strip()
-    df["Date"]   = pd.to_datetime(t[c_date], errors="coerce")
+    ns = {"n": root.tag.split("}")[0].strip("{")} if root.tag.startswith("{") else {}
+    def xp(elem, path):
+        return elem.find(path, ns) if ns else elem.find(path)
 
-    if c_price:  df["Price"]  = t[c_price].map(to_num)
-    if c_shares: df["Shares"] = t[c_shares].map(to_num)
-    if {"Price","Shares"}.issubset(df.columns):
-        df["Value"] = df["Price"] * df["Shares"]
+    issuer = xp(root, ".//issuer")
+    ticker = xp(issuer, "issuerTradingSymbol").text.strip() if issuer is not None and xp(issuer, "issuerTradingSymbol") is not None else None
+    company = xp(issuer, "issuerName").text.strip() if issuer is not None and xp(issuer, "issuerName") is not None else None
 
-    if c_title:  df["Title"]   = t[c_title].astype(str).str.strip()
-    if c_owner:  df["Insider"] = t[c_owner].astype(str).str.strip()
-    if c_comp:   df["Company"] = t[c_comp].astype(str).str.strip()
-    if c_desc:   df["Transaction"] = t[c_desc].astype(str).str.strip()
+    owner  = xp(root, ".//reportingOwner")
+    insider = None
+    title   = None
+    if owner is not None:
+        rid = xp(owner, "reportingOwnerId")
+        if rid is not None and xp(rid, "rptOwnerName") is not None:
+            insider = xp(rid, "rptOwnerName").text.strip()
+        rel = xp(owner, "reportingOwnerRelationship")
+        if rel is not None and xp(rel, "officerTitle") is not None and xp(rel, "isOfficer") is not None:
+            if (xp(rel, "isOfficer").text or "").strip().lower() == "1":
+                title = xp(rel, "officerTitle").text.strip()
 
-    # keep purchases only (code 'P') if code column exists; else best-effort keep positive buys
-    if c_code and c_code in t.columns:
-        code = t[c_code].astype(str).str.strip().str.upper()
-        df = df[code.eq("P")].copy()
-    else:
-        if {"Price","Shares"}.issubset(df.columns):
-            df = df[(df["Price"] > 0) & (df["Shares"] > 0)]
+    nd_table = xp(root, ".//nonDerivativeTable")
+    if nd_table is None:
+        return out
 
-    # filter by rolling window (calendar days)
-    if df["Date"].notna().any():
-        # cutoff includes today as day 1
-        cutoff = (pd.Timestamp.utcnow().normalize() - pd.Timedelta(days=days-1))
-        df = df[df["Date"] >= cutoff]
+    tx_nodes = nd_table.findall(".//nonDerivativeTransaction") if ns=={} else nd_table.findall(".//n:nonDerivativeTransaction", ns)
+    for tx in tx_nodes:
+        code_el = xp(tx, ".//transactionCoding/transactionCode")
+        code = code_el.text.strip().upper() if code_el is not None and code_el.text else ""
+        if code != "P":
+            continue
+        d_el = xp(tx, ".//transactionDate/value")
+        tx_date = pd.to_datetime(d_el.text.strip(), errors="coerce") if d_el is not None and d_el.text else pd.NaT
+        price_el  = xp(tx, ".//transactionAmounts/transactionPricePerShare/value")
+        shares_el = xp(tx, ".//transactionAmounts/transactionShares/value")
+        try:
+            price  = float(price_el.text.replace(",","")) if price_el is not None and price_el.text else np.nan
+        except Exception:
+            price = np.nan
+        try:
+            shares = float(shares_el.text.replace(",","")) if shares_el is not None and shares_el.text else np.nan
+        except Exception:
+            shares = np.nan
+        value = price * shares if np.isfinite(price) and np.isfinite(shares) else np.nan
 
-    # Ticker -> Yahoo format
-    def to_yahoo(s):
-        s = str(s).strip().upper()
-        if not s or s == "NAN": return np.nan
-        return re.sub(r"[^A-Z0-9\-.]", "", s).replace(".", "-")
-    df["Yahoo"] = df["Ticker"].map(to_yahoo)
+        out.append({
+            "Yahoo": (ticker or "").upper().replace(".","-"),
+            "Date":  tx_date,
+            "Company": company,
+            "Insider": insider,
+            "Title": title,
+            "Price": price,
+            "Shares": shares,
+            "Value": value,
+            "Transaction": "P - Purchase",
+        })
+    return out
 
-    # sort, dedupe most recent per ticker
-    df = (df.dropna(subset=["Yahoo","Date"])
-            .sort_values("Date")
-            .groupby("Yahoo", as_index=False)
-            .tail(1))
+def fetch_sec_day(dt: date) -> pd.DataFrame:
+    """
+    Use daily master index -> index.json -> ownership XML to return all purchase rows for a day.
+    """
+    master = _fetch_master_form4(dt)
+    if master.empty:
+        return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
+    sess = session_with_retries(total=4, backoff=0.8)
+    rows = []
+    for _, r in master.iterrows():
+        base = _accession_base_from_path(r["path"])
+        if not base:
+            continue
+        try:
+            j = sess.get(base + "/index.json", headers=SEC_HEADERS, timeout=30)
+            j.raise_for_status()
+            meta = j.json()
+            name = _choose_ownership_xml(meta.get("directory", {}).get("item", []))
+            if not name:
+                continue
+            xmlr = sess.get(f"{base}/{name}", headers=SEC_HEADERS, timeout=30)
+            xmlr.raise_for_status()
+            rows.extend(_parse_form4_ownership_xml(xmlr.text))
+            time.sleep(0.15)  # polite pause
+        except Exception:
+            continue
+    if not rows:
+        return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
+    df = pd.DataFrame(rows)
+    df = df.dropna(subset=["Yahoo","Date"]).reset_index(drop=True)
+    return df
 
-    # Order columns for downstream
-    cols = [c for c in ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"] if c in df.columns]
-    return df[cols].reset_index(drop=True)
+def fetch_sec_week(days=7) -> pd.DataFrame:
+    """
+    Aggregate the last `days` calendar days using the public APIs above.
+    Keep 1-most-recent row per ticker.
+    """
+    out = []
+    today = date.today()
+    for k in range(days):
+        dt = today - timedelta(days=k)
+        try:
+            d = fetch_sec_day(dt)
+            if not d.empty:
+                out.append(d)
+        except Exception:
+            continue
+    if not out:
+        return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
+    df = pd.concat(out, ignore_index=True)
+    df = df.sort_values("Date").groupby("Yahoo", as_index=False).tail(1)
+    return df.reset_index(drop=True)
 
 def health_check():
-    """Quick diagnostics to explain empty results."""
-    info = {"sec_ok": False, "sec_rows": 0, "sec_reason": "", "oi_rows_7d": 0}
-
+    """Quick diagnostics using the official flow."""
     try:
-        s = session_with_retries()
-        r = s.get(SEC_URL, headers=SEC_HEADERS, timeout=20)
-        r.raise_for_status()
-        html = r.text[:2000].lower()  # first 2k chars for quick checks
-        if any(bad in html for bad in ["access denied", "temporarily unavailable", "blocked", "service unavailable"]):
-            info["sec_reason"] = "SEC page returned an access/availability message"
-        else:
-            try:
-                tables = pd.read_html(r.text, displayed_only=False)
-                t = best_table_by_aliases(tables)
-                if t is not None and not t.empty:
-                    info["sec_ok"] = True
-                    # Count likely purchase rows (code 'P' or positive Price/Shares)
-                    cols = {str(c).strip().replace("\xa0"," ") for c in t.columns}
-                    if "Transaction Code" in cols:
-                        code_col = [c for c in t.columns if str(c).strip().replace("\xa0"," ")=="Transaction Code"][0]
-                        info["sec_rows"] = int((t[code_col].astype(str).str.upper().str.strip()=="P").sum())
-                    else:
-                        # fallback: positive price & shares rows
-                        def _num(x):
-                            s = str(x).replace(",", "").replace("$","").replace("%","").replace("—","").replace("\u2212","-")
-                            s = s.replace("(", "-").replace(")","")
-                            return pd.to_numeric(s, errors="coerce")
-                        price_col = [c for c in t.columns if "price" in str(c).lower()]
-                        shares_col = [c for c in t.columns if "amount" in str(c).lower() or "share" in str(c).lower()]
-                        if price_col and shares_col:
-                            pc, sc = price_col[0], shares_col[0]
-                            p = _num(t[pc]); q = _num(t[sc])
-                            info["sec_rows"] = int(((p>0) & (q>0)).sum())
-                else:
-                    info["sec_reason"] = "SEC: no suitable table found"
-            except Exception as pe:
-                info["sec_reason"] = f"SEC parse error: {pe}"
-    except Exception as he:
-        info["sec_reason"] = f"SEC request error: {he}"
-
-    # Probe OpenInsider 7d quickly
-    try:
-        oi = probe_openinsider_7d()
-        info["oi_rows_7d"] = int(len(oi))
-    except Exception:
-        pass
-
-    return info
-
+        today_rows = len(fetch_sec_day(date.today()))
+        week_rows  = len(fetch_sec_week(7))
+        return {"sec_ok": True, "sec_rows_today": int(today_rows), "sec_rows_week": int(week_rows), "sec_reason": ""}
+    except Exception as e:
+        return {"sec_ok": False, "sec_rows_today": 0, "sec_rows_week": 0, "sec_reason": str(e)}
 
 # =========================
 # ------- SCORING ---------
@@ -261,10 +288,8 @@ def build_prices(ins_df: pd.DataFrame):
         sym = tickers[0]
         close_all = px[["Adj Close" if "Adj Close" in px.columns else "Close"]].rename(columns=lambda _: sym)
         vol_all   = px[["Volume"]].rename(columns=lambda _: sym)
-    # Clean
     close_all = close_all.loc[:, ~close_all.columns.duplicated()].astype(float)
     vol_all   = vol_all.loc[:, ~vol_all.columns.duplicated()].astype(float)
-    # Drop no-data columns
     bad = [c for c in close_all.columns if close_all[c].isna().all()]
     if bad:
         close_all = close_all.drop(columns=bad, errors="ignore")
@@ -303,12 +328,6 @@ def dvol20(close_all, vol_all, y, dt):
     except Exception:
         return np.nan
 
-def rank01(s):
-    r = s.rank(pct=True, method="average")
-    if r.isna().all(): 
-        return pd.Series(0.5, index=s.index)
-    return r.fillna(0.5)
-
 def add_features_and_score(raw_df: pd.DataFrame):
     """
     Build features + composite Score.
@@ -326,9 +345,8 @@ def add_features_and_score(raw_df: pd.DataFrame):
 
     # cluster (10 calendar days within ticker)
     df = df.sort_values(["Yahoo","Date"])
-    cl = (df.assign(_one=1).set_index("Date")
-            .groupby("Yahoo")["_one"].rolling("10D").sum()
-            .reset_index(level=0, drop=True).astype(int))
+    cl = (df.assign(_one=1).set_index("Date").groupby("Yahoo")["_one"].rolling("10D").sum()
+          .reset_index(level=0, drop=True).astype(int))
     df["cluster_10d"] = cl.values
 
     # fetch prices
@@ -339,15 +357,15 @@ def add_features_and_score(raw_df: pd.DataFrame):
         df["dvol20"]   = np.nan
         df["px_now"]   = np.nan
     else:
-        df["mom_3m"]   = [mom_from(close_all, y, d, 63)   for y, d in zip(df["Yahoo"], df["Date"])]
-        df["mom_12_1"] = [mom_12m_minus_1m(close_all, y, d) for y, d in zip(df["Yahoo"], df["Date"])]
-        df["dvol20"]   = [dvol20(close_all, vol_all, y, d) for y, d in zip(df["Yahoo"], df["Date"])]
-        df["px_now"]   = [price_at(close_all, y, d, 0)     for y, d in zip(df["Yahoo"], df["Date"])]
+        df["mom_3m"]   = [mom_from(close_all, y, d, 63)          for y, d in zip(df["Yahoo"], df["Date"])]
+        df["mom_12_1"] = [mom_12m_minus_1m(close_all, y, d)      for y, d in zip(df["Yahoo"], df["Date"])]
+        df["dvol20"]   = [dvol20(close_all, vol_all, y, d)       for y, d in zip(df["Yahoo"], df["Date"])]
+        df["px_now"]   = [price_at(close_all, y, d, 0)           for y, d in zip(df["Yahoo"], df["Date"])]
 
     # role flags & value
     df["is_CEO"] = df.get("Title","").astype(str).str.contains(r"\bCEO\b", case=False, na=False)
     df["is_CFO"] = df.get("Title","").astype(str).str.contains(r"\bCFO\b", case=False, na=False)
-    df["Value"]  = pd.to_numeric(df.get("Value"), errors="coerce").fillna(0.0)   # allow 0 so log1p=0
+    df["Value"]  = pd.to_numeric(df.get("Value"), errors="coerce").fillna(0.0)
 
     # normalized features (date-wise)
     df["f_insider_size"] = np.log1p(df["Value"]).replace([np.inf,-np.inf], np.nan)
@@ -355,12 +373,12 @@ def add_features_and_score(raw_df: pd.DataFrame):
     df["f_mom_trend"]    = pd.to_numeric(df["mom_12_1"], errors="coerce")
     df["f_mom_contra"]   = -pd.to_numeric(df["mom_3m"], errors="coerce")
 
-    def rank01_local(s):
+    def _rank01(s):
         r = s.rank(pct=True, method="average")
         return (r if not r.isna().all() else pd.Series(0.5, index=s.index)).fillna(0.5)
 
     for col in ["f_insider_size","f_cluster","f_mom_trend","f_mom_contra"]:
-        df[col+"_n"] = df.groupby("Date")[col].transform(rank01_local)
+        df[col+"_n"] = df.groupby("Date")[col].transform(_rank01)
 
     df["Score"] = (
         W_INSIDER_SZ*df["f_insider_size_n"] +
@@ -369,12 +387,10 @@ def add_features_and_score(raw_df: pd.DataFrame):
         W_MOM_CONTRA*df["f_mom_contra_n"]
     )
 
-    # --- forced: everyone gets a score ---
     order_cols = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value",
                   "cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
     forced = df[[c for c in order_cols if c in df.columns]].sort_values(["Score","Value"], ascending=[False,False])
 
-    # --- matches: apply hygiene filters now ---
     price_ok = (df["px_now"] >= MIN_PRICE) if "px_now" in df else pd.Series(False, index=df.index)
     vol_ok   = (df["dvol20"] >= MIN_DVOL)  if "dvol20" in df else pd.Series(False, index=df.index)
     role_ok  = (df["is_CEO"] if CEO_ONLY else (df["is_CEO"] | df["is_CFO"])) if REQUIRE_CEO_CFO else pd.Series(True, index=df.index)
@@ -408,7 +424,6 @@ def df_to_html(df: pd.DataFrame, title: str) -> str:
     d = df.copy()
     if "Yahoo" in d.columns:
         d["Yahoo"] = d["Yahoo"].apply(lambda s: f'<a href="{YF_LINK_FMT.format(sym=s)}">{s}</a>')
-    # nice formatting
     for col in ("Price","px_now"):
         if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"${v:,.2f}" if pd.notna(v) else "")
     for col in ("Shares",):
@@ -419,57 +434,36 @@ def df_to_html(df: pd.DataFrame, title: str) -> str:
         d["Score"] = pd.to_numeric(d["Score"], errors="coerce").map(lambda v: f"{v:.3f}" if pd.notna(v) else "")
     if "Date" in d.columns:
         d["Date"] = pd.to_datetime(d["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
-    preferred = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
+    preferred = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value",
+                 "cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
     cols = [c for c in preferred if c in d.columns]
     return f"<h4>{title}</h4>" + d[cols].to_html(index=False, escape=False)
 
-def render_section(section_title, matches, forced):
-    return (
-        df_to_html(matches, f"{section_title} — Matches (pass filters + score)")
-        + df_to_html(forced, f"{section_title} — All-ranked (forced scores)")
-        + "<hr/>"
-    )
+def send_heartbeat(note: str):
+    try:
+        send_email("[bot heartbeat] notifier ran", f"<p>{note}</p>")
+    except Exception as e:
+        print("Heartbeat email failed:", e)
 
 # =========================
 # ---------- MAIN ---------
 # =========================
 def main():
     try:
-        # --- Health/diagnostics so emails explain empties ---
+        # Health
         diag = health_check()
-        diag_text = (
-            f"SEC ok: {diag.get('sec_ok')} | "
-            f"SEC purchase rows: {diag.get('sec_rows')} | "
-            f"SEC reason: {diag.get('sec_reason') or '—'} | "
-            f"OpenInsider 7d rows: {diag.get('oi_rows_7d')}"
-        )
+        diag_text = (f"SEC ok: {diag.get('sec_ok')} | "
+                     f"today rows: {diag.get('sec_rows_today')} | "
+                     f"week rows: {diag.get('sec_rows_week')} | "
+                     f"reason: {diag.get('sec_reason') or '—'}")
 
-        # --- Today (SEC current) ---
-        raw_today = fetch_sec_current()
+        # Today via EDGAR
+        raw_today = fetch_sec_day(date.today())
         matches_today, forced_today = add_features_and_score(raw_today)
 
-        # --- This week (7d) via OpenInsider probe as fallback/context ---
-        matches_week, forced_week = pd.DataFrame(), pd.DataFrame()
-        try:
-            oi7 = probe_openinsider_7d()  # may be empty
-            if not oi7.empty:
-                # Map minimal columns into our schema so scorer can run
-                rename = {
-                    "Ticker":"Ticker","Company Name":"Company","Insider Name":"Insider",
-                    "Title":"Title","Trade Type":"Transaction","Price":"Price",
-                    "Qty":"Shares","Value ($)":"Value","Trade Date":"Date","Filing Date":"Filing Date"
-                }
-                oi7 = oi7.rename(columns={k:v for k,v in rename.items() if k in oi7.columns})
-                # numeric/date cleanup
-                for c in ("Price","Shares","Value"):
-                    if c in oi7.columns: oi7[c] = to_num(oi7[c])
-                for c in ("Date","Filing Date"):
-                    if c in oi7.columns: oi7[c] = pd.to_datetime(oi7[c], errors="coerce")
-
-                matches_week, forced_week = add_features_and_score(oi7)
-        except Exception:
-            # don’t let weekly context break the run
-            pass
+        # This week via EDGAR
+        raw_week = fetch_sec_week(days=LOOKBACK_WEEK)
+        matches_week, forced_week = add_features_and_score(raw_week)
 
         n_match_t = 0 if matches_today is None else len(matches_today)
         n_forced_t = 0 if forced_today  is None else len(forced_today)
@@ -490,12 +484,10 @@ def main():
         {df_to_html(matches_week,  "This Week (rolling 7 days) — Matches (pass filters + score)")}
         {df_to_html(forced_week,   "This Week (rolling 7 days) — All-ranked (forced scores)")}
 
-        <p style="color:#999">Sources: SEC current insider transactions (today); OpenInsider (7d probe). Not investment advice.</p>
+        <p style="color:#999">Source: SEC EDGAR (Form 4 purchases parsed from ownership XML). Not investment advice.</p>
         """
-
         send_email(subject, html)
 
-        # optional success heartbeat
         try:
             send_heartbeat("Run OK — report sent.")
         except Exception:
@@ -504,17 +496,14 @@ def main():
     except Exception:
         tb = traceback.format_exc()
         print("Error:\n", tb)
-        # email the error so you see it
         try:
             send_email("Insider bot error", f"<pre>{tb}</pre>")
         except Exception:
             pass
-        # optional failure heartbeat
         try:
             send_heartbeat("Run failed — error mailed.")
         except Exception:
             pass
-
 
 if __name__ == "__main__":
     main()
