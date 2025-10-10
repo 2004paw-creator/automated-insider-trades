@@ -27,12 +27,19 @@ SUBJECT_PREFIX  = "Insider buys"
 YF_LINK_FMT     = "https://finance.yahoo.com/quote/{sym}"
 
 # Gmail secrets are read from env
-GMAIL_USER       = os.getenv("GMAIL_USER")
-GMAIL_APP_PASS   = os.getenv("GMAIL_APP_PASSWORD")
-TO_EMAIL         = os.getenv("TO_EMAIL")
+# ----------------- read & sanitize secrets -----------------
+def _clean_env(x: str | None) -> str:
+    # strip spaces/newlines; remove any CR/LF that would break HTTP headers
+    return (x or "").strip().replace("\r", "").replace("\n", "")
 
-# SEC wants a meaningful UA with contact info
-SEC_UA = "Mozilla/5.0 (compatible; InsiderBot/1.0; +mailto:{})".format(GMAIL_USER or "you@example.com")
+GMAIL_USER     = _clean_env(os.getenv("GMAIL_USER"))
+GMAIL_APP_PASS = _clean_env(os.getenv("GMAIL_APP_PASSWORD"))
+TO_EMAIL       = _clean_env(os.getenv("TO_EMAIL"))
+
+# SEC wants a contactable UA; make sure it's header-safe (ASCII, no CR/LF)
+_contact = GMAIL_USER if GMAIL_USER else "you@example.com"
+SEC_UA   = f"Mozilla/5.0 (compatible; InsiderBot/1.0; +mailto:{_contact})"
+
 
 
 # =========================
