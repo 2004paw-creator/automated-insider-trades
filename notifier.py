@@ -4,7 +4,7 @@
 
 import os, re, math, time, traceback
 from datetime import datetime, timedelta
-from email.mime.text import MIMEText
+from email.mime_text import MIMEText
 from email.utils import formatdate
 import smtplib
 
@@ -20,7 +20,10 @@ from dateutil.parser import parse as dtparse
 # ------- CONFIG ----------
 # =========================
 # SEC fetch
-DAYS_LOOKBACK   = 1          # SEC “current” is essentially today; keep 1
+DAYS_LOOKBACK   = 1          # kept for compatibility (today)
+LOOKBACK_TODAY  = 1
+LOOKBACK_WEEK   = 7          # rolling 7 days section
+
 REQUIRE_CEO_CFO = True       # role filter
 MIN_VALUE       = 100_000    # min $ value
 MAX_EMAIL_ROWS  = 50         # cap in email
@@ -88,11 +91,13 @@ def best_table_by_aliases(tables):
             best, key = t, k
     return best
 
-def fetch_sec_current():
+def fetch_sec_current(days=LOOKBACK_TODAY):
     """
     SEC 'current insider transactions' page -> return ALL purchase rows (code 'P'),
     with flexible header mapping. NO role or $ filters here; we do that later so
     the 'forced' list always has content when any purchases exist.
+
+    days: rolling calendar-day window (e.g., 1 for 'today', 7 for 'this week').
     """
     sess = session_with_retries()
     r = sess.get(SEC_URL, headers=SEC_HEADERS, timeout=30)
@@ -153,6 +158,12 @@ def fetch_sec_current():
         if {"Price","Shares"}.issubset(df.columns):
             df = df[(df["Price"] > 0) & (df["Shares"] > 0)]
 
+    # filter by rolling window (calendar days)
+    if df["Date"].notna().any():
+        # cutoff includes today as day 1
+        cutoff = (pd.Timestamp.utcnow().normalize() - pd.Timedelta(days=days-1))
+        df = df[df["Date"] >= cutoff]
+
     # Ticker -> Yahoo format
     def to_yahoo(s):
         s = str(s).strip().upper()
@@ -169,7 +180,6 @@ def fetch_sec_current():
     # Order columns for downstream
     cols = [c for c in ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"] if c in df.columns]
     return df[cols].reset_index(drop=True)
-
 
 # =========================
 # ------- SCORING ---------
@@ -285,12 +295,12 @@ def add_features_and_score(raw_df: pd.DataFrame):
     df["f_mom_trend"]    = pd.to_numeric(df["mom_12_1"], errors="coerce")
     df["f_mom_contra"]   = -pd.to_numeric(df["mom_3m"], errors="coerce")
 
-    def rank01(s):
+    def rank01_local(s):
         r = s.rank(pct=True, method="average")
         return (r if not r.isna().all() else pd.Series(0.5, index=s.index)).fillna(0.5)
 
     for col in ["f_insider_size","f_cluster","f_mom_trend","f_mom_contra"]:
-        df[col+"_n"] = df.groupby("Date")[col].transform(rank01)
+        df[col+"_n"] = df.groupby("Date")[col].transform(rank01_local)
 
     df["Score"] = (
         W_INSIDER_SZ*df["f_insider_size_n"] +
@@ -314,7 +324,6 @@ def add_features_and_score(raw_df: pd.DataFrame):
     matches = df.loc[mask, order_cols].dropna(how="all", axis=1) if mask.any() else forced.iloc[0:0]
 
     return matches.head(MAX_EMAIL_ROWS), forced.head(MAX_EMAIL_ROWS)
-
 
 # =========================
 # -------- EMAIL ----------
@@ -354,31 +363,43 @@ def df_to_html(df: pd.DataFrame, title: str) -> str:
     cols = [c for c in preferred if c in d.columns]
     return f"<h4>{title}</h4>" + d[cols].to_html(index=False, escape=False)
 
+def render_section(section_title, matches, forced):
+    return (
+        df_to_html(matches, f"{section_title} — Matches (pass filters + score)")
+        + df_to_html(forced, f"{section_title} — All-ranked (forced scores)")
+        + "<hr/>"
+    )
+
 # =========================
 # ---------- MAIN ---------
 # =========================
 def main():
     try:
-        raw = fetch_sec_current()                  # SEC pulls (today)
-        matches, forced = add_features_and_score(raw)
+        # TODAY
+        raw_today = fetch_sec_current(days=LOOKBACK_TODAY)
+        matches_today, forced_today = add_features_and_score(raw_today)
 
-        n_match = 0 if matches is None else len(matches)
-        n_forced = 0 if forced  is None else len(forced)
+        # WEEK (rolling 7 days)
+        raw_week = fetch_sec_current(days=LOOKBACK_WEEK)
+        matches_week, forced_week = add_features_and_score(raw_week)
 
-        subject = f"{SUBJECT_PREFIX}: {n_match} match(es); forced list {n_forced}"
-        html = f"""
-        <h3>{SUBJECT_PREFIX}</h3>
-        <p>Filters: CEO/CFO={REQUIRE_CEO_CFO} | Min Value=${MIN_VALUE:,} | Min Price=${MIN_PRICE} | Min $Vol(20D)=${MIN_DVOL:,}</p>
-        {df_to_html(matches, "Matches (pass filters + score)")}
-        {df_to_html(forced,  "All-ranked (forced scores, even if filters fail)")}
-        <p style="color:#999">Source: SEC current insider transactions. Not investment advice.</p>
-        """
+        subject = f"{SUBJECT_PREFIX}: today={len(matches_today)} / week={len(matches_week)}"
+        header  = (f"Filters: CEO/CFO={REQUIRE_CEO_CFO} | Min Value=${MIN_VALUE:,} | "
+                   f"Min Price=${MIN_PRICE} | Min $Vol(20D)=${MIN_DVOL:,}")
+
+        html = (
+            f"<h3>{SUBJECT_PREFIX}</h3>"
+            f"<p>{header}</p>"
+            + render_section("Today", matches_today, forced_today)
+            + render_section("This Week (rolling 7 days)", matches_week, forced_week)
+            + '<p style="color:#999">Source: SEC current insider transactions. Not investment advice.</p>'
+        )
+
         send_email(subject, html)
         print("Email sent.")
     except Exception:
         tb = traceback.format_exc()
         print("Error:\n", tb)
-        # try to email the error so you see it
         try:
             send_email("Insider bot error", f"<pre>{tb}</pre>")
         except Exception:
