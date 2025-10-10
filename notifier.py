@@ -4,7 +4,7 @@
 
 import os, re, math, time, traceback
 from datetime import datetime, timedelta
-from email.mime_text import MIMEText
+from email.mime.text import MIMEText
 from email.utils import formatdate
 import smtplib
 
