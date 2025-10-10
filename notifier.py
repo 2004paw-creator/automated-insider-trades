@@ -52,6 +52,15 @@ YF_LINK_FMT     = "https://finance.yahoo.com/quote/{sym}"
 SEC_URL         = "https://www.sec.gov/cgi-bin/own-disp?action=getcurrent"
 SEC_HEADERS     = {"User-Agent": f"InsiderBot/1.0 (+mailto:{UA_EMAIL})"}
 
+#heartbeat start
+# add near top of notifier.py
+def send_heartbeat(note: str):
+    try:
+        send_email("[bot heartbeat] notifier ran", f"<p>{note}</p>")
+    except Exception as e:
+        print("Heartbeat email failed:", e)
+
+
 # =========================
 # ---- HTTP / SEC FETCH ---
 # =========================
@@ -426,43 +435,40 @@ def render_section(section_title, matches, forced):
 # =========================
 def main():
     try:
-        # ---- NEW: quick diagnostics so emails explain empties ----
+        # --- Health/diagnostics so emails explain empties ---
         diag = health_check()
         diag_text = (
-            f"SEC ok: {diag['sec_ok']}; SEC purchase rows seen: {diag['sec_rows']}; "
-            f"SEC reason: {diag['sec_reason'] or '—'}; "
-            f"OpenInsider 7d rows: {diag['oi_rows_7d']}"
+            f"SEC ok: {diag.get('sec_ok')} | "
+            f"SEC purchase rows: {diag.get('sec_rows')} | "
+            f"SEC reason: {diag.get('sec_reason') or '—'} | "
+            f"OpenInsider 7d rows: {diag.get('oi_rows_7d')}"
         )
 
-        # Your normal flow
-        raw_today = fetch_sec_current()                # SEC (today)
+        # --- Today (SEC current) ---
+        raw_today = fetch_sec_current()
         matches_today, forced_today = add_features_and_score(raw_today)
 
-        # Also build a 7-day “This Week” forced list if today is empty
-        raw_week = pd.DataFrame()
-        forced_week = pd.DataFrame()
-        matches_week = pd.DataFrame()
+        # --- This week (7d) via OpenInsider probe as fallback/context ---
+        matches_week, forced_week = pd.DataFrame(), pd.DataFrame()
         try:
-            # reuse the probe HTML to avoid double hit? keep it simple:
-            oi7 = probe_openinsider_7d()
+            oi7 = probe_openinsider_7d()  # may be empty
             if not oi7.empty:
-                # Map minimal columns into your schema so scorer can run
+                # Map minimal columns into our schema so scorer can run
                 rename = {
                     "Ticker":"Ticker","Company Name":"Company","Insider Name":"Insider",
                     "Title":"Title","Trade Type":"Transaction","Price":"Price",
                     "Qty":"Shares","Value ($)":"Value","Trade Date":"Date","Filing Date":"Filing Date"
                 }
                 oi7 = oi7.rename(columns={k:v for k,v in rename.items() if k in oi7.columns})
-                # numeric cleanup
+                # numeric/date cleanup
                 for c in ("Price","Shares","Value"):
-                    if c in oi7.columns:
-                        oi7[c] = to_num(oi7[c])
+                    if c in oi7.columns: oi7[c] = to_num(oi7[c])
                 for c in ("Date","Filing Date"):
-                    if c in oi7.columns:
-                        oi7[c] = pd.to_datetime(oi7[c], errors="coerce")
-                raw_week = oi7
-                matches_week, forced_week = add_features_and_score(raw_week)
+                    if c in oi7.columns: oi7[c] = pd.to_datetime(oi7[c], errors="coerce")
+
+                matches_week, forced_week = add_features_and_score(oi7)
         except Exception:
+            # don’t let weekly context break the run
             pass
 
         n_match_t = 0 if matches_today is None else len(matches_today)
@@ -472,26 +478,6 @@ def main():
 
         subject = (f"{SUBJECT_PREFIX}: today {n_match_t}/{n_forced_t} | "
                    f"week {n_match_w}/{n_forced_w}")
-
-        def df_to_html(df: pd.DataFrame, title: str) -> str:
-            if df is None or df.empty:
-                return f"<h4>{title}</h4><p>No rows.</p>"
-            d = df.copy()
-            if "Yahoo" in d.columns:
-                d["Yahoo"] = d["Yahoo"].apply(lambda s: f'<a href="{YF_LINK_FMT.format(sym=s)}">{s}</a>')
-            for col in ("Price","px_now"):
-                if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"${v:,.2f}" if pd.notna(v) else "")
-            for col in ("Shares",):
-                if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"{int(v):,}" if pd.notna(v) else "")
-            for col in ("Value","dvol20"):
-                if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"${v:,.0f}" if pd.notna(v) else "")
-            if "Score" in d.columns:
-                d["Score"] = pd.to_numeric(d["Score"], errors="coerce").map(lambda v: f"{v:.3f}" if pd.notna(v) else "")
-            if "Date" in d.columns:
-                d["Date"] = pd.to_datetime(d["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
-            preferred = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
-            cols = [c for c in preferred if c in d.columns]
-            return f"<h4>{title}</h4>" + d[cols].to_html(index=False, escape=False)
 
         html = f"""
         <h3>{SUBJECT_PREFIX}</h3>
@@ -508,12 +494,27 @@ def main():
         """
 
         send_email(subject, html)
-        print("Email sent.")
+
+        # optional success heartbeat
+        try:
+            send_heartbeat("Run OK — report sent.")
+        except Exception:
+            pass
 
     except Exception:
         tb = traceback.format_exc()
         print("Error:\n", tb)
+        # email the error so you see it
         try:
             send_email("Insider bot error", f"<pre>{tb}</pre>")
         except Exception:
             pass
+        # optional failure heartbeat
+        try:
+            send_heartbeat("Run failed — error mailed.")
+        except Exception:
+            pass
+
+
+if __name__ == "__main__":
+    main()
