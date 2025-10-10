@@ -181,6 +181,57 @@ def fetch_sec_current(days=LOOKBACK_TODAY):
     cols = [c for c in ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"] if c in df.columns]
     return df[cols].reset_index(drop=True)
 
+def health_check():
+    """Quick diagnostics to explain empty results."""
+    info = {"sec_ok": False, "sec_rows": 0, "sec_reason": "", "oi_rows_7d": 0}
+
+    try:
+        s = session_with_retries()
+        r = s.get(SEC_URL, headers=SEC_HEADERS, timeout=20)
+        r.raise_for_status()
+        html = r.text[:2000].lower()  # first 2k chars for quick checks
+        if any(bad in html for bad in ["access denied", "temporarily unavailable", "blocked", "service unavailable"]):
+            info["sec_reason"] = "SEC page returned an access/availability message"
+        else:
+            try:
+                tables = pd.read_html(r.text, displayed_only=False)
+                t = best_table_by_aliases(tables)
+                if t is not None and not t.empty:
+                    info["sec_ok"] = True
+                    # Count likely purchase rows (code 'P' or positive Price/Shares)
+                    cols = {str(c).strip().replace("\xa0"," ") for c in t.columns}
+                    if "Transaction Code" in cols:
+                        code_col = [c for c in t.columns if str(c).strip().replace("\xa0"," ")=="Transaction Code"][0]
+                        info["sec_rows"] = int((t[code_col].astype(str).str.upper().str.strip()=="P").sum())
+                    else:
+                        # fallback: positive price & shares rows
+                        def _num(x):
+                            s = str(x).replace(",", "").replace("$","").replace("%","").replace("—","").replace("\u2212","-")
+                            s = s.replace("(", "-").replace(")","")
+                            return pd.to_numeric(s, errors="coerce")
+                        price_col = [c for c in t.columns if "price" in str(c).lower()]
+                        shares_col = [c for c in t.columns if "amount" in str(c).lower() or "share" in str(c).lower()]
+                        if price_col and shares_col:
+                            pc, sc = price_col[0], shares_col[0]
+                            p = _num(t[pc]); q = _num(t[sc])
+                            info["sec_rows"] = int(((p>0) & (q>0)).sum())
+                else:
+                    info["sec_reason"] = "SEC: no suitable table found"
+            except Exception as pe:
+                info["sec_reason"] = f"SEC parse error: {pe}"
+    except Exception as he:
+        info["sec_reason"] = f"SEC request error: {he}"
+
+    # Probe OpenInsider 7d quickly
+    try:
+        oi = probe_openinsider_7d()
+        info["oi_rows_7d"] = int(len(oi))
+    except Exception:
+        pass
+
+    return info
+
+
 # =========================
 # ------- SCORING ---------
 # =========================
@@ -375,28 +426,90 @@ def render_section(section_title, matches, forced):
 # =========================
 def main():
     try:
-        # TODAY
-        raw_today = fetch_sec_current(days=LOOKBACK_TODAY)
+        # ---- NEW: quick diagnostics so emails explain empties ----
+        diag = health_check()
+        diag_text = (
+            f"SEC ok: {diag['sec_ok']}; SEC purchase rows seen: {diag['sec_rows']}; "
+            f"SEC reason: {diag['sec_reason'] or '—'}; "
+            f"OpenInsider 7d rows: {diag['oi_rows_7d']}"
+        )
+
+        # Your normal flow
+        raw_today = fetch_sec_current()                # SEC (today)
         matches_today, forced_today = add_features_and_score(raw_today)
 
-        # WEEK (rolling 7 days)
-        raw_week = fetch_sec_current(days=LOOKBACK_WEEK)
-        matches_week, forced_week = add_features_and_score(raw_week)
+        # Also build a 7-day “This Week” forced list if today is empty
+        raw_week = pd.DataFrame()
+        forced_week = pd.DataFrame()
+        matches_week = pd.DataFrame()
+        try:
+            # reuse the probe HTML to avoid double hit? keep it simple:
+            oi7 = probe_openinsider_7d()
+            if not oi7.empty:
+                # Map minimal columns into your schema so scorer can run
+                rename = {
+                    "Ticker":"Ticker","Company Name":"Company","Insider Name":"Insider",
+                    "Title":"Title","Trade Type":"Transaction","Price":"Price",
+                    "Qty":"Shares","Value ($)":"Value","Trade Date":"Date","Filing Date":"Filing Date"
+                }
+                oi7 = oi7.rename(columns={k:v for k,v in rename.items() if k in oi7.columns})
+                # numeric cleanup
+                for c in ("Price","Shares","Value"):
+                    if c in oi7.columns:
+                        oi7[c] = to_num(oi7[c])
+                for c in ("Date","Filing Date"):
+                    if c in oi7.columns:
+                        oi7[c] = pd.to_datetime(oi7[c], errors="coerce")
+                raw_week = oi7
+                matches_week, forced_week = add_features_and_score(raw_week)
+        except Exception:
+            pass
 
-        subject = f"{SUBJECT_PREFIX}: today={len(matches_today)} / week={len(matches_week)}"
-        header  = (f"Filters: CEO/CFO={REQUIRE_CEO_CFO} | Min Value=${MIN_VALUE:,} | "
-                   f"Min Price=${MIN_PRICE} | Min $Vol(20D)=${MIN_DVOL:,}")
+        n_match_t = 0 if matches_today is None else len(matches_today)
+        n_forced_t = 0 if forced_today  is None else len(forced_today)
+        n_match_w = 0 if matches_week  is None else len(matches_week)
+        n_forced_w = 0 if forced_week  is None else len(forced_week)
 
-        html = (
-            f"<h3>{SUBJECT_PREFIX}</h3>"
-            f"<p>{header}</p>"
-            + render_section("Today", matches_today, forced_today)
-            + render_section("This Week (rolling 7 days)", matches_week, forced_week)
-            + '<p style="color:#999">Source: SEC current insider transactions. Not investment advice.</p>'
-        )
+        subject = (f"{SUBJECT_PREFIX}: today {n_match_t}/{n_forced_t} | "
+                   f"week {n_match_w}/{n_forced_w}")
+
+        def df_to_html(df: pd.DataFrame, title: str) -> str:
+            if df is None or df.empty:
+                return f"<h4>{title}</h4><p>No rows.</p>"
+            d = df.copy()
+            if "Yahoo" in d.columns:
+                d["Yahoo"] = d["Yahoo"].apply(lambda s: f'<a href="{YF_LINK_FMT.format(sym=s)}">{s}</a>')
+            for col in ("Price","px_now"):
+                if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"${v:,.2f}" if pd.notna(v) else "")
+            for col in ("Shares",):
+                if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"{int(v):,}" if pd.notna(v) else "")
+            for col in ("Value","dvol20"):
+                if col in d.columns: d[col] = pd.to_numeric(d[col], errors="coerce").map(lambda v: f"${v:,.0f}" if pd.notna(v) else "")
+            if "Score" in d.columns:
+                d["Score"] = pd.to_numeric(d["Score"], errors="coerce").map(lambda v: f"{v:.3f}" if pd.notna(v) else "")
+            if "Date" in d.columns:
+                d["Date"] = pd.to_datetime(d["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
+            preferred = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
+            cols = [c for c in preferred if c in d.columns]
+            return f"<h4>{title}</h4>" + d[cols].to_html(index=False, escape=False)
+
+        html = f"""
+        <h3>{SUBJECT_PREFIX}</h3>
+        <p><b>Health:</b> {diag_text}</p>
+        <p>Filters: CEO/CFO={REQUIRE_CEO_CFO} | Min Value=${MIN_VALUE:,} | Min Price=${MIN_PRICE} | Min $Vol(20D)=${MIN_DVOL:,}</p>
+
+        {df_to_html(matches_today, "Today — Matches (pass filters + score)")}
+        {df_to_html(forced_today,  "Today — All-ranked (forced scores)")}
+
+        {df_to_html(matches_week,  "This Week (rolling 7 days) — Matches (pass filters + score)")}
+        {df_to_html(forced_week,   "This Week (rolling 7 days) — All-ranked (forced scores)")}
+
+        <p style="color:#999">Sources: SEC current insider transactions (today); OpenInsider (7d probe). Not investment advice.</p>
+        """
 
         send_email(subject, html)
         print("Email sent.")
+
     except Exception:
         tb = traceback.format_exc()
         print("Error:\n", tb)
@@ -404,6 +517,3 @@ def main():
             send_email("Insider bot error", f"<pre>{tb}</pre>")
         except Exception:
             pass
-
-if __name__ == "__main__":
-    main()
