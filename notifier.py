@@ -89,22 +89,30 @@ def best_table_by_aliases(tables):
     return best
 
 def fetch_sec_current():
-    """Pull the SEC 'current insider transactions' page and return a clean DataFrame of purchases."""
+    """
+    SEC 'current insider transactions' page -> return ALL purchase rows (code 'P'),
+    with flexible header mapping. NO role or $ filters here; we do that later so
+    the 'forced' list always has content when any purchases exist.
+    """
     sess = session_with_retries()
     r = sess.get(SEC_URL, headers=SEC_HEADERS, timeout=30)
     r.raise_for_status()
+
     tables = pd.read_html(r.text, displayed_only=False)
     t = best_table_by_aliases(tables)
     if t is None or t.empty:
-        return pd.DataFrame()
+        return pd.DataFrame(columns=["Ticker","Company","Insider","Title","Transaction",
+                                     "Price","Shares","Value","Date","Filing Date","Yahoo"])
 
-    df = t.copy()
+    # normalize headers
+    t = t.copy()
+    t.columns = [str(c).strip().replace("\xa0", " ") for c in t.columns]
 
-    # Flexible column picks
+    # helper to pick a column among aliases
     def pick(names):
         for n in names:
-            if n in df.columns: return n
-        low = {c.lower(): c for c in df.columns}
+            if n in t.columns: return n
+        low = {c.lower(): c for c in t.columns}
         for n in names:
             if n.lower() in low: return low[n.lower()]
         return None
@@ -120,56 +128,48 @@ def fetch_sec_current():
     c_desc   = pick(["Transaction","Transaction Description"])
 
     if not c_ticker or not c_date:
-        return pd.DataFrame()
+        return pd.DataFrame(columns=["Ticker","Company","Insider","Title","Transaction",
+                                     "Price","Shares","Value","Date","Filing Date","Yahoo"])
 
-    out = pd.DataFrame()
-    out["Ticker"] = df[c_ticker].astype(str).str.strip()
-    out["Date"]   = pd.to_datetime(df[c_date], errors="coerce")
+    df = pd.DataFrame()
+    df["Ticker"] = t[c_ticker].astype(str).str.strip()
+    df["Date"]   = pd.to_datetime(t[c_date], errors="coerce")
 
-    if c_price:  out["Price"]  = df[c_price].map(to_num)
-    if c_shares: out["Shares"] = df[c_shares].map(to_num)
-    if {"Price","Shares"}.issubset(out.columns):
-        out["Value"] = out["Price"] * out["Shares"]
+    if c_price:  df["Price"]  = t[c_price].map(to_num)
+    if c_shares: df["Shares"] = t[c_shares].map(to_num)
+    if {"Price","Shares"}.issubset(df.columns):
+        df["Value"] = df["Price"] * df["Shares"]
 
-    if c_title:  out["Title"]   = df[c_title].astype(str).str.strip()
-    if c_owner:  out["Insider"] = df[c_owner].astype(str).str.strip()
-    if c_comp:   out["Company"] = df[c_comp].astype(str).str.strip()
-    if c_desc:   out["Transaction"] = df[c_desc].astype(str).str.strip()
+    if c_title:  df["Title"]   = t[c_title].astype(str).str.strip()
+    if c_owner:  df["Insider"] = t[c_owner].astype(str).str.strip()
+    if c_comp:   df["Company"] = t[c_comp].astype(str).str.strip()
+    if c_desc:   df["Transaction"] = t[c_desc].astype(str).str.strip()
 
-    # Keep only Purchases: transaction code 'P' (if present)
-    if c_code:
-        code = df[c_code].astype(str).str.strip().str.upper()
-        out = out[code.eq("P")].copy()
+    # keep purchases only (code 'P') if code column exists; else best-effort keep positive buys
+    if c_code and c_code in t.columns:
+        code = t[c_code].astype(str).str.strip().str.upper()
+        df = df[code.eq("P")].copy()
     else:
-        if {"Price","Shares"}.issubset(out.columns):
-            out = out[(out["Price"] > 0) & (out["Shares"] > 0)]
+        if {"Price","Shares"}.issubset(df.columns):
+            df = df[(df["Price"] > 0) & (df["Shares"] > 0)]
 
-    # CEO/CFO filter
-    if REQUIRE_CEO_CFO and "Title" in out.columns:
-        mask = out["Title"].str.contains(r"\b(CEO|CFO)\b", case=False, regex=True)
-        out = out[mask]
+    # Ticker -> Yahoo format
+    def to_yahoo(s):
+        s = str(s).strip().upper()
+        if not s or s == "NAN": return np.nan
+        return re.sub(r"[^A-Z0-9\-.]", "", s).replace(".", "-")
+    df["Yahoo"] = df["Ticker"].map(to_yahoo)
 
-    # Min $ filter
-    if "Value" in out.columns:
-        out = out[out["Value"] >= MIN_VALUE]
+    # sort, dedupe most recent per ticker
+    df = (df.dropna(subset=["Yahoo","Date"])
+            .sort_values("Date")
+            .groupby("Yahoo", as_index=False)
+            .tail(1))
 
-    # Clean tickers to Yahoo format (BRK.B -> BRK-B)
-    def to_yahoo(t):
-        t = str(t).strip().upper()
-        if not t or t == "NAN": return np.nan
-        return re.sub(r"[^A-Z0-9\-.]", "", t).replace(".", "-")
-    out["Yahoo"] = out["Ticker"].map(to_yahoo)
+    # Order columns for downstream
+    cols = [c for c in ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"] if c in df.columns]
+    return df[cols].reset_index(drop=True)
 
-    # One-most-recent per ticker (if duplicates)
-    out = (out.dropna(subset=["Yahoo","Date"])
-              .sort_values("Date")
-              .groupby("Yahoo", as_index=False)
-              .tail(1))
-
-    # Order
-    cols = [c for c in ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"] if c in out.columns]
-    out = out.sort_values(["Date","Value"], ascending=[False, False])[cols].reset_index(drop=True)
-    return out
 
 # =========================
 # ------- SCORING ---------
@@ -241,52 +241,57 @@ def rank01(s):
 
 def add_features_and_score(raw_df: pd.DataFrame):
     """
-    Returns:
-      matches_df -> rows that pass hygiene filters + Score
-      forced_df  -> all rows with Score (even if filters fail)
+    Build features + composite Score.
+    - 'matches': passed hygiene filters (price, dollar volume, role) + Score
+    - 'forced':  ALL rows with Score, even if price data missing (neutral where needed)
     """
-    if raw_df.empty:
-        return raw_df.assign(Score=np.nan), raw_df.assign(Score=np.nan)
+    if raw_df is None or raw_df.empty:
+        empty_cols = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value",
+                      "cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
+        return pd.DataFrame(columns=empty_cols), pd.DataFrame(columns=empty_cols)
 
     df = raw_df.copy()
     df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
     df = df.dropna(subset=["Date","Yahoo"]).reset_index(drop=True)
 
-    # cluster count over last 10 calendar days within same ticker
+    # cluster (10 calendar days within ticker)
     df = df.sort_values(["Yahoo","Date"])
-    cluster = (df.assign(_one=1).set_index("Date")
-                 .groupby("Yahoo")["_one"].rolling("10D").sum()
-                 .reset_index(level=0, drop=True).astype(int))
-    df["cluster_10d"] = cluster.values
+    cl = (df.assign(_one=1).set_index("Date")
+            .groupby("Yahoo")["_one"].rolling("10D").sum()
+            .reset_index(level=0, drop=True).astype(int))
+    df["cluster_10d"] = cl.values
 
-    # prices for features
+    # fetch prices
     close_all, vol_all = build_prices(df)
     if close_all.empty or vol_all.empty:
-        # cannot compute price-based features; force neutral
-        df["mom_3m"] = np.nan; df["mom_12_1"] = np.nan; df["dvol20"] = np.nan
-        df["px_now"] = np.nan
+        df["mom_3m"]   = np.nan
+        df["mom_12_1"] = np.nan
+        df["dvol20"]   = np.nan
+        df["px_now"]   = np.nan
     else:
-        df["mom_3m"]   = [mom_from(close_all, y, d, 63) for y, d in zip(df["Yahoo"], df["Date"])]
+        df["mom_3m"]   = [mom_from(close_all, y, d, 63)   for y, d in zip(df["Yahoo"], df["Date"])]
         df["mom_12_1"] = [mom_12m_minus_1m(close_all, y, d) for y, d in zip(df["Yahoo"], df["Date"])]
         df["dvol20"]   = [dvol20(close_all, vol_all, y, d) for y, d in zip(df["Yahoo"], df["Date"])]
-        df["px_now"]   = [price_at(close_all, y, d, 0) for y, d in zip(df["Yahoo"], df["Date"])]
+        df["px_now"]   = [price_at(close_all, y, d, 0)     for y, d in zip(df["Yahoo"], df["Date"])]
 
     # role flags & value
     df["is_CEO"] = df.get("Title","").astype(str).str.contains(r"\bCEO\b", case=False, na=False)
     df["is_CFO"] = df.get("Title","").astype(str).str.contains(r"\bCFO\b", case=False, na=False)
-    df["Value"]  = pd.to_numeric(df.get("Value"), errors="coerce")
+    df["Value"]  = pd.to_numeric(df.get("Value"), errors="coerce").fillna(0.0)   # allow 0 so log1p=0
 
-    # --- build normalized features ---
-    df["f_insider_size"] = np.log1p(df["Value"]).replace([np.inf, -np.inf], np.nan)
+    # normalized features (date-wise)
+    df["f_insider_size"] = np.log1p(df["Value"]).replace([np.inf,-np.inf], np.nan)
     df["f_cluster"]      = pd.to_numeric(df["cluster_10d"], errors="coerce")
-    df["f_mom_trend"]    = pd.to_numeric(df["mom_12_1"], errors="coerce")     # higher better
-    df["f_mom_contra"]   = -pd.to_numeric(df["mom_3m"], errors="coerce")      # more negative 3m -> better
+    df["f_mom_trend"]    = pd.to_numeric(df["mom_12_1"], errors="coerce")
+    df["f_mom_contra"]   = -pd.to_numeric(df["mom_3m"], errors="coerce")
 
-    # normalize cross-section by event date
+    def rank01(s):
+        r = s.rank(pct=True, method="average")
+        return (r if not r.isna().all() else pd.Series(0.5, index=s.index)).fillna(0.5)
+
     for col in ["f_insider_size","f_cluster","f_mom_trend","f_mom_contra"]:
         df[col+"_n"] = df.groupby("Date")[col].transform(rank01)
 
-    # composite score for ALL rows (forced)
     df["Score"] = (
         W_INSIDER_SZ*df["f_insider_size_n"] +
         W_CLUSTER   *df["f_cluster_n"] +
@@ -294,31 +299,22 @@ def add_features_and_score(raw_df: pd.DataFrame):
         W_MOM_CONTRA*df["f_mom_contra_n"]
     )
 
-    forced = df.copy()
-
-    # hygiene filters for "matches"
-    price_ok = df["px_now"] >= MIN_PRICE if "px_now" in df else pd.Series(False, index=df.index)
-    vol_ok   = df["dvol20"] >= MIN_DVOL  if "dvol20" in df else pd.Series(False, index=df.index)
-    role_ok  = df["is_CEO"] if CEO_ONLY else (df["is_CEO"] | df["is_CFO"]) if REQUIRE_CEO_CFO else pd.Series(True, index=df.index)
-
-    mask = price_ok.fillna(False) & vol_ok.fillna(False) & role_ok.fillna(False)
-    matches = df.loc[mask].copy()
-
-    # pretty/ordering
-    def fmt_buck(x):
-        try:
-            x = float(x)
-            if not np.isfinite(x): return ""
-            return f"${x:,.0f}"
-        except: return ""
-
+    # --- forced: everyone gets a score ---
     order_cols = ["Yahoo","Date","Company","Insider","Title","Price","Shares","Value",
                   "cluster_10d","mom_12_1","mom_3m","px_now","dvol20","Score"]
-    matches = matches[[c for c in order_cols if c in matches.columns]].sort_values(["Score","Value"], ascending=[False,False])
-    forced  = forced [[c for c in order_cols if c in forced.columns ]].sort_values(["Score","Value"],  ascending=[False,False])
+    forced = df[[c for c in order_cols if c in df.columns]].sort_values(["Score","Value"], ascending=[False,False])
 
-    # top caps for email
+    # --- matches: apply hygiene filters now ---
+    price_ok = (df["px_now"] >= MIN_PRICE) if "px_now" in df else pd.Series(False, index=df.index)
+    vol_ok   = (df["dvol20"] >= MIN_DVOL)  if "dvol20" in df else pd.Series(False, index=df.index)
+    role_ok  = (df["is_CEO"] if CEO_ONLY else (df["is_CEO"] | df["is_CFO"])) if REQUIRE_CEO_CFO else pd.Series(True, index=df.index)
+    value_ok = (df["Value"] >= MIN_VALUE) if "Value" in df else pd.Series(True, index=df.index)
+
+    mask = price_ok.fillna(False) & vol_ok.fillna(False) & role_ok.fillna(False) & value_ok.fillna(False)
+    matches = df.loc[mask, order_cols].dropna(how="all", axis=1) if mask.any() else forced.iloc[0:0]
+
     return matches.head(MAX_EMAIL_ROWS), forced.head(MAX_EMAIL_ROWS)
+
 
 # =========================
 # -------- EMAIL ----------
