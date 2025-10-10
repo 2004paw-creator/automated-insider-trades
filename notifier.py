@@ -1,4 +1,4 @@
-# notifier.py
+# notifier.py (fast version)
 # Daily SEC insider purchase scanner + scorer + Gmail emailer.
 # Primary source: EDGAR daily master index -> index.json -> ownership XML
 # Fallback: SEC "current filings" HTML page (Form 4, purchases only)
@@ -10,6 +10,7 @@ from email.mime.text import MIMEText
 from email.utils import formatdate
 import smtplib
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
 import pandas as pd
@@ -35,6 +36,12 @@ W_MOM_TREND     = 0.30       # (12–1m) momentum
 W_MOM_CONTRA    = 0.20       # contrarian last 3m (more negative = better)
 W_INSIDER_SZ    = 0.35       # log($ value)
 W_CLUSTER       = 0.15       # insider cluster size (10D)
+
+# Concurrency & HTTP
+MAX_WORKERS     = int(os.getenv("MAX_WORKERS", "8"))  # polite but fast
+REQ_TIMEOUT_S   = float(os.getenv("REQ_TIMEOUT_S", "20"))
+RETRY_TOTAL     = int(os.getenv("RETRY_TOTAL", "3"))
+RETRY_BACKOFF   = float(os.getenv("RETRY_BACKOFF", "0.4"))
 
 # Email + headers
 def _clean_env(x): return (x or "").strip().replace("\r","").replace("\n","")
@@ -63,7 +70,7 @@ CURRENT_FORM4_URL = (
 # =========================
 # ---- HTTP / UTILITIES ---
 # =========================
-def session_with_retries(total=5, backoff=0.8):
+def session_with_retries(total=RETRY_TOTAL, backoff=RETRY_BACKOFF):
     s = requests.Session()
     r = Retry(
         total=total, connect=total, read=total,
@@ -97,7 +104,7 @@ def _fetch_master_form4(dt: date, sess: requests.Session) -> pd.DataFrame:
     Columns: cik, company, form, filed, path
     """
     url = _daily_master_url(dt)
-    r = sess.get(url, headers=SEC_HEADERS, timeout=30)
+    r = sess.get(url, headers=SEC_HEADERS, timeout=REQ_TIMEOUT_S)
     if r.status_code in (403, 404):
         # 403: blocked/rate-limited; 404: file not yet published
         return pd.DataFrame(columns=["cik","company","form","filed","path"])
@@ -212,39 +219,60 @@ def _parse_form4_ownership_xml(xml_text: str) -> list[dict]:
         })
     return out
 
+# ---------- Faster: parallel accession fetch ----------
+def _fetch_accession_rows(base_url: str, sess: requests.Session) -> list[dict]:
+    """
+    Given accession base URL (…/##########/##########), download index.json, pick ownership XML,
+    download XML, parse, return rows.
+    """
+    try:
+        j = sess.get(base_url + "/index.json", headers=SEC_HEADERS, timeout=REQ_TIMEOUT_S)
+        if j.status_code in (403, 404):
+            return []
+        j.raise_for_status()
+        meta = j.json()
+        name = _choose_ownership_xml(meta.get("directory", {}).get("item", []))
+        if not name:
+            return []
+        xmlr = sess.get(f"{base_url}/{name}", headers=SEC_HEADERS, timeout=REQ_TIMEOUT_S)
+        if xmlr.status_code in (403, 404):
+            return []
+        xmlr.raise_for_status()
+        return _parse_form4_ownership_xml(xmlr.text)
+    except Exception:
+        return []
+
 def _fetch_day_via_master(dt: date) -> pd.DataFrame:
     """
     Preferred path: daily master index -> index.json -> ownership XML.
-    Returns empty df if master not available or blocked.
+    Parallelized for speed.
     """
-    sess = session_with_retries(total=4, backoff=0.8)
+    sess = session_with_retries()
     master = _fetch_master_form4(dt, sess)
     if master.empty:
         return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
-    rows = []
+
+    bases = []
     for _, r in master.iterrows():
         base = _accession_base_from_path(r["path"])
-        if not base:
-            continue
-        try:
-            j = sess.get(base + "/index.json", headers=SEC_HEADERS, timeout=30)
-            if j.status_code in (403, 404):
-                continue
-            j.raise_for_status()
-            meta = j.json()
-            name = _choose_ownership_xml(meta.get("directory", {}).get("item", []))
-            if not name:
-                continue
-            xmlr = sess.get(f"{base}/{name}", headers=SEC_HEADERS, timeout=30)
-            if xmlr.status_code in (403, 404):
-                continue
-            xmlr.raise_for_status()
-            rows.extend(_parse_form4_ownership_xml(xmlr.text))
-            time.sleep(0.15)  # be polite
-        except Exception:
-            continue
+        if base:
+            bases.append(base)
+
+    if not bases:
+        return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
+
+    rows = []
+    # bounded thread pool, polite but much faster than serial + sleeps
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        futures = [ex.submit(_fetch_accession_rows, b, sess) for b in bases]
+        for f in as_completed(futures):
+            res = f.result()
+            if res:
+                rows.extend(res)
+
     if not rows:
         return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
+
     df = pd.DataFrame(rows).dropna(subset=["Yahoo","Date"]).reset_index(drop=True)
     return df
 
@@ -255,8 +283,8 @@ def _fetch_today_via_current_html() -> pd.DataFrame:
     Keep positive Price & Shares; mark as purchases when code 'P' appears
     in the description (best-effort, but generally reliable).
     """
-    sess = session_with_retries(total=4, backoff=0.8)
-    r = sess.get(CURRENT_FORM4_URL, headers=SEC_HEADERS, timeout=30)
+    sess = session_with_retries()
+    r = sess.get(CURRENT_FORM4_URL, headers=SEC_HEADERS, timeout=REQ_TIMEOUT_S)
     if r.status_code in (403, 404):
         return pd.DataFrame(columns=["Yahoo","Date","Company","Insider","Title","Price","Shares","Value","Transaction"])
     r.raise_for_status()
@@ -309,7 +337,7 @@ def _fetch_today_via_current_html() -> pd.DataFrame:
     if {"Price","Shares"}.issubset(df.columns):
         df["Value"] = df["Price"] * df["Shares"]
 
-    # Keep purchases: code 'P' if available; else positive price & shares and 'Purchase' in text
+    # Keep purchases: code 'P' if available; else text + positive numbers
     if c_code and c_code in t.columns:
         code = t[c_code].astype(str).str.upper().str.strip()
         df = df[code.eq("P")].copy()
@@ -342,10 +370,7 @@ def fetch_sec_day(dt: date) -> pd.DataFrame:
         dtk = dt - timedelta(days=k)
         df_master = _fetch_day_via_master(dtk)
         if not df_master.empty:
-            # If not exactly today, still fine for the weekly section; we'll filter by dt outside as needed
-            if k == 0:
-                return df_master
-            # Return but tag later by date in weekly aggregation
+            # If not exactly today, still fine for the weekly section
             return df_master
 
     # Fallback only for today
@@ -372,10 +397,14 @@ def fetch_sec_week(days=7) -> pd.DataFrame:
     return dfw.reset_index(drop=True)
 
 def health_check():
+    """
+    Lightweight probe instead of re-running the expensive pipeline.
+    """
     try:
-        today_rows = len(fetch_sec_day(date.today()))
-        week_rows  = len(fetch_sec_week(7))
-        return {"sec_ok": True, "sec_rows_today": int(today_rows), "sec_rows_week": int(week_rows), "sec_reason": ""}
+        sess = session_with_retries(total=1, backoff=0.1)
+        r = sess.head("https://www.sec.gov", headers=SEC_HEADERS, timeout=5)
+        ok = r.status_code < 500
+        return {"sec_ok": bool(ok), "sec_rows_today": 0, "sec_rows_week": 0, "sec_reason": "" if ok else f"HTTP {r.status_code}"}
     except Exception as e:
         return {"sec_ok": False, "sec_rows_today": 0, "sec_rows_week": 0, "sec_reason": str(e)}
 
@@ -386,14 +415,21 @@ def build_prices(ins_df: pd.DataFrame):
     if ins_df.empty: 
         return pd.DataFrame(), pd.DataFrame()
     tickers = sorted(ins_df["Yahoo"].dropna().unique().tolist())
-    start = (pd.to_datetime(ins_df["Date"]).min() - pd.Timedelta(days=400)).strftime("%Y-%m-%d")
+    if not tickers:
+        return pd.DataFrame(), pd.DataFrame()
+    # Trim window to what's needed (260 ~ 1Y)
+    start = (pd.to_datetime(ins_df["Date"]).min() - pd.Timedelta(days=300)).strftime("%Y-%m-%d")
     end   = (pd.to_datetime(ins_df["Date"]).max() + pd.Timedelta(days=5)).strftime("%Y-%m-%d")
-    px = yf.download(tickers, start=start, end=end, auto_adjust=False, progress=False, threads=False)
+    # Use yfinance's internal thread pool for speed
+    px = yf.download(tickers, start=start, end=end, auto_adjust=False, progress=False, threads=True)
     if px.empty:
         return pd.DataFrame(), pd.DataFrame()
     if isinstance(px.columns, pd.MultiIndex):
         close_all = px["Adj Close"].copy() if "Adj Close" in px.columns.levels[0] else px["Close"].copy()
         vol_all   = px["Volume"].copy()
+        # Flatten column index if needed
+        close_all.columns = [c if isinstance(c, str) else c[0] for c in close_all.columns]
+        vol_all.columns   = [c if isinstance(c, str) else c[0] for c in vol_all.columns]
     else:
         sym = tickers[0]
         close_all = px[["Adj Close" if "Adj Close" in px.columns else "Close"]].rename(columns=lambda _: sym)
@@ -552,13 +588,14 @@ def send_heartbeat(note: str):
 # =========================
 def main():
     try:
+        # Lightweight health probe (does NOT run the heavy pipeline)
         diag = health_check()
         diag_text = (f"SEC flow ok: {diag.get('sec_ok')} | "
                      f"today rows: {diag.get('sec_rows_today')} | "
                      f"week rows: {diag.get('sec_rows_week')} | "
                      f"reason: {diag.get('sec_reason') or '—'}")
 
-        # Today (robust)
+        # Today (robust, fast)
         raw_today = fetch_sec_day(date.today())
         matches_today, forced_today = add_features_and_score(raw_today)
 
