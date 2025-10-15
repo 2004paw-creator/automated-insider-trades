@@ -24,7 +24,7 @@ MIN_VALUE       = 100_000
 MAX_EMAIL_ROWS  = 50
 
 MIN_PRICE       = 3.0
-MIN_DVOL        = 2_000_000
+MIN_DVOL        = 200_000
 CEO_ONLY        = False
 W_MOM_TREND     = 0.30
 W_MOM_CONTRA    = 0.20
