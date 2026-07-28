@@ -1,5 +1,6 @@
-pandas
-numpy
-yfinance
-requests
-lxml
+pandas>=2.0
+numpy>=1.24
+requests>=2.31
+urllib3>=2.0
+yfinance>=0.2.40
+lxml>=5.0
