@@ -51,6 +51,16 @@ Filters (also in `config.py`) then remove noise: a minimum purchase value, a
 minimum share price, a minimum 20-day average dollar volume, and (optionally) a
 requirement that the insider be CEO or CFO.
 
+## Live dashboard
+
+The daily run also maintains three JSON files under `signals/` — this week's
+filter-passing signals, a forward-filling paper book (first 50 qualifying
+signals per calendar year, entered at the first close after the filing date),
+and its performance against SPY over matched windows. The files are committed
+by the Action, so the repo doubles as the (versioned) database, and a page on
+my site renders them live: the book only ever fills forward, so there is no
+hindsight selection in the track record.
+
 ## Layout
 
 ```

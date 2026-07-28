@@ -16,6 +16,7 @@ from config import CFG, SUBJECT_PREFIX, get_logger
 from edgar import _dedup_latest, _empty, fetch_sec_week_raw
 from notify import df_to_html, send_email
 from scoring import add_features_and_score
+from tracker import safe_run_update
 
 log = get_logger("insider.main")
 
@@ -56,6 +57,10 @@ def run() -> None:
     SEC current filings HTML. "Filed" is the filing date; "Date" is the
     transaction date.</p>
     """
+    # Update the public signal files (the site reads these). A tracker
+    # problem is logged but never blocks the email.
+    safe_run_update(matches_week, out_dir="signals", cap=CFG.book_cap)
+
     send_email(subject, html)
 
 

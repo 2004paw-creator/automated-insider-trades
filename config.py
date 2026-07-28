@@ -97,6 +97,7 @@ class ScoringConfig:
     min_dvol: float = 200_000        # minimum 20-day average dollar volume
     max_email_rows: int = 50
     lookback_week: int = 7           # rolling window for the "this week" view
+    book_cap: int = 50               # max entries per calendar-year paper book
 
     # --- Factor weights ----------------------------------------------------
     w_insider_size: float = 0.35     # log dollar-value of the purchase
