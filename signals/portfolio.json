@@ -1,0 +1,32 @@
+{
+  "2026": {
+    "cap": 50,
+    "closed": false,
+    "entries": [
+      {
+        "ticker": "COE",
+        "filed": "2026-07-27",
+        "score": 0.658359133126935,
+        "insider": "Huang Jack Jiajia",
+        "title": "Chief Executive Officer",
+        "signal_value": 4774809.6,
+        "status": "active",
+        "entry_price": 16.735,
+        "entry_date": "2026-07-28",
+        "spy_entry": 741.7701
+      },
+      {
+        "ticker": "VMI",
+        "filed": "2026-07-24",
+        "score": 0.5803571428571429,
+        "insider": "Schwietz John L",
+        "title": "Executive VP and CFO",
+        "signal_value": 101118.16,
+        "status": "active",
+        "entry_price": 494.81,
+        "entry_date": "2026-07-27",
+        "spy_entry": 739.09
+      }
+    ]
+  }
+}
