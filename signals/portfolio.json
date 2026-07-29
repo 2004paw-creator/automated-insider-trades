@@ -26,6 +26,18 @@
         "entry_price": 494.81,
         "entry_date": "2026-07-27",
         "spy_entry": 739.09
+      },
+      {
+        "ticker": "STFS",
+        "filed": "2026-07-28",
+        "score": 0.555,
+        "insider": "ZHANG PINGTING",
+        "title": "Chief Financial Officer",
+        "signal_value": 2600000.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
       }
     ]
   }
