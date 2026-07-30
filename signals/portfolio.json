@@ -34,10 +34,10 @@
         "insider": "ZHANG PINGTING",
         "title": "Chief Financial Officer",
         "signal_value": 2600000.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 4.78,
+        "entry_date": "2026-07-29",
+        "spy_entry": 729.46
       }
     ]
   }
