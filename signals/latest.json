@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T11:34:02+00:00",
+  "generated_at": "2026-07-31T11:49:39+00:00",
   "count": 3,
   "signals": [
     {
@@ -7,10 +7,10 @@
       "company": "51Talk Online Education Group",
       "insider": "Huang Jack Jiajia",
       "title": "Chief Executive Officer",
-      "filed": "2026-07-27",
-      "value": 4774809.6,
-      "price": 15.600000381469727,
-      "score": 0.6895833333333333
+      "filed": "2026-07-30",
+      "value": 7658900.399999999,
+      "price": 17.200000762939453,
+      "score": 0.5959325396825397
     },
     {
       "ticker": "STFS",
@@ -20,17 +20,17 @@
       "filed": "2026-07-28",
       "value": 2600000.0,
       "price": 3.7899999618530273,
-      "score": 0.5689133986928104
+      "score": 0.5815170278637771
     },
     {
-      "ticker": "VMI",
-      "company": "VALMONT INDUSTRIES INC",
-      "insider": "Schwietz John L",
-      "title": "Executive VP and CFO",
-      "filed": "2026-07-24",
-      "value": 101118.16,
-      "price": 488.6000061035156,
-      "score": 0.5375
+      "ticker": "ACI",
+      "company": "Albertsons Companies, Inc.",
+      "insider": "MORRIS SUSAN",
+      "title": "Chief Executive Officer",
+      "filed": "2026-07-30",
+      "value": 217664.76400000002,
+      "price": 11.579999923706055,
+      "score": 0.5535714285714285
     }
   ]
 }
