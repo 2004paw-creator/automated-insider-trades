@@ -46,10 +46,10 @@
         "insider": "MORRIS SUSAN",
         "title": "Chief Executive Officer",
         "signal_value": 217664.76400000002,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 11.58,
+        "entry_date": "2026-07-31",
+        "spy_entry": 747.03
       }
     ]
   }
