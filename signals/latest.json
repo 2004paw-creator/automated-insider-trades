@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-08-01T11:05:09+00:00",
+  "generated_at": "2026-08-02T11:07:06+00:00",
   "count": 3,
   "signals": [
+    {
+      "ticker": "STFS",
+      "company": "Star Fashion Culture Holdings Ltd",
+      "insider": "ZHANG PINGTING",
+      "title": "Chief Financial Officer",
+      "filed": "2026-07-28",
+      "value": 2600000.0,
+      "price": 3.7899999618530273,
+      "score": 0.6121794871794872
+    },
     {
       "ticker": "COE",
       "company": "51Talk Online Education Group",
@@ -11,16 +21,6 @@
       "value": 7658900.399999999,
       "price": 17.200000762939453,
       "score": 0.6016440422322775
-    },
-    {
-      "ticker": "STFS",
-      "company": "Star Fashion Culture Holdings Ltd",
-      "insider": "ZHANG PINGTING",
-      "title": "Chief Financial Officer",
-      "filed": "2026-07-28",
-      "value": 2600000.0,
-      "price": 3.7899999618530273,
-      "score": 0.6011904761904763
     },
     {
       "ticker": "ACI",
