@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-08-03T12:50:36+00:00",
-  "count": 3,
+  "generated_at": "2026-08-04T11:48:50+00:00",
+  "count": 2,
   "signals": [
-    {
-      "ticker": "STFS",
-      "company": "Star Fashion Culture Holdings Ltd",
-      "insider": "ZHANG PINGTING",
-      "title": "Chief Financial Officer",
-      "filed": "2026-07-28",
-      "value": 2600000.0,
-      "price": 3.7899999618530273,
-      "score": 0.6121794871794872
-    },
     {
       "ticker": "COE",
       "company": "51Talk Online Education Group",
@@ -20,17 +10,17 @@
       "filed": "2026-07-30",
       "value": 7658900.399999999,
       "price": 17.200000762939453,
-      "score": 0.6016440422322775
+      "score": 0.5877855477855478
     },
     {
       "ticker": "ACI",
       "company": "Albertsons Companies, Inc.",
-      "insider": "MORRIS SUSAN",
-      "title": "Chief Executive Officer",
-      "filed": "2026-07-30",
-      "value": 217664.76400000002,
+      "insider": "MCCOLLAM SHARON",
+      "title": "President & CFO",
+      "filed": "2026-08-03",
+      "value": 103320.0,
       "price": 11.579999923706055,
-      "score": 0.5496229260935143
+      "score": 0.5773890325360913
     }
   ]
 }
