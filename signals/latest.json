@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-08-04T11:48:50+00:00",
-  "count": 2,
+  "generated_at": "2026-08-05T11:49:45+00:00",
+  "count": 4,
   "signals": [
+    {
+      "ticker": "HUN",
+      "company": "Huntsman CORP",
+      "insider": "Huntsman Peter R",
+      "title": "Chairman, President  & CEO",
+      "filed": "2026-08-03",
+      "value": 981000.0,
+      "price": 10.020000457763672,
+      "score": 0.7716468253968254
+    },
     {
       "ticker": "COE",
       "company": "51Talk Online Education Group",
@@ -10,7 +20,7 @@
       "filed": "2026-07-30",
       "value": 7658900.399999999,
       "price": 17.200000762939453,
-      "score": 0.5877855477855478
+      "score": 0.5826340326340327
     },
     {
       "ticker": "ACI",
@@ -20,7 +30,17 @@
       "filed": "2026-08-03",
       "value": 103320.0,
       "price": 11.579999923706055,
-      "score": 0.5773890325360913
+      "score": 0.5584325396825397
+    },
+    {
+      "ticker": "CMCO",
+      "company": "COLUMBUS MCKINNON CORP",
+      "insider": "Linker John R",
+      "title": "EVP, Finance and CFO",
+      "filed": "2026-08-04",
+      "value": 147525.0,
+      "price": 19.170000076293945,
+      "score": 0.5030664702522322
     }
   ]
 }

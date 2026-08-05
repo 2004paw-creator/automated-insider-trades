@@ -50,6 +50,30 @@
         "entry_price": 11.58,
         "entry_date": "2026-07-31",
         "spy_entry": 747.03
+      },
+      {
+        "ticker": "HUN",
+        "filed": "2026-08-03",
+        "score": 0.7716468253968254,
+        "insider": "Huntsman Peter R",
+        "title": "Chairman, President  & CEO",
+        "signal_value": 981000.0,
+        "status": "active",
+        "entry_price": 10.43,
+        "entry_date": "2026-08-04",
+        "spy_entry": 771.33
+      },
+      {
+        "ticker": "CMCO",
+        "filed": "2026-08-04",
+        "score": 0.5030664702522322,
+        "insider": "Linker John R",
+        "title": "EVP, Finance and CFO",
+        "signal_value": 147525.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
       }
     ]
   }
