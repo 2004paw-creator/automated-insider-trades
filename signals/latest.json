@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-05T11:49:45+00:00",
-  "count": 4,
+  "generated_at": "2026-08-06T11:57:35+00:00",
+  "count": 7,
   "signals": [
     {
       "ticker": "HUN",
@@ -10,17 +10,37 @@
       "filed": "2026-08-03",
       "value": 981000.0,
       "price": 10.020000457763672,
-      "score": 0.7716468253968254
+      "score": 0.7645161290322581
     },
     {
       "ticker": "COE",
       "company": "51Talk Online Education Group",
       "insider": "Huang Jack Jiajia",
       "title": "Chief Executive Officer",
-      "filed": "2026-07-30",
-      "value": 7658900.399999999,
-      "price": 17.200000762939453,
-      "score": 0.5826340326340327
+      "filed": "2026-08-05",
+      "value": 3346656.6,
+      "price": 17.43000030517578,
+      "score": 0.6719106807342101
+    },
+    {
+      "ticker": "HLI",
+      "company": "HOULIHAN LOKEY, INC.",
+      "insider": "ALLEY J LINDSEY",
+      "title": "Chief Financial Officer",
+      "filed": "2026-08-05",
+      "value": 500570.39999999997,
+      "price": 125.4800033569336,
+      "score": 0.6016187310304957
+    },
+    {
+      "ticker": "CSGP",
+      "company": "COSTAR GROUP, INC.",
+      "insider": "FLORANCE ANDREW C",
+      "title": "Founder and CEO",
+      "filed": "2026-08-05",
+      "value": 2489837.0,
+      "price": 29.81999969482422,
+      "score": 0.5608469431998844
     },
     {
       "ticker": "ACI",
@@ -30,7 +50,7 @@
       "filed": "2026-08-03",
       "value": 103320.0,
       "price": 11.579999923706055,
-      "score": 0.5584325396825397
+      "score": 0.5532258064516129
     },
     {
       "ticker": "CMCO",
@@ -40,7 +60,17 @@
       "filed": "2026-08-04",
       "value": 147525.0,
       "price": 19.170000076293945,
-      "score": 0.5030664702522322
+      "score": 0.5114478114478115
+    },
+    {
+      "ticker": "TSCO",
+      "company": "TRACTOR SUPPLY CO /DE/",
+      "insider": "Lawton III Harry A",
+      "title": "President & CEO",
+      "filed": "2026-08-05",
+      "value": 416829.00000000006,
+      "price": 33.119998931884766,
+      "score": 0.4825336031218384
     }
   ]
 }
