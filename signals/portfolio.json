@@ -82,10 +82,10 @@
         "insider": "ALLEY J LINDSEY",
         "title": "Chief Financial Officer",
         "signal_value": 500570.39999999997,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 127.58,
+        "entry_date": "2026-08-06",
+        "spy_entry": 768.56
       },
       {
         "ticker": "CSGP",
@@ -94,10 +94,10 @@
         "insider": "FLORANCE ANDREW C",
         "title": "Founder and CEO",
         "signal_value": 2489837.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 29.58,
+        "entry_date": "2026-08-06",
+        "spy_entry": 768.56
       },
       {
         "ticker": "TSCO",
@@ -106,6 +106,42 @@
         "insider": "Lawton III Harry A",
         "title": "President & CEO",
         "signal_value": 416829.00000000006,
+        "status": "active",
+        "entry_price": 34.09,
+        "entry_date": "2026-08-06",
+        "spy_entry": 768.56
+      },
+      {
+        "ticker": "LUMN",
+        "filed": "2026-08-06",
+        "score": 0.8297991071428572,
+        "insider": "Johnson Kathleen E",
+        "title": "Chief Executive Officer",
+        "signal_value": 612680.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "SITE",
+        "filed": "2026-08-06",
+        "score": 0.6045758928571429,
+        "insider": "BLACK DOUG",
+        "title": "CEO",
+        "signal_value": 408520.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "BBBY",
+        "filed": "2026-08-06",
+        "score": 0.48180803571428565,
+        "insider": "LEMONIS MARCUS",
+        "title": "EXECUTIVE CHAIRMAN & CEO",
+        "signal_value": 202593.94,
         "status": "pending",
         "entry_price": null,
         "entry_date": null,
