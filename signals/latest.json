@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T10:36:51+00:00",
+  "generated_at": "2026-08-08T10:25:48+00:00",
   "count": 9,
   "signals": [
     {
@@ -10,7 +10,7 @@
       "filed": "2026-08-06",
       "value": 612680.0,
       "price": 5.900000095367432,
-      "score": 0.8297991071428572
+      "score": 0.825925925925926
     },
     {
       "ticker": "HUN",
@@ -30,17 +30,7 @@
       "filed": "2026-08-05",
       "value": 3346656.6,
       "price": 17.43000030517578,
-      "score": 0.6676346982758621
-    },
-    {
-      "ticker": "SITE",
-      "company": "SiteOne Landscape Supply, Inc.",
-      "insider": "BLACK DOUG",
-      "title": "CEO",
-      "filed": "2026-08-06",
-      "value": 408520.0,
-      "price": 101.25,
-      "score": 0.6045758928571429
+      "score": 0.6648888888888889
     },
     {
       "ticker": "HLI",
@@ -50,7 +40,17 @@
       "filed": "2026-08-05",
       "value": 500570.39999999997,
       "price": 125.4800033569336,
-      "score": 0.6008961925287356
+      "score": 0.601537037037037
+    },
+    {
+      "ticker": "SITE",
+      "company": "SiteOne Landscape Supply, Inc.",
+      "insider": "BLACK DOUG",
+      "title": "CEO",
+      "filed": "2026-08-06",
+      "value": 408520.0,
+      "price": 101.25,
+      "score": 0.5962962962962962
     },
     {
       "ticker": "CSGP",
@@ -60,7 +60,7 @@
       "filed": "2026-08-05",
       "value": 2489837.0,
       "price": 29.81999969482422,
-      "score": 0.5649730603448275
+      "score": 0.5699259259259258
     },
     {
       "ticker": "ACI",
@@ -79,18 +79,18 @@
       "title": "EVP, Finance and CFO",
       "filed": "2026-08-04",
       "value": 147525.0,
-      "price": 19.170000076293945,
-      "score": 0.5274611801242236
+      "price": 19.10536003112793,
+      "score": 0.5148235294117647
     },
     {
-      "ticker": "BBBY",
-      "company": "BED BATH & BEYOND, INC.",
-      "insider": "LEMONIS MARCUS",
-      "title": "EXECUTIVE CHAIRMAN & CEO",
-      "filed": "2026-08-06",
-      "value": 202593.94,
-      "price": 4.619999885559082,
-      "score": 0.48180803571428565
+      "ticker": "TSCO",
+      "company": "TRACTOR SUPPLY CO /DE/",
+      "insider": "Lawton III Harry A",
+      "title": "President & CEO",
+      "filed": "2026-08-05",
+      "value": 416829.00000000006,
+      "price": 33.119998931884766,
+      "score": 0.4835740740740741
     }
   ]
 }
