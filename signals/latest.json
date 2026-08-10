@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-09T10:27:36+00:00",
-  "count": 9,
+  "generated_at": "2026-08-10T11:02:59+00:00",
+  "count": 7,
   "signals": [
     {
       "ticker": "LUMN",
@@ -11,16 +11,6 @@
       "value": 612680.0,
       "price": 5.900000095367432,
       "score": 0.825925925925926
-    },
-    {
-      "ticker": "HUN",
-      "company": "Huntsman CORP",
-      "insider": "Huntsman Peter R",
-      "title": "Chairman, President  & CEO",
-      "filed": "2026-08-03",
-      "value": 981000.0,
-      "price": 10.020000457763672,
-      "score": 0.7769704433497537
     },
     {
       "ticker": "COE",
@@ -61,16 +51,6 @@
       "value": 2489837.0,
       "price": 29.81999969482422,
       "score": 0.5699259259259258
-    },
-    {
-      "ticker": "ACI",
-      "company": "Albertsons Companies, Inc.",
-      "insider": "MCCOLLAM SHARON",
-      "title": "President & CFO",
-      "filed": "2026-08-03",
-      "value": 103320.0,
-      "price": 11.579999923706055,
-      "score": 0.5463054187192118
     },
     {
       "ticker": "CMCO",
