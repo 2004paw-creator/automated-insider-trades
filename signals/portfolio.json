@@ -146,6 +146,78 @@
         "entry_price": 4.64,
         "entry_date": "2026-08-07",
         "spy_entry": 773.26
+      },
+      {
+        "ticker": "NSLR",
+        "filed": "2026-08-10",
+        "score": 0.7132934796006409,
+        "insider": "Klein Mark D",
+        "title": "Chairman, CEO and President",
+        "signal_value": 249984.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "LINE",
+        "filed": "2026-08-10",
+        "score": 0.5805923620526727,
+        "insider": "LeMasters Robb A.",
+        "title": "Chief Financial Officer",
+        "signal_value": 826638.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "GPOR",
+        "filed": "2026-08-10",
+        "score": 0.5734844282838243,
+        "insider": "DELL'OSSO DOMENIC J JR",
+        "title": "President & CEO",
+        "signal_value": 256976.00000000003,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "SON",
+        "filed": "2026-08-10",
+        "score": 0.5614718147828587,
+        "insider": "Coker R. Howard",
+        "title": "President & CEO",
+        "signal_value": 249446.0155,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "PRCT",
+        "filed": "2026-08-10",
+        "score": 0.5585593081063314,
+        "insider": "Wood Larry L",
+        "title": "President, CEO",
+        "signal_value": 498315.00000000006,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "FBIN",
+        "filed": "2026-08-10",
+        "score": 0.4982394510867332,
+        "insider": "Singh Jesse G",
+        "title": "Chief Executive Officer",
+        "signal_value": 996261.216,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
       }
     ]
   }

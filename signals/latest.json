@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-10T11:02:59+00:00",
-  "count": 7,
+  "generated_at": "2026-08-11T10:33:01+00:00",
+  "count": 12,
   "signals": [
     {
       "ticker": "LUMN",
@@ -10,17 +10,17 @@
       "filed": "2026-08-06",
       "value": 612680.0,
       "price": 5.900000095367432,
-      "score": 0.825925925925926
+      "score": 0.8216098484848486
     },
     {
-      "ticker": "COE",
-      "company": "51Talk Online Education Group",
-      "insider": "Huang Jack Jiajia",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-05",
-      "value": 3346656.6,
-      "price": 17.43000030517578,
-      "score": 0.6648888888888889
+      "ticker": "NSLR",
+      "company": "Neostellar Capital Corp.",
+      "insider": "Klein Mark D",
+      "title": "Chairman, CEO and President",
+      "filed": "2026-08-10",
+      "value": 249984.0,
+      "price": 10.329999923706055,
+      "score": 0.7132934796006409
     },
     {
       "ticker": "HLI",
@@ -30,17 +30,17 @@
       "filed": "2026-08-05",
       "value": 500570.39999999997,
       "price": 125.4800033569336,
-      "score": 0.601537037037037
+      "score": 0.6542613636363637
     },
     {
-      "ticker": "SITE",
-      "company": "SiteOne Landscape Supply, Inc.",
-      "insider": "BLACK DOUG",
-      "title": "CEO",
-      "filed": "2026-08-06",
-      "value": 408520.0,
-      "price": 101.25,
-      "score": 0.5962962962962962
+      "ticker": "COE",
+      "company": "51Talk Online Education Group",
+      "insider": "Huang Jack Jiajia",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-10",
+      "value": 3042432.0,
+      "price": 18.989999771118164,
+      "score": 0.6282612268375858
     },
     {
       "ticker": "CSGP",
@@ -50,17 +50,57 @@
       "filed": "2026-08-05",
       "value": 2489837.0,
       "price": 29.81999969482422,
-      "score": 0.5699259259259258
+      "score": 0.5889204545454545
     },
     {
-      "ticker": "CMCO",
-      "company": "COLUMBUS MCKINNON CORP",
-      "insider": "Linker John R",
-      "title": "EVP, Finance and CFO",
-      "filed": "2026-08-04",
-      "value": 147525.0,
-      "price": 19.10536003112793,
-      "score": 0.5148235294117647
+      "ticker": "LINE",
+      "company": "Lineage, Inc.",
+      "insider": "LeMasters Robb A.",
+      "title": "Chief Financial Officer",
+      "filed": "2026-08-10",
+      "value": 826638.0,
+      "price": 42.36000061035156,
+      "score": 0.5805923620526727
+    },
+    {
+      "ticker": "GPOR",
+      "company": "GULFPORT ENERGY CORP",
+      "insider": "DELL'OSSO DOMENIC J JR",
+      "title": "President & CEO",
+      "filed": "2026-08-10",
+      "value": 256976.00000000003,
+      "price": 162.75999450683594,
+      "score": 0.5734844282838243
+    },
+    {
+      "ticker": "SITE",
+      "company": "SiteOne Landscape Supply, Inc.",
+      "insider": "BLACK DOUG",
+      "title": "CEO",
+      "filed": "2026-08-06",
+      "value": 408520.0,
+      "price": 101.25,
+      "score": 0.5665719696969697
+    },
+    {
+      "ticker": "SON",
+      "company": "SONOCO PRODUCTS CO",
+      "insider": "Coker R. Howard",
+      "title": "President & CEO",
+      "filed": "2026-08-10",
+      "value": 249446.0155,
+      "price": 57.47999954223633,
+      "score": 0.5614718147828587
+    },
+    {
+      "ticker": "PRCT",
+      "company": "PROCEPT BioRobotics Corp",
+      "insider": "Wood Larry L",
+      "title": "President, CEO",
+      "filed": "2026-08-10",
+      "value": 498315.00000000006,
+      "price": 20.40999984741211,
+      "score": 0.5585593081063314
     },
     {
       "ticker": "TSCO",
@@ -70,7 +110,17 @@
       "filed": "2026-08-05",
       "value": 416829.00000000006,
       "price": 33.119998931884766,
-      "score": 0.4835740740740741
+      "score": 0.5328598484848485
+    },
+    {
+      "ticker": "FBIN",
+      "company": "Fortune Brands Innovations, Inc.",
+      "insider": "Singh Jesse G",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-10",
+      "value": 996261.216,
+      "price": 50.779998779296875,
+      "score": 0.4982394510867332
     }
   ]
 }
