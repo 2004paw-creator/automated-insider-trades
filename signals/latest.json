@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-11T10:33:01+00:00",
-  "count": 12,
+  "generated_at": "2026-08-12T10:41:45+00:00",
+  "count": 16,
   "signals": [
     {
       "ticker": "LUMN",
@@ -10,7 +10,7 @@
       "filed": "2026-08-06",
       "value": 612680.0,
       "price": 5.900000095367432,
-      "score": 0.8216098484848486
+      "score": 0.8330627705627704
     },
     {
       "ticker": "NSLR",
@@ -20,17 +20,37 @@
       "filed": "2026-08-10",
       "value": 249984.0,
       "price": 10.329999923706055,
-      "score": 0.7132934796006409
+      "score": 0.7161853832442068
     },
     {
-      "ticker": "HLI",
-      "company": "HOULIHAN LOKEY, INC.",
-      "insider": "ALLEY J LINDSEY",
-      "title": "Chief Financial Officer",
-      "filed": "2026-08-05",
-      "value": 500570.39999999997,
-      "price": 125.4800033569336,
-      "score": 0.6542613636363637
+      "ticker": "DINO",
+      "company": "HF Sinclair Corp",
+      "insider": "MYERS FRANKLIN",
+      "title": "CEO",
+      "filed": "2026-08-11",
+      "value": 1279500.0,
+      "price": 85.55000305175781,
+      "score": 0.6933011346720036
+    },
+    {
+      "ticker": "CIA",
+      "company": "CITIZENS, INC.",
+      "insider": "Stenberg Jon",
+      "title": "President & CEO",
+      "filed": "2026-08-11",
+      "value": 199630.0,
+      "price": 3.8399999141693115,
+      "score": 0.6862698071388401
+    },
+    {
+      "ticker": "APTV",
+      "company": "Aptiv PLC",
+      "insider": "CLARK KEVIN P",
+      "title": "Chair and CEO",
+      "filed": "2026-08-11",
+      "value": 2502684.219,
+      "price": 49.810001373291016,
+      "score": 0.657944358066757
     },
     {
       "ticker": "COE",
@@ -40,37 +60,27 @@
       "filed": "2026-08-10",
       "value": 3042432.0,
       "price": 18.989999771118164,
-      "score": 0.6282612268375858
+      "score": 0.6317647058823529
     },
     {
-      "ticker": "CSGP",
-      "company": "COSTAR GROUP, INC.",
-      "insider": "FLORANCE ANDREW C",
-      "title": "Founder and CEO",
-      "filed": "2026-08-05",
-      "value": 2489837.0,
-      "price": 29.81999969482422,
-      "score": 0.5889204545454545
+      "ticker": "BCML",
+      "company": "BayCom Corp",
+      "insider": "Baron Christopher F",
+      "title": "President and CEO",
+      "filed": "2026-08-11",
+      "value": 250717.5,
+      "price": 30.389999389648438,
+      "score": 0.6179116080584869
     },
     {
-      "ticker": "LINE",
-      "company": "Lineage, Inc.",
-      "insider": "LeMasters Robb A.",
-      "title": "Chief Financial Officer",
-      "filed": "2026-08-10",
-      "value": 826638.0,
-      "price": 42.36000061035156,
-      "score": 0.5805923620526727
-    },
-    {
-      "ticker": "GPOR",
-      "company": "GULFPORT ENERGY CORP",
-      "insider": "DELL'OSSO DOMENIC J JR",
-      "title": "President & CEO",
-      "filed": "2026-08-10",
-      "value": 256976.00000000003,
-      "price": 162.75999450683594,
-      "score": 0.5734844282838243
+      "ticker": "STRZ",
+      "company": "STARZ ENTERTAINMENT CORP /CN/",
+      "insider": "Hirsch Jeffrey",
+      "title": "President and CEO",
+      "filed": "2026-08-11",
+      "value": 248000.0,
+      "price": 24.280000686645508,
+      "score": 0.5989612623639552
     },
     {
       "ticker": "SITE",
@@ -80,7 +90,27 @@
       "filed": "2026-08-06",
       "value": 408520.0,
       "price": 101.25,
-      "score": 0.5665719696969697
+      "score": 0.5981060606060605
+    },
+    {
+      "ticker": "LINE",
+      "company": "Lineage, Inc.",
+      "insider": "LeMasters Robb A.",
+      "title": "Chief Financial Officer",
+      "filed": "2026-08-10",
+      "value": 826638.0,
+      "price": 42.36000061035156,
+      "score": 0.592584670231729
+    },
+    {
+      "ticker": "GPOR",
+      "company": "GULFPORT ENERGY CORP",
+      "insider": "DELL'OSSO DOMENIC J JR",
+      "title": "President & CEO",
+      "filed": "2026-08-10",
+      "value": 256976.00000000003,
+      "price": 162.75999450683594,
+      "score": 0.5779322638146167
     },
     {
       "ticker": "SON",
@@ -90,7 +120,7 @@
       "filed": "2026-08-10",
       "value": 249446.0155,
       "price": 57.47999954223633,
-      "score": 0.5614718147828587
+      "score": 0.5647237076648841
     },
     {
       "ticker": "PRCT",
@@ -100,17 +130,17 @@
       "filed": "2026-08-10",
       "value": 498315.00000000006,
       "price": 20.40999984741211,
-      "score": 0.5585593081063314
+      "score": 0.5582887700534759
     },
     {
-      "ticker": "TSCO",
-      "company": "TRACTOR SUPPLY CO /DE/",
-      "insider": "Lawton III Harry A",
+      "ticker": "HOG",
+      "company": "HARLEY-DAVIDSON, INC.",
+      "insider": "Starrs Artie",
       "title": "President & CEO",
-      "filed": "2026-08-05",
-      "value": 416829.00000000006,
-      "price": 33.119998931884766,
-      "score": 0.5328598484848485
+      "filed": "2026-08-11",
+      "value": 258941.00000000003,
+      "price": 26.09000015258789,
+      "score": 0.5535049125012405
     },
     {
       "ticker": "FBIN",
@@ -120,7 +150,17 @@
       "filed": "2026-08-10",
       "value": 996261.216,
       "price": 50.779998779296875,
-      "score": 0.4982394510867332
+      "score": 0.5053119429590017
+    },
+    {
+      "ticker": "FRPH",
+      "company": "FRP HOLDINGS, INC.",
+      "insider": "Baker John D. III",
+      "title": "CEO",
+      "filed": "2026-08-11",
+      "value": 148988.0,
+      "price": 21.920000076293945,
+      "score": 0.46125078566939026
     }
   ]
 }
