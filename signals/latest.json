@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-08-12T10:41:45+00:00",
-  "count": 16,
+  "generated_at": "2026-08-13T10:44:07+00:00",
+  "count": 17,
   "signals": [
-    {
-      "ticker": "LUMN",
-      "company": "Lumen Technologies, Inc.",
-      "insider": "Johnson Kathleen E",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-06",
-      "value": 612680.0,
-      "price": 5.900000095367432,
-      "score": 0.8330627705627704
-    },
     {
       "ticker": "NSLR",
       "company": "Neostellar Capital Corp.",
@@ -20,7 +10,7 @@
       "filed": "2026-08-10",
       "value": 249984.0,
       "price": 10.329999923706055,
-      "score": 0.7161853832442068
+      "score": 0.708901432913591
     },
     {
       "ticker": "DINO",
@@ -30,37 +20,17 @@
       "filed": "2026-08-11",
       "value": 1279500.0,
       "price": 85.55000305175781,
-      "score": 0.6933011346720036
+      "score": 0.7027751423149905
     },
     {
-      "ticker": "CIA",
-      "company": "CITIZENS, INC.",
-      "insider": "Stenberg Jon",
-      "title": "President & CEO",
-      "filed": "2026-08-11",
-      "value": 199630.0,
-      "price": 3.8399999141693115,
-      "score": 0.6862698071388401
-    },
-    {
-      "ticker": "APTV",
-      "company": "Aptiv PLC",
-      "insider": "CLARK KEVIN P",
-      "title": "Chair and CEO",
-      "filed": "2026-08-11",
-      "value": 2502684.219,
-      "price": 49.810001373291016,
-      "score": 0.657944358066757
-    },
-    {
-      "ticker": "COE",
-      "company": "51Talk Online Education Group",
-      "insider": "Huang Jack Jiajia",
+      "ticker": "OPFI",
+      "company": "OppFi Inc.",
+      "insider": "Schwartz Todd G.",
       "title": "Chief Executive Officer",
-      "filed": "2026-08-10",
-      "value": 3042432.0,
-      "price": 18.989999771118164,
-      "score": 0.6317647058823529
+      "filed": "2026-08-12",
+      "value": 422988.0,
+      "price": 6.860000133514404,
+      "score": 0.648278960250333
     },
     {
       "ticker": "BCML",
@@ -70,27 +40,37 @@
       "filed": "2026-08-11",
       "value": 250717.5,
       "price": 30.389999389648438,
-      "score": 0.6179116080584869
+      "score": 0.6365512333965844
     },
     {
-      "ticker": "STRZ",
-      "company": "STARZ ENTERTAINMENT CORP /CN/",
-      "insider": "Hirsch Jeffrey",
-      "title": "President and CEO",
-      "filed": "2026-08-11",
-      "value": 248000.0,
-      "price": 24.280000686645508,
-      "score": 0.5989612623639552
+      "ticker": "UA",
+      "company": "Under Armour, Inc.",
+      "insider": "Taleghani Reza",
+      "title": "Chief Financial Officer",
+      "filed": "2026-08-12",
+      "value": 100180.85440000001,
+      "price": 5.199999809265137,
+      "score": 0.6357979366112092
     },
     {
-      "ticker": "SITE",
-      "company": "SiteOne Landscape Supply, Inc.",
-      "insider": "BLACK DOUG",
-      "title": "CEO",
-      "filed": "2026-08-06",
-      "value": 408520.0,
-      "price": 101.25,
-      "score": 0.5981060606060605
+      "ticker": "COE",
+      "company": "51Talk Online Education Group",
+      "insider": "Huang Jack Jiajia",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-12",
+      "value": 3943605.5999999996,
+      "price": 19.790000915527344,
+      "score": 0.6110057729446148
+    },
+    {
+      "ticker": "PFE",
+      "company": "PFIZER INC",
+      "insider": "BOURLA ALBERT",
+      "title": "Chairman & CEO",
+      "filed": "2026-08-12",
+      "value": 1000920.0,
+      "price": 26.309999465942383,
+      "score": 0.6011199925643648
     },
     {
       "ticker": "LINE",
@@ -100,7 +80,17 @@
       "filed": "2026-08-10",
       "value": 826638.0,
       "price": 42.36000061035156,
-      "score": 0.592584670231729
+      "score": 0.589448545375597
+    },
+    {
+      "ticker": "XRN",
+      "company": "Chiron Real Estate Inc.",
+      "insider": "Decker Mark Okey Jr",
+      "title": "CEO and President",
+      "filed": "2026-08-12",
+      "value": 287040.0,
+      "price": 35.86000061035156,
+      "score": 0.5801881628817217
     },
     {
       "ticker": "GPOR",
@@ -110,27 +100,7 @@
       "filed": "2026-08-10",
       "value": 256976.00000000003,
       "price": 162.75999450683594,
-      "score": 0.5779322638146167
-    },
-    {
-      "ticker": "SON",
-      "company": "SONOCO PRODUCTS CO",
-      "insider": "Coker R. Howard",
-      "title": "President & CEO",
-      "filed": "2026-08-10",
-      "value": 249446.0155,
-      "price": 57.47999954223633,
-      "score": 0.5647237076648841
-    },
-    {
-      "ticker": "PRCT",
-      "company": "PROCEPT BioRobotics Corp",
-      "insider": "Wood Larry L",
-      "title": "President, CEO",
-      "filed": "2026-08-10",
-      "value": 498315.00000000006,
-      "price": 20.40999984741211,
-      "score": 0.5582887700534759
+      "score": 0.5763786365610073
     },
     {
       "ticker": "HOG",
@@ -140,7 +110,47 @@
       "filed": "2026-08-11",
       "value": 258941.00000000003,
       "price": 26.09000015258789,
-      "score": 0.5535049125012405
+      "score": 0.5694259962049336
+    },
+    {
+      "ticker": "ACDC",
+      "company": "ProFrac Holding Corp.",
+      "insider": "Wilks Matthew",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-12",
+      "value": 122366.33110000001,
+      "price": 5.269999980926514,
+      "score": 0.5656070886389688
+    },
+    {
+      "ticker": "FUN",
+      "company": "Six Flags Entertainment Corporation/NEW",
+      "insider": "Reilly John T",
+      "title": "President & CEO",
+      "filed": "2026-08-12",
+      "value": 248265.40000000002,
+      "price": 16.440000534057617,
+      "score": 0.5591623550309301
+    },
+    {
+      "ticker": "PRCT",
+      "company": "PROCEPT BioRobotics Corp",
+      "insider": "Wood Larry L",
+      "title": "President, CEO",
+      "filed": "2026-08-10",
+      "value": 498315.00000000006,
+      "price": 20.40999984741211,
+      "score": 0.5581415544941379
+    },
+    {
+      "ticker": "SON",
+      "company": "SONOCO PRODUCTS CO",
+      "insider": "Coker R. Howard",
+      "title": "President & CEO",
+      "filed": "2026-08-10",
+      "value": 249446.0155,
+      "price": 57.47999954223633,
+      "score": 0.554950065132436
     },
     {
       "ticker": "FBIN",
@@ -150,7 +160,7 @@
       "filed": "2026-08-10",
       "value": 996261.216,
       "price": 50.779998779296875,
-      "score": 0.5053119429590017
+      "score": 0.4994789405123751
     },
     {
       "ticker": "FRPH",
@@ -160,7 +170,7 @@
       "filed": "2026-08-11",
       "value": 148988.0,
       "price": 21.920000076293945,
-      "score": 0.46125078566939026
+      "score": 0.48569734345351046
     }
   ]
 }

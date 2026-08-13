@@ -226,10 +226,10 @@
         "insider": "MYERS FRANKLIN",
         "title": "CEO",
         "signal_value": 1279500.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 87.93,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
       },
       {
         "ticker": "CIA",
@@ -238,10 +238,10 @@
         "insider": "Stenberg Jon",
         "title": "President & CEO",
         "signal_value": 199630.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 3.92,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
       },
       {
         "ticker": "APTV",
@@ -250,10 +250,10 @@
         "insider": "CLARK KEVIN P",
         "title": "Chair and CEO",
         "signal_value": 2502684.219,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 48.48,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
       },
       {
         "ticker": "BCML",
@@ -262,10 +262,10 @@
         "insider": "Baron Christopher F",
         "title": "President and CEO",
         "signal_value": 250717.5,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 31.19,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
       },
       {
         "ticker": "STRZ",
@@ -274,10 +274,10 @@
         "insider": "Hirsch Jeffrey",
         "title": "President and CEO",
         "signal_value": 248000.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 25.01,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
       },
       {
         "ticker": "HOG",
@@ -286,10 +286,10 @@
         "insider": "Starrs Artie",
         "title": "President & CEO",
         "signal_value": 258941.00000000003,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 25.97,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
       },
       {
         "ticker": "FRPH",
@@ -298,6 +298,78 @@
         "insider": "Baker John D. III",
         "title": "CEO",
         "signal_value": 148988.0,
+        "status": "active",
+        "entry_price": 22.16,
+        "entry_date": "2026-08-12",
+        "spy_entry": 772.49
+      },
+      {
+        "ticker": "OPFI",
+        "filed": "2026-08-12",
+        "score": 0.648278960250333,
+        "insider": "Schwartz Todd G.",
+        "title": "Chief Executive Officer",
+        "signal_value": 422988.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "UA",
+        "filed": "2026-08-12",
+        "score": 0.6357979366112092,
+        "insider": "Taleghani Reza",
+        "title": "Chief Financial Officer",
+        "signal_value": 100180.85440000001,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "PFE",
+        "filed": "2026-08-12",
+        "score": 0.6011199925643648,
+        "insider": "BOURLA ALBERT",
+        "title": "Chairman & CEO",
+        "signal_value": 1000920.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "XRN",
+        "filed": "2026-08-12",
+        "score": 0.5801881628817217,
+        "insider": "Decker Mark Okey Jr",
+        "title": "CEO and President",
+        "signal_value": 287040.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "ACDC",
+        "filed": "2026-08-12",
+        "score": 0.5656070886389688,
+        "insider": "Wilks Matthew",
+        "title": "Chief Executive Officer",
+        "signal_value": 122366.33110000001,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "FUN",
+        "filed": "2026-08-12",
+        "score": 0.5591623550309301,
+        "insider": "Reilly John T",
+        "title": "President & CEO",
+        "signal_value": 248265.40000000002,
         "status": "pending",
         "entry_price": null,
         "entry_date": null,

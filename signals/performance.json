@@ -2,11 +2,11 @@
   "2026": {
     "closed": false,
     "current": {
-      "as_of": "2026-08-12",
-      "n_active": 18,
-      "n_pending": 7,
-      "book_return": -0.000992,
-      "spy_return": 0.009254
+      "as_of": "2026-08-13",
+      "n_active": 25,
+      "n_pending": 6,
+      "book_return": -0.008836,
+      "spy_return": 0.008483
     },
     "history": [
       {
@@ -104,6 +104,12 @@
         "book": -0.000992,
         "spy": 0.009254,
         "n": 18
+      },
+      {
+        "date": "2026-08-13",
+        "book": -0.008836,
+        "spy": 0.008483,
+        "n": 25
       }
     ],
     "final": null
