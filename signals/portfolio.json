@@ -382,10 +382,10 @@
         "insider": "Lamba Lakhbir S.",
         "title": "President and CEO",
         "signal_value": 111160.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 33.5,
+        "entry_date": "2026-08-14",
+        "spy_entry": 776.34
       },
       {
         "ticker": "BTDR",
@@ -394,10 +394,10 @@
         "insider": "Potter Michael G",
         "title": "Chief Financial Officer",
         "signal_value": 225999.99999999997,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 9.13,
+        "entry_date": "2026-08-14",
+        "spy_entry": 776.34
       },
       {
         "ticker": "AMRZ",
@@ -406,10 +406,10 @@
         "insider": "Oran Baris",
         "title": "Chief Financial Officer",
         "signal_value": 141390.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 46.69,
+        "entry_date": "2026-08-14",
+        "spy_entry": 776.34
       },
       {
         "ticker": "EMBC",
@@ -418,6 +418,78 @@
         "insider": "Kurdikar Devdatt",
         "title": "President and CEO",
         "signal_value": 140937.0,
+        "status": "active",
+        "entry_price": 5.1,
+        "entry_date": "2026-08-14",
+        "spy_entry": 776.34
+      },
+      {
+        "ticker": "INTC",
+        "filed": "2026-08-14",
+        "score": 0.8756666666666667,
+        "insider": "TAN LIP BU",
+        "title": "CEO",
+        "signal_value": 9999985.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "KEEL",
+        "filed": "2026-08-14",
+        "score": 0.756,
+        "insider": "Gagnon Benjamin",
+        "title": "Chief Executive Officer",
+        "signal_value": 196097.04,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "OPEN",
+        "filed": "2026-08-14",
+        "score": 0.6948333333333333,
+        "insider": "Nejatian Kasra",
+        "title": "Chief Executive Officer",
+        "signal_value": 100002.5,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "MTDR",
+        "filed": "2026-08-14",
+        "score": 0.6253333333333333,
+        "insider": "Foran Joseph Wm",
+        "title": "Chairman and CEO",
+        "signal_value": 257200.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "ABCL",
+        "filed": "2026-08-14",
+        "score": 0.5785,
+        "insider": "Booth Andrew",
+        "title": "Chief Financial Officer",
+        "signal_value": 383904.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "ANGX",
+        "filed": "2026-08-14",
+        "score": 0.4741666666666667,
+        "insider": "Harmon Neal",
+        "title": "Chief Executive Officer",
+        "signal_value": 125007.2226927,
         "status": "pending",
         "entry_price": null,
         "entry_date": null,
