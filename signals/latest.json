@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T10:18:29+00:00",
-  "count": 19,
+  "generated_at": "2026-08-18T10:11:09+00:00",
+  "count": 16,
   "signals": [
     {
       "ticker": "INTC",
@@ -10,27 +10,7 @@
       "filed": "2026-08-14",
       "value": 9999985.0,
       "price": 97.70999908447266,
-      "score": 0.8791241134751774
-    },
-    {
-      "ticker": "KEEL",
-      "company": "Keel Infrastructure Corp.",
-      "insider": "Gagnon Benjamin",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-14",
-      "value": 196097.04,
-      "price": 3.309999942779541,
-      "score": 0.7592801418439716
-    },
-    {
-      "ticker": "DINO",
-      "company": "HF Sinclair Corp",
-      "insider": "MYERS FRANKLIN",
-      "title": "CEO",
-      "filed": "2026-08-11",
-      "value": 1279500.0,
-      "price": 85.55000305175781,
-      "score": 0.706094861660079
+      "score": 0.8748232179996218
     },
     {
       "ticker": "OPEN",
@@ -40,27 +20,17 @@
       "filed": "2026-08-14",
       "value": 100002.5,
       "price": 3.640000104904175,
-      "score": 0.6978475177304964
+      "score": 0.7093621982731455
     },
     {
-      "ticker": "BCML",
-      "company": "BayCom Corp",
-      "insider": "Baron Christopher F",
+      "ticker": "MLAB",
+      "company": "MESA LABORATORIES INC /CO/",
+      "insider": "Kadia Siddhartha",
       "title": "President and CEO",
-      "filed": "2026-08-11",
-      "value": 250717.5,
-      "price": 30.389999389648438,
-      "score": 0.6568774703557312
-    },
-    {
-      "ticker": "RM",
-      "company": "Regional Management Corp.",
-      "insider": "Lamba Lakhbir S.",
-      "title": "President and CEO",
-      "filed": "2026-08-13",
-      "value": 111160.0,
-      "price": 32.16999816894531,
-      "score": 0.648580586080586
+      "filed": "2026-08-17",
+      "value": 800090.4,
+      "price": 113.19999694824219,
+      "score": 0.6799879832810867
     },
     {
       "ticker": "UA",
@@ -70,7 +40,27 @@
       "filed": "2026-08-12",
       "value": 100180.85440000001,
       "price": 5.199999809265137,
-      "score": 0.6422086720867208
+      "score": 0.6665126681467938
+    },
+    {
+      "ticker": "CHCT",
+      "company": "Community Healthcare Trust Inc",
+      "insider": "Dupuy David H.",
+      "title": "CEO and President",
+      "filed": "2026-08-17",
+      "value": 151300.0,
+      "price": 15.079999923706055,
+      "score": 0.6571865203761754
+    },
+    {
+      "ticker": "ONON",
+      "company": "On Holding AG",
+      "insider": "Coppetti Caspar Felix",
+      "title": "Executive Officer & Co-CEO",
+      "filed": "2026-08-17",
+      "value": 1993790.5,
+      "price": 32.220001220703125,
+      "score": 0.6482816091954022
     },
     {
       "ticker": "MTDR",
@@ -80,57 +70,17 @@
       "filed": "2026-08-14",
       "value": 257200.0,
       "price": 51.599998474121094,
-      "score": 0.6280815602836879
+      "score": 0.644748219575219
     },
     {
-      "ticker": "BTDR",
-      "company": "Bitdeer Technologies Group",
-      "insider": "Potter Michael G",
-      "title": "Chief Financial Officer",
+      "ticker": "RM",
+      "company": "Regional Management Corp.",
+      "insider": "Lamba Lakhbir S.",
+      "title": "President and CEO",
       "filed": "2026-08-13",
-      "value": 225999.99999999997,
-      "price": 9.020000457763672,
-      "score": 0.6274267399267399
-    },
-    {
-      "ticker": "AMRZ",
-      "company": "Amrize Ltd",
-      "insider": "Oran Baris",
-      "title": "Chief Financial Officer",
-      "filed": "2026-08-13",
-      "value": 141390.0,
-      "price": 46.369998931884766,
-      "score": 0.6197344322344323
-    },
-    {
-      "ticker": "COE",
-      "company": "51Talk Online Education Group",
-      "insider": "Huang Jack Jiajia",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-13",
-      "value": 6807375.000000001,
-      "price": 20.209999084472656,
-      "score": 0.618452380952381
-    },
-    {
-      "ticker": "ACDC",
-      "company": "ProFrac Holding Corp.",
-      "insider": "Wilks Matthew",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-12",
-      "value": 122366.33110000001,
-      "price": 5.269999980926514,
-      "score": 0.6065989159891598
-    },
-    {
-      "ticker": "PFE",
-      "company": "PFIZER INC",
-      "insider": "BOURLA ALBERT",
-      "title": "Chairman & CEO",
-      "filed": "2026-08-12",
-      "value": 1000920.0,
-      "price": 26.309999465942383,
-      "score": 0.6055149051490516
+      "value": 111160.0,
+      "price": 32.16999816894531,
+      "score": 0.6333928571428572
     },
     {
       "ticker": "FUN",
@@ -140,7 +90,37 @@
       "filed": "2026-08-12",
       "value": 248265.40000000002,
       "price": 16.440000534057617,
-      "score": 0.5931978319783198
+      "score": 0.6326939401854512
+    },
+    {
+      "ticker": "COE",
+      "company": "51Talk Online Education Group",
+      "insider": "Huang Jack Jiajia",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-13",
+      "value": 6807375.000000001,
+      "price": 20.209999084472656,
+      "score": 0.6296428571428571
+    },
+    {
+      "ticker": "PFE",
+      "company": "PFIZER INC",
+      "insider": "BOURLA ALBERT",
+      "title": "Chairman & CEO",
+      "filed": "2026-08-12",
+      "value": 1000920.0,
+      "price": 26.309999465942383,
+      "score": 0.6214264725088154
+    },
+    {
+      "ticker": "AMRZ",
+      "company": "Amrize Ltd",
+      "insider": "Oran Baris",
+      "title": "Chief Financial Officer",
+      "filed": "2026-08-13",
+      "value": 141390.0,
+      "price": 46.369998931884766,
+      "score": 0.6158928571428571
     },
     {
       "ticker": "ABCL",
@@ -150,7 +130,7 @@
       "filed": "2026-08-14",
       "value": 383904.0,
       "price": 11.380000114440918,
-      "score": 0.5786773049645391
+      "score": 0.593258965147791
     },
     {
       "ticker": "OPFI",
@@ -160,27 +140,17 @@
       "filed": "2026-08-14",
       "value": 144012.0,
       "price": 7.159999847412109,
-      "score": 0.5504361702127659
-    },
-    {
-      "ticker": "FRPH",
-      "company": "FRP HOLDINGS, INC.",
-      "insider": "Baker John D. III",
-      "title": "CEO",
-      "filed": "2026-08-11",
-      "value": 148988.0,
-      "price": 21.920000076293945,
-      "score": 0.5314782608695652
+      "score": 0.5621976429066616
     },
     {
       "ticker": "ANGX",
       "company": "Angel Studios, Inc.",
       "insider": "Harmon Neal",
       "title": "Chief Executive Officer",
-      "filed": "2026-08-14",
-      "value": 125007.2226927,
-      "price": 4.320000171661377,
-      "score": 0.4745212765957447
+      "filed": "2026-08-17",
+      "value": 125004.8542,
+      "price": 4.369999885559082,
+      "score": 0.483469696969697
     },
     {
       "ticker": "EMBC",
@@ -190,7 +160,7 @@
       "filed": "2026-08-13",
       "value": 140937.0,
       "price": 4.75,
-      "score": 0.316529304029304
+      "score": 0.31526785714285716
     }
   ]
 }

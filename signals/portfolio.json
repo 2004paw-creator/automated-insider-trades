@@ -494,6 +494,42 @@
         "entry_price": null,
         "entry_date": null,
         "spy_entry": null
+      },
+      {
+        "ticker": "MLAB",
+        "filed": "2026-08-17",
+        "score": 0.6799879832810867,
+        "insider": "Kadia Siddhartha",
+        "title": "President and CEO",
+        "signal_value": 800090.4,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "CHCT",
+        "filed": "2026-08-17",
+        "score": 0.6571865203761754,
+        "insider": "Dupuy David H.",
+        "title": "CEO and President",
+        "signal_value": 151300.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "ONON",
+        "filed": "2026-08-17",
+        "score": 0.6482816091954022,
+        "insider": "Coppetti Caspar Felix",
+        "title": "Executive Officer & Co-CEO",
+        "signal_value": 1993790.5,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
       }
     ]
   }
