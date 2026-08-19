@@ -430,10 +430,10 @@
         "insider": "TAN LIP BU",
         "title": "CEO",
         "signal_value": 9999985.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 103.49,
+        "entry_date": "2026-08-17",
+        "spy_entry": 772.67
       },
       {
         "ticker": "KEEL",
@@ -442,10 +442,10 @@
         "insider": "Gagnon Benjamin",
         "title": "Chief Executive Officer",
         "signal_value": 196097.04,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 3.77,
+        "entry_date": "2026-08-17",
+        "spy_entry": 772.67
       },
       {
         "ticker": "OPEN",
@@ -454,10 +454,10 @@
         "insider": "Nejatian Kasra",
         "title": "Chief Executive Officer",
         "signal_value": 100002.5,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 3.54,
+        "entry_date": "2026-08-17",
+        "spy_entry": 772.67
       },
       {
         "ticker": "MTDR",
@@ -466,10 +466,10 @@
         "insider": "Foran Joseph Wm",
         "title": "Chairman and CEO",
         "signal_value": 257200.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 55.94,
+        "entry_date": "2026-08-17",
+        "spy_entry": 772.67
       },
       {
         "ticker": "ABCL",
@@ -478,10 +478,10 @@
         "insider": "Booth Andrew",
         "title": "Chief Financial Officer",
         "signal_value": 383904.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 11.2,
+        "entry_date": "2026-08-17",
+        "spy_entry": 772.67
       },
       {
         "ticker": "ANGX",
@@ -490,10 +490,10 @@
         "insider": "Harmon Neal",
         "title": "Chief Executive Officer",
         "signal_value": 125007.2226927,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 4.71,
+        "entry_date": "2026-08-17",
+        "spy_entry": 772.67
       },
       {
         "ticker": "MLAB",
@@ -502,10 +502,10 @@
         "insider": "Kadia Siddhartha",
         "title": "President and CEO",
         "signal_value": 800090.4,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 107.94,
+        "entry_date": "2026-08-18",
+        "spy_entry": 767.45
       },
       {
         "ticker": "CHCT",
@@ -514,10 +514,10 @@
         "insider": "Dupuy David H.",
         "title": "CEO and President",
         "signal_value": 151300.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 14.79,
+        "entry_date": "2026-08-18",
+        "spy_entry": 767.45
       },
       {
         "ticker": "ONON",
@@ -526,10 +526,22 @@
         "insider": "Coppetti Caspar Felix",
         "title": "Executive Officer & Co-CEO",
         "signal_value": 1993790.5,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 31.03,
+        "entry_date": "2026-08-18",
+        "spy_entry": 767.45
+      },
+      {
+        "ticker": "KURA",
+        "filed": "2026-08-17",
+        "score": 0.7013807768970471,
+        "insider": "WILSON TROY EDWARD",
+        "title": "President and CEO",
+        "signal_value": 1112000.0,
+        "status": "active",
+        "entry_price": 12.33,
+        "entry_date": "2026-08-18",
+        "spy_entry": 767.45
       }
     ]
   }
