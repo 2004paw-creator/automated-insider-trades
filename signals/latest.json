@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-19T10:14:46+00:00",
-  "count": 11,
+  "generated_at": "2026-08-20T10:17:47+00:00",
+  "count": 9,
   "signals": [
     {
       "ticker": "INTC",
@@ -10,7 +10,7 @@
       "filed": "2026-08-14",
       "value": 9999985.0,
       "price": 97.70999908447266,
-      "score": 0.8617330424992963
+      "score": 0.8593661951584152
     },
     {
       "ticker": "OPEN",
@@ -20,7 +20,7 @@
       "filed": "2026-08-14",
       "value": 100002.5,
       "price": 3.640000104904175,
-      "score": 0.7061673233886856
+      "score": 0.7249489678569375
     },
     {
       "ticker": "KURA",
@@ -30,7 +30,7 @@
       "filed": "2026-08-17",
       "value": 1112000.0,
       "price": 11.279999732971191,
-      "score": 0.7013807768970471
+      "score": 0.6930818025637637
     },
     {
       "ticker": "MLAB",
@@ -40,17 +40,7 @@
       "filed": "2026-08-17",
       "value": 800090.4,
       "price": 113.19999694824219,
-      "score": 0.6719921893107124
-    },
-    {
-      "ticker": "MTDR",
-      "company": "Matador Resources Co",
-      "insider": "Foran Joseph Wm",
-      "title": "Chairman and CEO",
-      "filed": "2026-08-14",
-      "value": 257200.0,
-      "price": 51.599998474121094,
-      "score": 0.664639037433155
+      "score": 0.6667041099511034
     },
     {
       "ticker": "CHCT",
@@ -59,8 +49,18 @@
       "title": "CEO and President",
       "filed": "2026-08-17",
       "value": 151300.0,
-      "price": 15.079999923706055,
-      "score": 0.6561552635238492
+      "price": 14.743529319763184,
+      "score": 0.6450244482621911
+    },
+    {
+      "ticker": "REFI",
+      "company": "Chicago Atlantic Real Estate Finance, Inc.",
+      "insider": "Cappell Anthony",
+      "title": "Co-Chief Executive Officer",
+      "filed": "2026-08-19",
+      "value": 468225.0,
+      "price": 10.270000457763672,
+      "score": 0.6339090909090909
     },
     {
       "ticker": "ONON",
@@ -70,27 +70,17 @@
       "filed": "2026-08-17",
       "value": 1993790.5,
       "price": 32.220001220703125,
-      "score": 0.6426024428684003
+      "score": 0.6325029734372936
     },
     {
-      "ticker": "RM",
-      "company": "Regional Management Corp.",
-      "insider": "Lamba Lakhbir S.",
-      "title": "President and CEO",
-      "filed": "2026-08-13",
-      "value": 111160.0,
-      "price": 32.16999816894531,
-      "score": 0.6399204244031831
-    },
-    {
-      "ticker": "COE",
-      "company": "51Talk Online Education Group",
-      "insider": "Huang Jack Jiajia",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-13",
-      "value": 6807375.000000001,
-      "price": 20.209999084472656,
-      "score": 0.6309018567639257
+      "ticker": "DMLP",
+      "company": "DORCHESTER MINERALS, L.P.",
+      "insider": "MORIYAMA LESLIE A",
+      "title": "Chief Financial Officer",
+      "filed": "2026-08-19",
+      "value": 147075.1,
+      "price": 28.209999084472656,
+      "score": 0.6311136363636364
     },
     {
       "ticker": "ANGX",
@@ -100,17 +90,7 @@
       "filed": "2026-08-17",
       "value": 125004.8542,
       "price": 4.369999885559082,
-      "score": 0.47677015250544663
-    },
-    {
-      "ticker": "EMBC",
-      "company": "Embecta Corp.",
-      "insider": "Kurdikar Devdatt",
-      "title": "President and CEO",
-      "filed": "2026-08-13",
-      "value": 140937.0,
-      "price": 4.75,
-      "score": 0.30968169761273207
+      "score": 0.4760869565217391
     }
   ]
 }
