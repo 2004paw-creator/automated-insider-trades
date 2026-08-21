@@ -550,10 +550,10 @@
         "insider": "Cappell Anthony",
         "title": "Co-Chief Executive Officer",
         "signal_value": 468225.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 10.61,
+        "entry_date": "2026-08-20",
+        "spy_entry": 762.6
       },
       {
         "ticker": "DMLP",
@@ -562,10 +562,10 @@
         "insider": "MORIYAMA LESLIE A",
         "title": "Chief Financial Officer",
         "signal_value": 147075.1,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 28.61,
+        "entry_date": "2026-08-20",
+        "spy_entry": 762.6
       }
     ]
   }
