@@ -566,6 +566,30 @@
         "entry_price": 28.61,
         "entry_date": "2026-08-20",
         "spy_entry": 762.6
+      },
+      {
+        "ticker": "ALK",
+        "filed": "2026-08-21",
+        "score": 0.6093164936914937,
+        "insider": "MINICUCCI BENITO",
+        "title": "CEO AND PRESIDENT",
+        "signal_value": 1001510.0,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
+      },
+      {
+        "ticker": "NOMD",
+        "filed": "2026-08-21",
+        "score": 0.5587644993894993,
+        "insider": "BALDEW RUBEN",
+        "title": "Chief Financial Officer",
+        "signal_value": 335230.842,
+        "status": "pending",
+        "entry_price": null,
+        "entry_date": null,
+        "spy_entry": null
       }
     ]
   }
