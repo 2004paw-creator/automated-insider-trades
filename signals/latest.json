@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-23T10:14:59+00:00",
-  "count": 10,
+  "generated_at": "2026-08-24T10:29:29+00:00",
+  "count": 5,
   "signals": [
     {
       "ticker": "KEEL",
@@ -11,46 +11,6 @@
       "value": 129497.04000000001,
       "price": 3.319999933242798,
       "score": 0.8180059523809524
-    },
-    {
-      "ticker": "KURA",
-      "company": "Kura Oncology, Inc.",
-      "insider": "WILSON TROY EDWARD",
-      "title": "President and CEO",
-      "filed": "2026-08-17",
-      "value": 1112000.0,
-      "price": 11.279999732971191,
-      "score": 0.7051336110546635
-    },
-    {
-      "ticker": "MLAB",
-      "company": "MESA LABORATORIES INC /CO/",
-      "insider": "Kadia Siddhartha",
-      "title": "President and CEO",
-      "filed": "2026-08-17",
-      "value": 800090.4,
-      "price": 113.19999694824219,
-      "score": 0.6765753911806542
-    },
-    {
-      "ticker": "CHCT",
-      "company": "Community Healthcare Trust Inc",
-      "insider": "Dupuy David H.",
-      "title": "CEO and President",
-      "filed": "2026-08-17",
-      "value": 151300.0,
-      "price": 14.743529319763184,
-      "score": 0.6388757366388944
-    },
-    {
-      "ticker": "ONON",
-      "company": "On Holding AG",
-      "insider": "Coppetti Caspar Felix",
-      "title": "Executive Officer & Co-CEO",
-      "filed": "2026-08-17",
-      "value": 1993790.5,
-      "price": 32.220001220703125,
-      "score": 0.6354465555781346
     },
     {
       "ticker": "DMLP",
@@ -91,16 +51,6 @@
       "value": 335230.842,
       "price": 11.9399995803833,
       "score": 0.5587644993894993
-    },
-    {
-      "ticker": "ANGX",
-      "company": "Angel Studios, Inc.",
-      "insider": "Harmon Neal",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-17",
-      "value": 125004.8542,
-      "price": 4.369999885559082,
-      "score": 0.4712482219061166
     }
   ]
 }
