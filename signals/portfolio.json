@@ -574,10 +574,10 @@
         "insider": "MINICUCCI BENITO",
         "title": "CEO AND PRESIDENT",
         "signal_value": 1001510.0,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 41.56,
+        "entry_date": "2026-08-24",
+        "spy_entry": 763.47
       },
       {
         "ticker": "NOMD",
@@ -586,6 +586,18 @@
         "insider": "BALDEW RUBEN",
         "title": "Chief Financial Officer",
         "signal_value": 335230.842,
+        "status": "active",
+        "entry_price": 12.1,
+        "entry_date": "2026-08-24",
+        "spy_entry": 763.47
+      },
+      {
+        "ticker": "PRE",
+        "filed": "2026-08-24",
+        "score": 0.6937751177830812,
+        "insider": "Yeung Danny Sheng Wu",
+        "title": "Chief Executive Officer",
+        "signal_value": 239273.4,
         "status": "pending",
         "entry_price": null,
         "entry_date": null,

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-24T10:29:29+00:00",
-  "count": 5,
+  "generated_at": "2026-08-25T10:14:00+00:00",
+  "count": 10,
   "signals": [
     {
       "ticker": "KEEL",
@@ -10,7 +10,37 @@
       "filed": "2026-08-21",
       "value": 129497.04000000001,
       "price": 3.319999933242798,
-      "score": 0.8180059523809524
+      "score": 0.8080533596837943
+    },
+    {
+      "ticker": "KURA",
+      "company": "Kura Oncology, Inc.",
+      "insider": "WILSON TROY EDWARD",
+      "title": "President and CEO",
+      "filed": "2026-08-24",
+      "value": 1239000.0,
+      "price": 12.399999618530273,
+      "score": 0.6999857794705017
+    },
+    {
+      "ticker": "PRE",
+      "company": "Prenetics Global Ltd",
+      "insider": "Yeung Danny Sheng Wu",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-24",
+      "value": 239273.4,
+      "price": 21.81999969482422,
+      "score": 0.6937751177830812
+    },
+    {
+      "ticker": "BABA",
+      "company": "Alibaba Group Holding Ltd",
+      "insider": "Wu Yongming",
+      "title": "Chief Executive Officer",
+      "filed": "2026-08-24",
+      "value": 4984000.0,
+      "price": 118.47000122070312,
+      "score": 0.6505824234255401
     },
     {
       "ticker": "DMLP",
@@ -20,7 +50,7 @@
       "filed": "2026-08-19",
       "value": 147075.1,
       "price": 28.209999084472656,
-      "score": 0.6173133116883117
+      "score": 0.6220659722222222
     },
     {
       "ticker": "ALK",
@@ -30,7 +60,17 @@
       "filed": "2026-08-21",
       "value": 1001510.0,
       "price": 40.18000030517578,
-      "score": 0.6093164936914937
+      "score": 0.6132688229056203
+    },
+    {
+      "ticker": "VST",
+      "company": "Vistra Corp.",
+      "insider": "BURKE JAMES A",
+      "title": "President and CEO",
+      "filed": "2026-08-24",
+      "value": 270000.0,
+      "price": 135.66000366210938,
+      "score": 0.6088451693479578
     },
     {
       "ticker": "COE",
@@ -40,7 +80,7 @@
       "filed": "2026-08-21",
       "value": 737381.9999999999,
       "price": 20.600000381469727,
-      "score": 0.6016063797313798
+      "score": 0.5909970596741541
     },
     {
       "ticker": "NOMD",
@@ -50,7 +90,17 @@
       "filed": "2026-08-21",
       "value": 335230.842,
       "price": 11.9399995803833,
-      "score": 0.5587644993894993
+      "score": 0.5544936373276776
+    },
+    {
+      "ticker": "PODD",
+      "company": "INSULET CORP",
+      "insider": "McEvoy Ashley",
+      "title": "President and CEO",
+      "filed": "2026-08-24",
+      "value": 162217.0,
+      "price": 148.16000366210938,
+      "score": 0.5178801518505237
     }
   ]
 }
