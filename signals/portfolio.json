@@ -598,10 +598,10 @@
         "insider": "Yeung Danny Sheng Wu",
         "title": "Chief Executive Officer",
         "signal_value": 239273.4,
-        "status": "pending",
-        "entry_price": null,
-        "entry_date": null,
-        "spy_entry": null
+        "status": "active",
+        "entry_price": 23.25,
+        "entry_date": "2026-08-25",
+        "spy_entry": 765.91
       }
     ]
   }
