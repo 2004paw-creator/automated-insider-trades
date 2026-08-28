@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-27T20:12:11+00:00",
-  "count": 13,
+  "generated_at": "2026-08-28T21:10:52+00:00",
+  "count": 11,
   "signals": [
     {
       "ticker": "TTMI",
@@ -10,17 +10,7 @@
       "filed": "2026-08-25",
       "value": 1117700.0,
       "price": 112.30000305175781,
-      "score": 0.8644621255760367
-    },
-    {
-      "ticker": "KEEL",
-      "company": "Keel Infrastructure Corp.",
-      "insider": "Gagnon Benjamin",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-21",
-      "value": 129497.04000000001,
-      "price": 3.319999933242798,
-      "score": 0.8181818181818181
+      "score": 0.8660477453580901
     },
     {
       "ticker": "OPLN",
@@ -30,7 +20,7 @@
       "filed": "2026-08-26",
       "value": 499998.5780515,
       "price": 34.04999923706055,
-      "score": 0.7323057807766955
+      "score": 0.7319139194139195
     },
     {
       "ticker": "KURA",
@@ -40,7 +30,7 @@
       "filed": "2026-08-24",
       "value": 1239000.0,
       "price": 12.399999618530273,
-      "score": 0.7088835534213684
+      "score": 0.7139007092198582
     },
     {
       "ticker": "NPB",
@@ -50,7 +40,7 @@
       "filed": "2026-08-26",
       "value": 818680.6584,
       "price": 16.889999389648438,
-      "score": 0.6606237869801019
+      "score": 0.6556318681318681
     },
     {
       "ticker": "EPSN",
@@ -60,17 +50,7 @@
       "filed": "2026-08-25",
       "value": 120469.538,
       "price": 5.610000133514404,
-      "score": 0.6443440380184331
-    },
-    {
-      "ticker": "ALK",
-      "company": "ALASKA AIR GROUP, INC.",
-      "insider": "MINICUCCI BENITO",
-      "title": "CEO AND PRESIDENT",
-      "filed": "2026-08-21",
-      "value": 1001510.0,
-      "price": 40.18000030517578,
-      "score": 0.6290909090909091
+      "score": 0.6513262599469496
     },
     {
       "ticker": "VST",
@@ -80,17 +60,17 @@
       "filed": "2026-08-24",
       "value": 270000.0,
       "price": 135.66000366210938,
-      "score": 0.6175870348139255
+      "score": 0.6190780141843971
     },
     {
-      "ticker": "COE",
-      "company": "51Talk Online Education Group",
-      "insider": "Huang Jack Jiajia",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-21",
-      "value": 737381.9999999999,
-      "price": 20.600000381469727,
-      "score": 0.5918181818181818
+      "ticker": "SGI",
+      "company": "SOMNIGROUP INTERNATIONAL INC.",
+      "insider": "THOMPSON SCOTT L",
+      "title": "CEO & PRESIDENT",
+      "filed": "2026-08-27",
+      "value": 1885314.0,
+      "price": 62.47999954223633,
+      "score": 0.592860379068187
     },
     {
       "ticker": "PRE",
@@ -100,7 +80,7 @@
       "filed": "2026-08-26",
       "value": 116280.0,
       "price": 23.25,
-      "score": 0.5915455914095518
+      "score": 0.5799908424908424
     },
     {
       "ticker": "PODD",
@@ -110,7 +90,7 @@
       "filed": "2026-08-24",
       "value": 162217.0,
       "price": 148.16000366210938,
-      "score": 0.5257102841136454
+      "score": 0.525886524822695
     },
     {
       "ticker": "NOMD",
@@ -120,7 +100,7 @@
       "filed": "2026-08-26",
       "value": 619000.0,
       "price": 12.100000381469727,
-      "score": 0.48641599100324684
+      "score": 0.4729395604395604
     },
     {
       "ticker": "GRML",
@@ -130,7 +110,7 @@
       "filed": "2026-08-25",
       "value": 136080.0,
       "price": 9.710000038146973,
-      "score": 0.3677239343317972
+      "score": 0.3730769230769231
     }
   ]
 }
