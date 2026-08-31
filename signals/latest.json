@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-30T14:49:55+00:00",
-  "count": 13,
+  "generated_at": "2026-08-31T17:21:51+00:00",
+  "count": 10,
   "signals": [
     {
       "ticker": "TTMI",
@@ -30,17 +30,7 @@
       "filed": "2026-08-26",
       "value": 499998.5780515,
       "price": 34.04999923706055,
-      "score": 0.7426518026565465
-    },
-    {
-      "ticker": "KURA",
-      "company": "Kura Oncology, Inc.",
-      "insider": "WILSON TROY EDWARD",
-      "title": "President and CEO",
-      "filed": "2026-08-24",
-      "value": 1239000.0,
-      "price": 12.399999618530273,
-      "score": 0.7083603896103896
+      "score": 0.7326518026565465
     },
     {
       "ticker": "NPB",
@@ -73,16 +63,6 @@
       "score": 0.6206044487427467
     },
     {
-      "ticker": "VST",
-      "company": "Vistra Corp.",
-      "insider": "BURKE JAMES A",
-      "title": "President and CEO",
-      "filed": "2026-08-24",
-      "value": 270000.0,
-      "price": 135.66000366210938,
-      "score": 0.6189123376623377
-    },
-    {
       "ticker": "SGI",
       "company": "SOMNIGROUP INTERNATIONAL INC.",
       "insider": "THOMPSON SCOTT L",
@@ -100,17 +80,7 @@
       "filed": "2026-08-26",
       "value": 116280.0,
       "price": 23.25,
-      "score": 0.5692457305502846
-    },
-    {
-      "ticker": "PODD",
-      "company": "INSULET CORP",
-      "insider": "McEvoy Ashley",
-      "title": "President and CEO",
-      "filed": "2026-08-24",
-      "value": 162217.0,
-      "price": 148.16000366210938,
-      "score": 0.5237824675324675
+      "score": 0.5756973434535104
     },
     {
       "ticker": "NOMD",
@@ -120,7 +90,7 @@
       "filed": "2026-08-26",
       "value": 619000.0,
       "price": 12.100000381469727,
-      "score": 0.45479601518026563
+      "score": 0.46124762808349146
     },
     {
       "ticker": "GRML",
