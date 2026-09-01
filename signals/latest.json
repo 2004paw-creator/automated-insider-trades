@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-08-31T17:21:51+00:00",
-  "count": 10,
+  "generated_at": "2026-09-01T14:25:32+00:00",
+  "count": 9,
   "signals": [
-    {
-      "ticker": "TTMI",
-      "company": "TTM TECHNOLOGIES INC",
-      "insider": "Roks Edwin",
-      "title": "President and CEO",
-      "filed": "2026-08-25",
-      "value": 1117700.0,
-      "price": 112.30000305175781,
-      "score": 0.8709565217391305
-    },
     {
       "ticker": "KLAR",
       "company": "Klarna Group plc",
@@ -20,7 +10,7 @@
       "filed": "2026-08-28",
       "value": 9949164.451399999,
       "price": 14.210000038146973,
-      "score": 0.7493230174081238
+      "score": 0.7576188455008489
     },
     {
       "ticker": "OPLN",
@@ -30,27 +20,7 @@
       "filed": "2026-08-26",
       "value": 499998.5780515,
       "price": 34.04999923706055,
-      "score": 0.7326518026565465
-    },
-    {
-      "ticker": "NPB",
-      "company": "NORTHPOINTE BANCSHARES INC",
-      "insider": "Williams Charles Alan",
-      "title": "CHAIRMAN & CEO",
-      "filed": "2026-08-26",
-      "value": 818680.6584,
-      "price": 16.889999389648438,
-      "score": 0.641219165085389
-    },
-    {
-      "ticker": "EPSN",
-      "company": "Epsilon Energy Ltd.",
-      "insider": "Stabell Jason",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-25",
-      "value": 120469.538,
-      "price": 5.610000133514404,
-      "score": 0.6326086956521739
+      "score": 0.7162982611258474
     },
     {
       "ticker": "SITE",
@@ -60,7 +30,27 @@
       "filed": "2026-08-28",
       "value": 480650.0,
       "price": 96.06999969482422,
-      "score": 0.6206044487427467
+      "score": 0.6424129881154499
+    },
+    {
+      "ticker": "NPB",
+      "company": "NORTHPOINTE BANCSHARES INC",
+      "insider": "Williams Charles Alan",
+      "title": "CHAIRMAN & CEO",
+      "filed": "2026-08-26",
+      "value": 818680.6584,
+      "price": 16.889999389648438,
+      "score": 0.6349051969741625
+    },
+    {
+      "ticker": "HWKN",
+      "company": "HAWKINS INC",
+      "insider": "Oldenkamp Jeffrey P.",
+      "title": "EXECUTIVE VP AND CFO",
+      "filed": "2026-08-31",
+      "value": 153510.0,
+      "price": 117.66999816894531,
+      "score": 0.6142436564736499
     },
     {
       "ticker": "SGI",
@@ -70,7 +60,17 @@
       "filed": "2026-08-27",
       "value": 1885314.0,
       "price": 62.47999954223633,
-      "score": 0.5863905841325197
+      "score": 0.6062364532019704
+    },
+    {
+      "ticker": "MTDR",
+      "company": "Matador Resources Co",
+      "insider": "Calvert Christopher P",
+      "title": "EVP and CFO",
+      "filed": "2026-08-31",
+      "value": 141600.0,
+      "price": 56.7400016784668,
+      "score": 0.5904733246584255
     },
     {
       "ticker": "PRE",
@@ -80,7 +80,7 @@
       "filed": "2026-08-26",
       "value": 116280.0,
       "price": 23.25,
-      "score": 0.5756973434535104
+      "score": 0.5618970429315258
     },
     {
       "ticker": "NOMD",
@@ -90,17 +90,7 @@
       "filed": "2026-08-26",
       "value": 619000.0,
       "price": 12.100000381469727,
-      "score": 0.46124762808349146
-    },
-    {
-      "ticker": "GRML",
-      "company": "Greenland Mines Ltd",
-      "insider": "LeBlanc Jeff",
-      "title": "Chief Financial Officer",
-      "filed": "2026-08-25",
-      "value": 136080.0,
-      "price": 9.710000038146973,
-      "score": 0.3780869565217391
+      "score": 0.4540328126535023
     }
   ]
 }
