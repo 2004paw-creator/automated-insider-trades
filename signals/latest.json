@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-01T14:25:32+00:00",
-  "count": 9,
+  "generated_at": "2026-09-02T13:55:08+00:00",
+  "count": 7,
   "signals": [
     {
       "ticker": "KLAR",
@@ -10,17 +10,27 @@
       "filed": "2026-08-28",
       "value": 9949164.451399999,
       "price": 14.210000038146973,
-      "score": 0.7576188455008489
+      "score": 0.7630580357142857
     },
     {
-      "ticker": "OPLN",
-      "company": "OPENLANE, Inc.",
-      "insider": "Kelly Peter J",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-26",
-      "value": 499998.5780515,
-      "price": 34.04999923706055,
-      "score": 0.7162982611258474
+      "ticker": "ITT",
+      "company": "ITT INC.",
+      "insider": "Savi Luca",
+      "title": "President and CEO",
+      "filed": "2026-09-01",
+      "value": 1001591.64,
+      "price": 200.2899932861328,
+      "score": 0.6892558528428093
+    },
+    {
+      "ticker": "EQPT",
+      "company": "EquipmentShare.com Inc",
+      "insider": "Schlacks Jabbok",
+      "title": "Founder & CEO",
+      "filed": "2026-09-01",
+      "value": 270630.0,
+      "price": 17.610000610351562,
+      "score": 0.6589615384615384
     },
     {
       "ticker": "SITE",
@@ -30,17 +40,7 @@
       "filed": "2026-08-28",
       "value": 480650.0,
       "price": 96.06999969482422,
-      "score": 0.6424129881154499
-    },
-    {
-      "ticker": "NPB",
-      "company": "NORTHPOINTE BANCSHARES INC",
-      "insider": "Williams Charles Alan",
-      "title": "CHAIRMAN & CEO",
-      "filed": "2026-08-26",
-      "value": 818680.6584,
-      "price": 16.889999389648438,
-      "score": 0.6349051969741625
+      "score": 0.6325978708791209
     },
     {
       "ticker": "HWKN",
@@ -50,7 +50,7 @@
       "filed": "2026-08-31",
       "value": 153510.0,
       "price": 117.66999816894531,
-      "score": 0.6142436564736499
+      "score": 0.6108333333333333
     },
     {
       "ticker": "SGI",
@@ -60,7 +60,7 @@
       "filed": "2026-08-27",
       "value": 1885314.0,
       "price": 62.47999954223633,
-      "score": 0.6062364532019704
+      "score": 0.6002601263470828
     },
     {
       "ticker": "MTDR",
@@ -70,27 +70,7 @@
       "filed": "2026-08-31",
       "value": 141600.0,
       "price": 56.7400016784668,
-      "score": 0.5904733246584255
-    },
-    {
-      "ticker": "PRE",
-      "company": "Prenetics Global Ltd",
-      "insider": "Rosin Brian J",
-      "title": "CFO of IM8 (US) LLC",
-      "filed": "2026-08-26",
-      "value": 116280.0,
-      "price": 23.25,
-      "score": 0.5618970429315258
-    },
-    {
-      "ticker": "NOMD",
-      "company": "Nomad Foods Ltd",
-      "insider": "BRISBY DOMINIC",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-26",
-      "value": 619000.0,
-      "price": 12.100000381469727,
-      "score": 0.4540328126535023
+      "score": 0.5905
     }
   ]
 }
