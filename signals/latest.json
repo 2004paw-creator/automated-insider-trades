@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T13:55:08+00:00",
-  "count": 7,
+  "generated_at": "2026-09-03T13:55:22+00:00",
+  "count": 10,
   "signals": [
     {
       "ticker": "KLAR",
@@ -10,7 +10,7 @@
       "filed": "2026-08-28",
       "value": 9949164.451399999,
       "price": 14.210000038146973,
-      "score": 0.7630580357142857
+      "score": 0.7778846153846153
     },
     {
       "ticker": "ITT",
@@ -20,17 +20,7 @@
       "filed": "2026-09-01",
       "value": 1001591.64,
       "price": 200.2899932861328,
-      "score": 0.6892558528428093
-    },
-    {
-      "ticker": "EQPT",
-      "company": "EquipmentShare.com Inc",
-      "insider": "Schlacks Jabbok",
-      "title": "Founder & CEO",
-      "filed": "2026-09-01",
-      "value": 270630.0,
-      "price": 17.610000610351562,
-      "score": 0.6589615384615384
+      "score": 0.7008928571428572
     },
     {
       "ticker": "SITE",
@@ -40,7 +30,27 @@
       "filed": "2026-08-28",
       "value": 480650.0,
       "price": 96.06999969482422,
-      "score": 0.6325978708791209
+      "score": 0.6973093645484949
+    },
+    {
+      "ticker": "EQPT",
+      "company": "EquipmentShare.com Inc",
+      "insider": "Schlacks Jabbok",
+      "title": "Founder & CEO",
+      "filed": "2026-09-01",
+      "value": 270630.0,
+      "price": 17.610000610351562,
+      "score": 0.6543560606060606
+    },
+    {
+      "ticker": "NPB",
+      "company": "NORTHPOINTE BANCSHARES INC",
+      "insider": "Williams Charles Alan",
+      "title": "CHAIRMAN & CEO",
+      "filed": "2026-09-02",
+      "value": 1422925.5,
+      "price": 16.59000015258789,
+      "score": 0.6539999999999999
     },
     {
       "ticker": "HWKN",
@@ -50,17 +60,7 @@
       "filed": "2026-08-31",
       "value": 153510.0,
       "price": 117.66999816894531,
-      "score": 0.6108333333333333
-    },
-    {
-      "ticker": "SGI",
-      "company": "SOMNIGROUP INTERNATIONAL INC.",
-      "insider": "THOMPSON SCOTT L",
-      "title": "CEO & PRESIDENT",
-      "filed": "2026-08-27",
-      "value": 1885314.0,
-      "price": 62.47999954223633,
-      "score": 0.6002601263470828
+      "score": 0.6249457681365576
     },
     {
       "ticker": "MTDR",
@@ -70,7 +70,37 @@
       "filed": "2026-08-31",
       "value": 141600.0,
       "price": 56.7400016784668,
-      "score": 0.5905
+      "score": 0.6049582147937411
+    },
+    {
+      "ticker": "PNFP",
+      "company": "Pinnacle Financial Partners, Inc.",
+      "insider": "Blair Kevin S.",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-02",
+      "value": 250036.2,
+      "price": 97.02999877929688,
+      "score": 0.6013981481481481
+    },
+    {
+      "ticker": "VST",
+      "company": "Vistra Corp.",
+      "insider": "BURKE JAMES A",
+      "title": "President and CEO",
+      "filed": "2026-09-02",
+      "value": 603891.25,
+      "price": 138.0800018310547,
+      "score": 0.5958240740740741
+    },
+    {
+      "ticker": "MIR",
+      "company": "Mirion Technologies, Inc.",
+      "insider": "Schopfer Brian",
+      "title": "Chief Financial Officer",
+      "filed": "2026-09-02",
+      "value": 312000.0,
+      "price": 15.569999694824219,
+      "score": 0.5741296296296297
     }
   ]
 }
