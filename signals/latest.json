@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-03T13:55:22+00:00",
-  "count": 10,
+  "generated_at": "2026-09-04T14:00:10+00:00",
+  "count": 9,
   "signals": [
     {
-      "ticker": "KLAR",
-      "company": "Klarna Group plc",
-      "insider": "Siemiatkowski Sebastian",
-      "title": "Chief Executive Officer",
-      "filed": "2026-08-28",
-      "value": 9949164.451399999,
-      "price": 14.210000038146973,
-      "score": 0.7778846153846153
+      "ticker": "VSTS",
+      "company": "Vestis Corp",
+      "insider": "Barber James J.",
+      "title": "President & CEO",
+      "filed": "2026-09-03",
+      "value": 1045383.2999999999,
+      "price": 12.170000076293945,
+      "score": 0.8155296708228726
     },
     {
       "ticker": "ITT",
@@ -20,27 +20,17 @@
       "filed": "2026-09-01",
       "value": 1001591.64,
       "price": 200.2899932861328,
-      "score": 0.7008928571428572
-    },
-    {
-      "ticker": "SITE",
-      "company": "SiteOne Landscape Supply, Inc.",
-      "insider": "BLACK DOUG",
-      "title": "CEO",
-      "filed": "2026-08-28",
-      "value": 480650.0,
-      "price": 96.06999969482422,
-      "score": 0.6973093645484949
+      "score": 0.6922889995258417
     },
     {
       "ticker": "EQPT",
       "company": "EquipmentShare.com Inc",
       "insider": "Schlacks Jabbok",
       "title": "Founder & CEO",
-      "filed": "2026-09-01",
-      "value": 270630.0,
-      "price": 17.610000610351562,
-      "score": 0.6543560606060606
+      "filed": "2026-09-03",
+      "value": 176900.0,
+      "price": 17.809999465942383,
+      "score": 0.6754281266216917
     },
     {
       "ticker": "NPB",
@@ -50,17 +40,7 @@
       "filed": "2026-09-02",
       "value": 1422925.5,
       "price": 16.59000015258789,
-      "score": 0.6539999999999999
-    },
-    {
-      "ticker": "HWKN",
-      "company": "HAWKINS INC",
-      "insider": "Oldenkamp Jeffrey P.",
-      "title": "EXECUTIVE VP AND CFO",
-      "filed": "2026-08-31",
-      "value": 153510.0,
-      "price": 117.66999816894531,
-      "score": 0.6249457681365576
+      "score": 0.6607902735562309
     },
     {
       "ticker": "MTDR",
@@ -70,7 +50,17 @@
       "filed": "2026-08-31",
       "value": 141600.0,
       "price": 56.7400016784668,
-      "score": 0.6049582147937411
+      "score": 0.6265272177419354
+    },
+    {
+      "ticker": "HWKN",
+      "company": "HAWKINS INC",
+      "insider": "Oldenkamp Jeffrey P.",
+      "title": "EXECUTIVE VP AND CFO",
+      "filed": "2026-08-31",
+      "value": 153510.0,
+      "price": 117.66999816894531,
+      "score": 0.6255292338709677
     },
     {
       "ticker": "PNFP",
@@ -80,7 +70,7 @@
       "filed": "2026-09-02",
       "value": 250036.2,
       "price": 97.02999877929688,
-      "score": 0.6013981481481481
+      "score": 0.6051119093672284
     },
     {
       "ticker": "VST",
@@ -90,7 +80,7 @@
       "filed": "2026-09-02",
       "value": 603891.25,
       "price": 138.0800018310547,
-      "score": 0.5958240740740741
+      "score": 0.6011329096435479
     },
     {
       "ticker": "MIR",
@@ -100,7 +90,7 @@
       "filed": "2026-09-02",
       "value": 312000.0,
       "price": 15.569999694824219,
-      "score": 0.5741296296296297
+      "score": 0.5761950815142304
     }
   ]
 }
