@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-06T13:23:24+00:00",
-  "count": 9,
+  "generated_at": "2026-09-07T15:30:02+00:00",
+  "count": 7,
   "signals": [
     {
       "ticker": "VSTS",
@@ -41,26 +41,6 @@
       "value": 1422925.5,
       "price": 16.59000015258789,
       "score": 0.6476970101970102
-    },
-    {
-      "ticker": "MTDR",
-      "company": "Matador Resources Co",
-      "insider": "Calvert Christopher P",
-      "title": "EVP and CFO",
-      "filed": "2026-08-31",
-      "value": 141600.0,
-      "price": 56.7400016784668,
-      "score": 0.6265272177419354
-    },
-    {
-      "ticker": "HWKN",
-      "company": "HAWKINS INC",
-      "insider": "Oldenkamp Jeffrey P.",
-      "title": "EXECUTIVE VP AND CFO",
-      "filed": "2026-08-31",
-      "value": 153510.0,
-      "price": 117.66999816894531,
-      "score": 0.6255292338709677
     },
     {
       "ticker": "PNFP",
