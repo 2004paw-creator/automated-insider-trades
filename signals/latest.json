@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T15:30:02+00:00",
-  "count": 7,
+  "generated_at": "2026-09-08T13:58:12+00:00",
+  "count": 6,
   "signals": [
     {
       "ticker": "VSTS",
@@ -11,16 +11,6 @@
       "value": 1045383.2999999999,
       "price": 12.170000076293945,
       "score": 0.8226785714285714
-    },
-    {
-      "ticker": "ITT",
-      "company": "ITT INC.",
-      "insider": "Savi Luca",
-      "title": "President and CEO",
-      "filed": "2026-09-01",
-      "value": 1001591.64,
-      "price": 200.2899932861328,
-      "score": 0.6933858543417367
     },
     {
       "ticker": "ENOV",
