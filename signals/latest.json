@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-08T13:58:12+00:00",
-  "count": 6,
+  "generated_at": "2026-09-09T14:01:04+00:00",
+  "count": 4,
   "signals": [
     {
       "ticker": "VSTS",
@@ -10,57 +10,37 @@
       "filed": "2026-09-03",
       "value": 1045383.2999999999,
       "price": 12.170000076293945,
-      "score": 0.8226785714285714
+      "score": 0.8330102200031206
     },
     {
-      "ticker": "ENOV",
-      "company": "Enovis CORP",
-      "insider": "McDonald Damien",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-04",
-      "value": 249620.24999999997,
-      "price": 18.559999465942383,
-      "score": 0.6705191360363773
+      "ticker": "TSN",
+      "company": "TYSON FOODS, INC.",
+      "insider": "Schomburger Jeffrey K",
+      "title": "President & CEO Elect",
+      "filed": "2026-09-08",
+      "value": 1001616.65,
+      "price": 51.41999816894531,
+      "score": 0.6860671191553545
     },
     {
-      "ticker": "NPB",
-      "company": "NORTHPOINTE BANCSHARES INC",
-      "insider": "Williams Charles Alan",
-      "title": "CHAIRMAN & CEO",
-      "filed": "2026-09-02",
-      "value": 1422925.5,
-      "price": 16.59000015258789,
-      "score": 0.6476970101970102
-    },
-    {
-      "ticker": "PNFP",
-      "company": "Pinnacle Financial Partners, Inc.",
-      "insider": "Blair Kevin S.",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-02",
-      "value": 250036.2,
-      "price": 97.02999877929688,
-      "score": 0.6010580635580636
-    },
-    {
-      "ticker": "VST",
-      "company": "Vistra Corp.",
-      "insider": "BURKE JAMES A",
+      "ticker": "DXYZ",
+      "company": "Destiny Tech100 Inc.",
+      "insider": "Prasad Sohail",
       "title": "President and CEO",
-      "filed": "2026-09-02",
-      "value": 603891.25,
-      "price": 138.0800018310547,
-      "score": 0.5883761508761509
+      "filed": "2026-09-08",
+      "value": 313686.4,
+      "price": 32.25,
+      "score": 0.6409973604826547
     },
     {
-      "ticker": "MIR",
-      "company": "Mirion Technologies, Inc.",
-      "insider": "Schopfer Brian",
+      "ticker": "TISI",
+      "company": "TEAM INC",
+      "insider": "Roeder Clinton William",
       "title": "Chief Financial Officer",
-      "filed": "2026-09-02",
-      "value": 312000.0,
-      "price": 15.569999694824219,
-      "score": 0.5603962478962479
+      "filed": "2026-09-08",
+      "value": 220720.0,
+      "price": 26.75,
+      "score": 0.497746983408748
     }
   ]
 }
