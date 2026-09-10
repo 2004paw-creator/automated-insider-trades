@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-09T14:01:04+00:00",
-  "count": 4,
+  "generated_at": "2026-09-10T13:49:44+00:00",
+  "count": 6,
   "signals": [
     {
-      "ticker": "VSTS",
-      "company": "Vestis Corp",
-      "insider": "Barber James J.",
+      "ticker": "DY",
+      "company": "DYCOM INDUSTRIES INC",
+      "insider": "Peyovich Daniel S",
       "title": "President & CEO",
-      "filed": "2026-09-03",
-      "value": 1045383.2999999999,
-      "price": 12.170000076293945,
-      "score": 0.8330102200031206
+      "filed": "2026-09-09",
+      "value": 252246.0,
+      "price": 290.489990234375,
+      "score": 0.8066088516746411
     },
     {
       "ticker": "TSN",
@@ -20,7 +20,17 @@
       "filed": "2026-09-08",
       "value": 1001616.65,
       "price": 51.41999816894531,
-      "score": 0.6860671191553545
+      "score": 0.6812957211870255
+    },
+    {
+      "ticker": "OXM",
+      "company": "OXFORD INDUSTRIES INC",
+      "insider": "Chubb Thomas Caldecot III",
+      "title": "CEO and President",
+      "filed": "2026-09-09",
+      "value": 108268.3,
+      "price": 30.649999618530273,
+      "score": 0.6598744019138756
     },
     {
       "ticker": "DXYZ",
@@ -30,7 +40,17 @@
       "filed": "2026-09-08",
       "value": 313686.4,
       "price": 32.25,
-      "score": 0.6409973604826547
+      "score": 0.6351363008971704
+    },
+    {
+      "ticker": "LUCK",
+      "company": "Lucky Strike Entertainment Corp",
+      "insider": "Shannon Thomas F.",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-09",
+      "value": 175800.0,
+      "price": 5.5,
+      "score": 0.5939413875598086
     },
     {
       "ticker": "TISI",
@@ -40,7 +60,7 @@
       "filed": "2026-09-08",
       "value": 220720.0,
       "price": 26.75,
-      "score": 0.497746983408748
+      "score": 0.4951466528640441
     }
   ]
 }
