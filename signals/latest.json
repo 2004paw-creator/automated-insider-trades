@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T13:49:44+00:00",
-  "count": 6,
+  "generated_at": "2026-09-11T13:48:48+00:00",
+  "count": 9,
   "signals": [
     {
       "ticker": "DY",
@@ -10,7 +10,7 @@
       "filed": "2026-09-09",
       "value": 252246.0,
       "price": 290.489990234375,
-      "score": 0.8066088516746411
+      "score": 0.8035274244833068
     },
     {
       "ticker": "TSN",
@@ -20,7 +20,7 @@
       "filed": "2026-09-08",
       "value": 1001616.65,
       "price": 51.41999816894531,
-      "score": 0.6812957211870255
+      "score": 0.6796085858585857
     },
     {
       "ticker": "OXM",
@@ -30,17 +30,17 @@
       "filed": "2026-09-09",
       "value": 108268.3,
       "price": 30.649999618530273,
-      "score": 0.6598744019138756
+      "score": 0.6576162559618443
     },
     {
-      "ticker": "DXYZ",
-      "company": "Destiny Tech100 Inc.",
-      "insider": "Prasad Sohail",
-      "title": "President and CEO",
-      "filed": "2026-09-08",
-      "value": 313686.4,
-      "price": 32.25,
-      "score": 0.6351363008971704
+      "ticker": "UBER",
+      "company": "Uber Technologies, Inc",
+      "insider": "KHOSROWSHAHI DARA",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-10",
+      "value": 10005952.200000001,
+      "price": 72.55999755859375,
+      "score": 0.632224025974026
     },
     {
       "ticker": "LUCK",
@@ -50,7 +50,37 @@
       "filed": "2026-09-09",
       "value": 175800.0,
       "price": 5.5,
-      "score": 0.5939413875598086
+      "score": 0.5980425278219396
+    },
+    {
+      "ticker": "UPST",
+      "company": "Upstart Holdings, Inc.",
+      "insider": "Gu Paul",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-10",
+      "value": 1277500.0,
+      "price": 25.100000381469727,
+      "score": 0.5956980519480519
+    },
+    {
+      "ticker": "CELH",
+      "company": "Celsius Holdings, Inc.",
+      "insider": "Fieldly John",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-10",
+      "value": 493842.60000000003,
+      "price": 26.6299991607666,
+      "score": 0.5456439393939394
+    },
+    {
+      "ticker": "ATEC",
+      "company": "Alphatec Holdings, Inc.",
+      "insider": "Miles Patrick",
+      "title": "CEO",
+      "filed": "2026-09-10",
+      "value": 1013150.0,
+      "price": 8.84000015258789,
+      "score": 0.4940746753246753
     },
     {
       "ticker": "TISI",
@@ -60,7 +90,7 @@
       "filed": "2026-09-08",
       "value": 220720.0,
       "price": 26.75,
-      "score": 0.4951466528640441
+      "score": 0.48832070707070707
     }
   ]
 }
