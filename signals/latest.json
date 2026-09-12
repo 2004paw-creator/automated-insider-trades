@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-09-11T13:48:48+00:00",
-  "count": 9,
+  "generated_at": "2026-09-12T13:09:53+00:00",
+  "count": 11,
   "signals": [
+    {
+      "ticker": "RLMD",
+      "company": "RELMADA THERAPEUTICS, INC.",
+      "insider": "Shenouda Maged",
+      "title": "Chief Financial Officer",
+      "filed": "2026-09-11",
+      "value": 339150.0,
+      "price": 4.070000171661377,
+      "score": 0.8564102564102565
+    },
     {
       "ticker": "DY",
       "company": "DYCOM INDUSTRIES INC",
@@ -10,17 +20,17 @@
       "filed": "2026-09-09",
       "value": 252246.0,
       "price": 290.489990234375,
-      "score": 0.8035274244833068
+      "score": 0.8002783764367816
     },
     {
-      "ticker": "TSN",
-      "company": "TYSON FOODS, INC.",
-      "insider": "Schomburger Jeffrey K",
-      "title": "President & CEO Elect",
-      "filed": "2026-09-08",
-      "value": 1001616.65,
-      "price": 51.41999816894531,
-      "score": 0.6796085858585857
+      "ticker": "KMT",
+      "company": "KENNAMETAL INC",
+      "insider": "Chowbey Sanjay",
+      "title": "President and CEO",
+      "filed": "2026-09-11",
+      "value": 203700.0,
+      "price": 29.1299991607666,
+      "score": 0.7657631257631257
     },
     {
       "ticker": "OXM",
@@ -30,7 +40,27 @@
       "filed": "2026-09-09",
       "value": 108268.3,
       "price": 30.649999618530273,
-      "score": 0.6576162559618443
+      "score": 0.6802831657088122
+    },
+    {
+      "ticker": "TSN",
+      "company": "TYSON FOODS, INC.",
+      "insider": "Schomburger Jeffrey K",
+      "title": "President & CEO Elect",
+      "filed": "2026-09-08",
+      "value": 1001616.65,
+      "price": 51.41999816894531,
+      "score": 0.6721212121212121
+    },
+    {
+      "ticker": "PVH",
+      "company": "PVH CORP. /DE/",
+      "insider": "Larsson Stefan",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-11",
+      "value": 1000001.0192928,
+      "price": 70.63999938964844,
+      "score": 0.6580830280830281
     },
     {
       "ticker": "UBER",
@@ -40,17 +70,7 @@
       "filed": "2026-09-10",
       "value": 10005952.200000001,
       "price": 72.55999755859375,
-      "score": 0.632224025974026
-    },
-    {
-      "ticker": "LUCK",
-      "company": "Lucky Strike Entertainment Corp",
-      "insider": "Shannon Thomas F.",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-09",
-      "value": 175800.0,
-      "price": 5.5,
-      "score": 0.5980425278219396
+      "score": 0.6544985775248933
     },
     {
       "ticker": "UPST",
@@ -60,7 +80,7 @@
       "filed": "2026-09-10",
       "value": 1277500.0,
       "price": 25.100000381469727,
-      "score": 0.5956980519480519
+      "score": 0.5966394025604551
     },
     {
       "ticker": "CELH",
@@ -70,7 +90,7 @@
       "filed": "2026-09-10",
       "value": 493842.60000000003,
       "price": 26.6299991607666,
-      "score": 0.5456439393939394
+      "score": 0.5538940256045519
     },
     {
       "ticker": "ATEC",
@@ -80,7 +100,7 @@
       "filed": "2026-09-10",
       "value": 1013150.0,
       "price": 8.84000015258789,
-      "score": 0.4940746753246753
+      "score": 0.51175320056899
     },
     {
       "ticker": "TISI",
@@ -90,7 +110,7 @@
       "filed": "2026-09-08",
       "value": 220720.0,
       "price": 26.75,
-      "score": 0.48832070707070707
+      "score": 0.4751515151515151
     }
   ]
 }
