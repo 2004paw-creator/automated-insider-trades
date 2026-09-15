@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T16:12:54+00:00",
-  "count": 11,
+  "generated_at": "2026-09-15T14:40:06+00:00",
+  "count": 12,
   "signals": [
     {
       "ticker": "RLMD",
@@ -10,7 +10,7 @@
       "filed": "2026-09-11",
       "value": 339150.0,
       "price": 4.070000171661377,
-      "score": 0.8564102564102565
+      "score": 0.8770935960591133
     },
     {
       "ticker": "DY",
@@ -20,7 +20,7 @@
       "filed": "2026-09-09",
       "value": 252246.0,
       "price": 290.489990234375,
-      "score": 0.8002783764367816
+      "score": 0.7981100795755969
     },
     {
       "ticker": "KMT",
@@ -30,7 +30,7 @@
       "filed": "2026-09-11",
       "value": 203700.0,
       "price": 29.1299991607666,
-      "score": 0.7657631257631257
+      "score": 0.7672413793103448
     },
     {
       "ticker": "OXM",
@@ -40,17 +40,7 @@
       "filed": "2026-09-09",
       "value": 108268.3,
       "price": 30.649999618530273,
-      "score": 0.6802831657088122
-    },
-    {
-      "ticker": "TSN",
-      "company": "TYSON FOODS, INC.",
-      "insider": "Schomburger Jeffrey K",
-      "title": "President & CEO Elect",
-      "filed": "2026-09-08",
-      "value": 1001616.65,
-      "price": 51.41999816894531,
-      "score": 0.6721212121212121
+      "score": 0.6965185676392572
     },
     {
       "ticker": "PVH",
@@ -60,7 +50,17 @@
       "filed": "2026-09-11",
       "value": 1000001.0192928,
       "price": 70.63999938964844,
-      "score": 0.6580830280830281
+      "score": 0.6891625615763546
+    },
+    {
+      "ticker": "DVN",
+      "company": "DEVON ENERGY CORP/DE",
+      "insider": "Gaspar Clay M",
+      "title": "PRESIDENT AND CEO",
+      "filed": "2026-09-14",
+      "value": 199876.03999999998,
+      "price": 49.72999954223633,
+      "score": 0.676741134751773
     },
     {
       "ticker": "UBER",
@@ -70,7 +70,17 @@
       "filed": "2026-09-10",
       "value": 10005952.200000001,
       "price": 72.55999755859375,
-      "score": 0.6544985775248933
+      "score": 0.6700840336134454
+    },
+    {
+      "ticker": "HLMN",
+      "company": "Hillman Solutions Corp.",
+      "insider": "Kraft Robert O.",
+      "title": "CFO and Treasurer",
+      "filed": "2026-09-14",
+      "value": 248500.0,
+      "price": 6.980000019073486,
+      "score": 0.620904255319149
     },
     {
       "ticker": "UPST",
@@ -80,7 +90,7 @@
       "filed": "2026-09-10",
       "value": 1277500.0,
       "price": 25.100000381469727,
-      "score": 0.5966394025604551
+      "score": 0.6159663865546218
     },
     {
       "ticker": "CELH",
@@ -90,7 +100,17 @@
       "filed": "2026-09-10",
       "value": 493842.60000000003,
       "price": 26.6299991607666,
-      "score": 0.5538940256045519
+      "score": 0.5694957983193277
+    },
+    {
+      "ticker": "NTHI",
+      "company": "NEONC TECHNOLOGIES HOLDINGS, INC.",
+      "insider": "Heshmatpour Amir F",
+      "title": "CEO, President",
+      "filed": "2026-09-14",
+      "value": 135619.8,
+      "price": 3.680000066757202,
+      "score": 0.5363581560283688
     },
     {
       "ticker": "ATEC",
@@ -100,17 +120,7 @@
       "filed": "2026-09-10",
       "value": 1013150.0,
       "price": 8.84000015258789,
-      "score": 0.51175320056899
-    },
-    {
-      "ticker": "TISI",
-      "company": "TEAM INC",
-      "insider": "Roeder Clinton William",
-      "title": "Chief Financial Officer",
-      "filed": "2026-09-08",
-      "value": 220720.0,
-      "price": 26.75,
-      "score": 0.4751515151515151
+      "score": 0.5294957983193277
     }
   ]
 }
