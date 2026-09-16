@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T14:40:06+00:00",
+  "generated_at": "2026-09-16T14:31:52+00:00",
   "count": 12,
   "signals": [
     {
@@ -10,17 +10,17 @@
       "filed": "2026-09-11",
       "value": 339150.0,
       "price": 4.070000171661377,
-      "score": 0.8770935960591133
+      "score": 0.8644268774703556
     },
     {
-      "ticker": "DY",
-      "company": "DYCOM INDUSTRIES INC",
-      "insider": "Peyovich Daniel S",
-      "title": "President & CEO",
-      "filed": "2026-09-09",
-      "value": 252246.0,
-      "price": 290.489990234375,
-      "score": 0.7981100795755969
+      "ticker": "GIII",
+      "company": "G III APPAREL GROUP LTD /DE/",
+      "insider": "GOLDFARB MORRIS",
+      "title": "CEO",
+      "filed": "2026-09-15",
+      "value": 1117600.0,
+      "price": 27.729999542236328,
+      "score": 0.8091284088304942
     },
     {
       "ticker": "KMT",
@@ -30,37 +30,17 @@
       "filed": "2026-09-11",
       "value": 203700.0,
       "price": 29.1299991607666,
-      "score": 0.7672413793103448
+      "score": 0.7430830039525691
     },
     {
-      "ticker": "OXM",
-      "company": "OXFORD INDUSTRIES INC",
-      "insider": "Chubb Thomas Caldecot III",
-      "title": "CEO and President",
-      "filed": "2026-09-09",
-      "value": 108268.3,
-      "price": 30.649999618530273,
-      "score": 0.6965185676392572
-    },
-    {
-      "ticker": "PVH",
-      "company": "PVH CORP. /DE/",
-      "insider": "Larsson Stefan",
+      "ticker": "NAMS",
+      "company": "NewAmsterdam Pharma Co N.V.",
+      "insider": "Davidson Michael H.",
       "title": "Chief Executive Officer",
-      "filed": "2026-09-11",
-      "value": 1000001.0192928,
-      "price": 70.63999938964844,
-      "score": 0.6891625615763546
-    },
-    {
-      "ticker": "DVN",
-      "company": "DEVON ENERGY CORP/DE",
-      "insider": "Gaspar Clay M",
-      "title": "PRESIDENT AND CEO",
-      "filed": "2026-09-14",
-      "value": 199876.03999999998,
-      "price": 49.72999954223633,
-      "score": 0.676741134751773
+      "filed": "2026-09-15",
+      "value": 226500.0,
+      "price": 22.360000610351562,
+      "score": 0.726285870699972
     },
     {
       "ticker": "UBER",
@@ -70,7 +50,37 @@
       "filed": "2026-09-10",
       "value": 10005952.200000001,
       "price": 72.55999755859375,
-      "score": 0.6700840336134454
+      "score": 0.6744540229885058
+    },
+    {
+      "ticker": "DVN",
+      "company": "DEVON ENERGY CORP/DE",
+      "insider": "Gaspar Clay M",
+      "title": "PRESIDENT AND CEO",
+      "filed": "2026-09-14",
+      "value": 199876.03999999998,
+      "price": 49.40999984741211,
+      "score": 0.671609547123623
+    },
+    {
+      "ticker": "PVH",
+      "company": "PVH CORP. /DE/",
+      "insider": "Larsson Stefan",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-11",
+      "value": 1000001.0192928,
+      "price": 70.63999938964844,
+      "score": 0.6705533596837944
+    },
+    {
+      "ticker": "RWT",
+      "company": "REDWOOD TRUST INC",
+      "insider": "Carillo Brooke",
+      "title": "Chief Financial Officer",
+      "filed": "2026-09-15",
+      "value": 100238.1705,
+      "price": 3.9100000858306885,
+      "score": 0.6629643775621927
     },
     {
       "ticker": "HLMN",
@@ -80,7 +90,7 @@
       "filed": "2026-09-14",
       "value": 248500.0,
       "price": 6.980000019073486,
-      "score": 0.620904255319149
+      "score": 0.6134332925336596
     },
     {
       "ticker": "UPST",
@@ -90,27 +100,17 @@
       "filed": "2026-09-10",
       "value": 1277500.0,
       "price": 25.100000381469727,
-      "score": 0.6159663865546218
-    },
-    {
-      "ticker": "CELH",
-      "company": "Celsius Holdings, Inc.",
-      "insider": "Fieldly John",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-10",
-      "value": 493842.60000000003,
-      "price": 26.6299991607666,
-      "score": 0.5694957983193277
+      "score": 0.6076149425287356
     },
     {
       "ticker": "NTHI",
       "company": "NEONC TECHNOLOGIES HOLDINGS, INC.",
       "insider": "Heshmatpour Amir F",
       "title": "CEO, President",
-      "filed": "2026-09-14",
-      "value": 135619.8,
-      "price": 3.680000066757202,
-      "score": 0.5363581560283688
+      "filed": "2026-09-15",
+      "value": 115395.0,
+      "price": 3.309999942779541,
+      "score": 0.5612672828660912
     },
     {
       "ticker": "ATEC",
@@ -120,7 +120,7 @@
       "filed": "2026-09-10",
       "value": 1013150.0,
       "price": 8.84000015258789,
-      "score": 0.5294957983193277
+      "score": 0.5166379310344827
     }
   ]
 }
