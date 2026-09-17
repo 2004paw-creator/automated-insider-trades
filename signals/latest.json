@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-16T14:31:52+00:00",
-  "count": 12,
+  "generated_at": "2026-09-17T14:38:48+00:00",
+  "count": 11,
   "signals": [
     {
       "ticker": "RLMD",
@@ -20,7 +20,17 @@
       "filed": "2026-09-15",
       "value": 1117600.0,
       "price": 27.729999542236328,
-      "score": 0.8091284088304942
+      "score": 0.8221447928765002
+    },
+    {
+      "ticker": "NAMS",
+      "company": "NewAmsterdam Pharma Co N.V.",
+      "insider": "Davidson Michael H.",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-15",
+      "value": 226500.0,
+      "price": 22.360000610351562,
+      "score": 0.7493379790940766
     },
     {
       "ticker": "KMT",
@@ -33,24 +43,14 @@
       "score": 0.7430830039525691
     },
     {
-      "ticker": "NAMS",
-      "company": "NewAmsterdam Pharma Co N.V.",
-      "insider": "Davidson Michael H.",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-15",
-      "value": 226500.0,
-      "price": 22.360000610351562,
-      "score": 0.726285870699972
-    },
-    {
-      "ticker": "UBER",
-      "company": "Uber Technologies, Inc",
-      "insider": "KHOSROWSHAHI DARA",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-10",
-      "value": 10005952.200000001,
-      "price": 72.55999755859375,
-      "score": 0.6744540229885058
+      "ticker": "TH",
+      "company": "Target Hospitality Corp.",
+      "insider": "Archer James Bradley",
+      "title": "Director and CEO and President",
+      "filed": "2026-09-16",
+      "value": 250165.65000000002,
+      "price": 18.75,
+      "score": 0.7236521970590775
     },
     {
       "ticker": "DVN",
@@ -60,7 +60,7 @@
       "filed": "2026-09-14",
       "value": 199876.03999999998,
       "price": 49.40999984741211,
-      "score": 0.671609547123623
+      "score": 0.6846452702702701
     },
     {
       "ticker": "PVH",
@@ -73,14 +73,24 @@
       "score": 0.6705533596837944
     },
     {
-      "ticker": "RWT",
-      "company": "REDWOOD TRUST INC",
-      "insider": "Carillo Brooke",
-      "title": "Chief Financial Officer",
-      "filed": "2026-09-15",
-      "value": 100238.1705,
-      "price": 3.9100000858306885,
-      "score": 0.6629643775621927
+      "ticker": "EQPT",
+      "company": "EquipmentShare.com Inc",
+      "insider": "Schlacks Jabbok",
+      "title": "Founder & CEO",
+      "filed": "2026-09-16",
+      "value": 406704.00000000006,
+      "price": 17.68000030517578,
+      "score": 0.6677761071623838
+    },
+    {
+      "ticker": "FOX",
+      "company": "Fox Corp",
+      "insider": "MURDOCH LACHLAN K",
+      "title": "Executive Chair, CEO",
+      "filed": "2026-09-16",
+      "value": 10274977.02,
+      "price": 60.34000015258789,
+      "score": 0.6548196454778279
     },
     {
       "ticker": "HLMN",
@@ -90,17 +100,7 @@
       "filed": "2026-09-14",
       "value": 248500.0,
       "price": 6.980000019073486,
-      "score": 0.6134332925336596
-    },
-    {
-      "ticker": "UPST",
-      "company": "Upstart Holdings, Inc.",
-      "insider": "Gu Paul",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-10",
-      "value": 1277500.0,
-      "price": 25.100000381469727,
-      "score": 0.6076149425287356
+      "score": 0.621117277992278
     },
     {
       "ticker": "NTHI",
@@ -110,17 +110,7 @@
       "filed": "2026-09-15",
       "value": 115395.0,
       "price": 3.309999942779541,
-      "score": 0.5612672828660912
-    },
-    {
-      "ticker": "ATEC",
-      "company": "Alphatec Holdings, Inc.",
-      "insider": "Miles Patrick",
-      "title": "CEO",
-      "filed": "2026-09-10",
-      "value": 1013150.0,
-      "price": 8.84000015258789,
-      "score": 0.5166379310344827
+      "score": 0.5620131629887727
     }
   ]
 }
