@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-09-17T14:38:48+00:00",
-  "count": 11,
+  "generated_at": "2026-09-18T13:59:21+00:00",
+  "count": 10,
   "signals": [
-    {
-      "ticker": "RLMD",
-      "company": "RELMADA THERAPEUTICS, INC.",
-      "insider": "Shenouda Maged",
-      "title": "Chief Financial Officer",
-      "filed": "2026-09-11",
-      "value": 339150.0,
-      "price": 4.070000171661377,
-      "score": 0.8644268774703556
-    },
     {
       "ticker": "GIII",
       "company": "G III APPAREL GROUP LTD /DE/",
@@ -20,7 +10,7 @@
       "filed": "2026-09-15",
       "value": 1117600.0,
       "price": 27.729999542236328,
-      "score": 0.8221447928765002
+      "score": 0.8156954887218045
     },
     {
       "ticker": "NAMS",
@@ -30,17 +20,7 @@
       "filed": "2026-09-15",
       "value": 226500.0,
       "price": 22.360000610351562,
-      "score": 0.7493379790940766
-    },
-    {
-      "ticker": "KMT",
-      "company": "KENNAMETAL INC",
-      "insider": "Chowbey Sanjay",
-      "title": "President and CEO",
-      "filed": "2026-09-11",
-      "value": 203700.0,
-      "price": 29.1299991607666,
-      "score": 0.7430830039525691
+      "score": 0.7471073517126148
     },
     {
       "ticker": "TH",
@@ -50,7 +30,17 @@
       "filed": "2026-09-16",
       "value": 250165.65000000002,
       "price": 18.75,
-      "score": 0.7236521970590775
+      "score": 0.726127358490566
+    },
+    {
+      "ticker": "BWMX",
+      "company": "BETTERWARE DE MEXICO, S.A.P.I. DE C.V",
+      "insider": "CHEVALLIER ANDRES CAMPOS",
+      "title": "CHIEF EXECUTIVE OFFICER",
+      "filed": "2026-09-17",
+      "value": 247494.0,
+      "price": 16.1299991607666,
+      "score": 0.7076262626262626
     },
     {
       "ticker": "DVN",
@@ -60,17 +50,7 @@
       "filed": "2026-09-14",
       "value": 199876.03999999998,
       "price": 49.40999984741211,
-      "score": 0.6846452702702701
-    },
-    {
-      "ticker": "PVH",
-      "company": "PVH CORP. /DE/",
-      "insider": "Larsson Stefan",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-11",
-      "value": 1000001.0192928,
-      "price": 70.63999938964844,
-      "score": 0.6705533596837944
+      "score": 0.6732166988416989
     },
     {
       "ticker": "EQPT",
@@ -80,7 +60,7 @@
       "filed": "2026-09-16",
       "value": 406704.00000000006,
       "price": 17.68000030517578,
-      "score": 0.6677761071623838
+      "score": 0.6727924528301886
     },
     {
       "ticker": "FOX",
@@ -90,7 +70,7 @@
       "filed": "2026-09-16",
       "value": 10274977.02,
       "price": 60.34000015258789,
-      "score": 0.6548196454778279
+      "score": 0.6589150943396226
     },
     {
       "ticker": "HLMN",
@@ -100,7 +80,7 @@
       "filed": "2026-09-14",
       "value": 248500.0,
       "price": 6.980000019073486,
-      "score": 0.621117277992278
+      "score": 0.6049083011583012
     },
     {
       "ticker": "NTHI",
@@ -110,7 +90,17 @@
       "filed": "2026-09-15",
       "value": 115395.0,
       "price": 3.309999942779541,
-      "score": 0.5620131629887727
+      "score": 0.5536027568922306
+    },
+    {
+      "ticker": "NXH",
+      "company": "NEIGHBORHOOD INTELLIGENCE, INC.",
+      "insider": "LEMONIS MARCUS",
+      "title": "EXECUTIVE CHAIRMAN & CEO",
+      "filed": "2026-09-17",
+      "value": 101296.97,
+      "price": 4.619999885559082,
+      "score": 0.5515151515151515
     }
   ]
 }
