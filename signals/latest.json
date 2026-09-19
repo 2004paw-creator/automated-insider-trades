@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-18T13:59:21+00:00",
-  "count": 10,
+  "generated_at": "2026-09-19T13:37:11+00:00",
+  "count": 11,
   "signals": [
     {
       "ticker": "GIII",
@@ -10,7 +10,7 @@
       "filed": "2026-09-15",
       "value": 1117600.0,
       "price": 27.729999542236328,
-      "score": 0.8156954887218045
+      "score": 0.8092431669637552
     },
     {
       "ticker": "NAMS",
@@ -20,17 +20,7 @@
       "filed": "2026-09-15",
       "value": 226500.0,
       "price": 22.360000610351562,
-      "score": 0.7471073517126148
-    },
-    {
-      "ticker": "TH",
-      "company": "Target Hospitality Corp.",
-      "insider": "Archer James Bradley",
-      "title": "Director and CEO and President",
-      "filed": "2026-09-16",
-      "value": 250165.65000000002,
-      "price": 18.75,
-      "score": 0.726127358490566
+      "score": 0.7457553475935829
     },
     {
       "ticker": "BWMX",
@@ -40,7 +30,17 @@
       "filed": "2026-09-17",
       "value": 247494.0,
       "price": 16.1299991607666,
-      "score": 0.7076262626262626
+      "score": 0.6965546218487395
+    },
+    {
+      "ticker": "TFC",
+      "company": "TRUIST FINANCIAL CORP",
+      "insider": "Lyons Michael P.",
+      "title": "President & CEO",
+      "filed": "2026-09-18",
+      "value": 1015576.7999999999,
+      "price": 48.45000076293945,
+      "score": 0.6767127496159754
     },
     {
       "ticker": "DVN",
@@ -60,7 +60,7 @@
       "filed": "2026-09-16",
       "value": 406704.00000000006,
       "price": 17.68000030517578,
-      "score": 0.6727924528301886
+      "score": 0.669692671394799
     },
     {
       "ticker": "FOX",
@@ -70,7 +70,17 @@
       "filed": "2026-09-16",
       "value": 10274977.02,
       "price": 60.34000015258789,
-      "score": 0.6589150943396226
+      "score": 0.6536758480400242
+    },
+    {
+      "ticker": "RWT",
+      "company": "REDWOOD TRUST INC",
+      "insider": "Abate Christopher J",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-18",
+      "value": 383900.0,
+      "price": 3.9100000858306885,
+      "score": 0.6505250663315179
     },
     {
       "ticker": "HLMN",
@@ -90,7 +100,7 @@
       "filed": "2026-09-15",
       "value": 115395.0,
       "price": 3.309999942779541,
-      "score": 0.5536027568922306
+      "score": 0.5594659833630422
     },
     {
       "ticker": "NXH",
@@ -100,7 +110,7 @@
       "filed": "2026-09-17",
       "value": 101296.97,
       "price": 4.619999885559082,
-      "score": 0.5515151515151515
+      "score": 0.5477310924369747
     }
   ]
 }
