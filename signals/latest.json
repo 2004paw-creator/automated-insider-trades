@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-20T14:03:26+00:00",
-  "count": 11,
+  "generated_at": "2026-09-21T16:16:06+00:00",
+  "count": 9,
   "signals": [
     {
       "ticker": "GIII",
@@ -43,16 +43,6 @@
       "score": 0.6767127496159754
     },
     {
-      "ticker": "DVN",
-      "company": "DEVON ENERGY CORP/DE",
-      "insider": "Gaspar Clay M",
-      "title": "PRESIDENT AND CEO",
-      "filed": "2026-09-14",
-      "value": 199876.03999999998,
-      "price": 49.40999984741211,
-      "score": 0.6732166988416989
-    },
-    {
       "ticker": "EQPT",
       "company": "EquipmentShare.com Inc",
       "insider": "Schlacks Jabbok",
@@ -81,16 +71,6 @@
       "value": 383900.0,
       "price": 3.9100000858306885,
       "score": 0.6505250663315179
-    },
-    {
-      "ticker": "HLMN",
-      "company": "Hillman Solutions Corp.",
-      "insider": "Kraft Robert O.",
-      "title": "CFO and Treasurer",
-      "filed": "2026-09-14",
-      "value": 248500.0,
-      "price": 6.980000019073486,
-      "score": 0.6049083011583012
     },
     {
       "ticker": "NTHI",
