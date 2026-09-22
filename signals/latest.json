@@ -1,27 +1,7 @@
 {
-  "generated_at": "2026-09-21T16:16:06+00:00",
-  "count": 9,
+  "generated_at": "2026-09-22T14:23:30+00:00",
+  "count": 6,
   "signals": [
-    {
-      "ticker": "GIII",
-      "company": "G III APPAREL GROUP LTD /DE/",
-      "insider": "GOLDFARB MORRIS",
-      "title": "CEO",
-      "filed": "2026-09-15",
-      "value": 1117600.0,
-      "price": 27.729999542236328,
-      "score": 0.8092431669637552
-    },
-    {
-      "ticker": "NAMS",
-      "company": "NewAmsterdam Pharma Co N.V.",
-      "insider": "Davidson Michael H.",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-15",
-      "value": 226500.0,
-      "price": 22.360000610351562,
-      "score": 0.7457553475935829
-    },
     {
       "ticker": "BWMX",
       "company": "BETTERWARE DE MEXICO, S.A.P.I. DE C.V",
@@ -30,7 +10,7 @@
       "filed": "2026-09-17",
       "value": 247494.0,
       "price": 16.1299991607666,
-      "score": 0.6965546218487395
+      "score": 0.6830107526881719
     },
     {
       "ticker": "TFC",
@@ -40,7 +20,7 @@
       "filed": "2026-09-18",
       "value": 1015576.7999999999,
       "price": 48.45000076293945,
-      "score": 0.6767127496159754
+      "score": 0.676717032967033
     },
     {
       "ticker": "EQPT",
@@ -50,7 +30,7 @@
       "filed": "2026-09-16",
       "value": 406704.00000000006,
       "price": 17.68000030517578,
-      "score": 0.669692671394799
+      "score": 0.6670725108225108
     },
     {
       "ticker": "FOX",
@@ -60,27 +40,17 @@
       "filed": "2026-09-16",
       "value": 10274977.02,
       "price": 60.34000015258789,
-      "score": 0.6536758480400242
+      "score": 0.6557521645021646
     },
     {
-      "ticker": "RWT",
-      "company": "REDWOOD TRUST INC",
-      "insider": "Abate Christopher J",
+      "ticker": "BORR",
+      "company": "Borr Drilling Ltd",
+      "insider": "Morand De Oliveira Bruno",
       "title": "Chief Executive Officer",
-      "filed": "2026-09-18",
-      "value": 383900.0,
-      "price": 3.9100000858306885,
-      "score": 0.6505250663315179
-    },
-    {
-      "ticker": "NTHI",
-      "company": "NEONC TECHNOLOGIES HOLDINGS, INC.",
-      "insider": "Heshmatpour Amir F",
-      "title": "CEO, President",
-      "filed": "2026-09-15",
-      "value": 115395.0,
-      "price": 3.309999942779541,
-      "score": 0.5594659833630422
+      "filed": "2026-09-21",
+      "value": 200200.00000000003,
+      "price": 4.460000038146973,
+      "score": 0.6107207207207207
     },
     {
       "ticker": "NXH",
@@ -90,7 +60,7 @@
       "filed": "2026-09-17",
       "value": 101296.97,
       "price": 4.619999885559082,
-      "score": 0.5477310924369747
+      "score": 0.524516129032258
     }
   ]
 }
