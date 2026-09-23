@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-09-22T14:23:30+00:00",
-  "count": 6,
+  "generated_at": "2026-09-23T14:33:13+00:00",
+  "count": 5,
   "signals": [
-    {
-      "ticker": "BWMX",
-      "company": "BETTERWARE DE MEXICO, S.A.P.I. DE C.V",
-      "insider": "CHEVALLIER ANDRES CAMPOS",
-      "title": "CHIEF EXECUTIVE OFFICER",
-      "filed": "2026-09-17",
-      "value": 247494.0,
-      "price": 16.1299991607666,
-      "score": 0.6830107526881719
-    },
     {
       "ticker": "TFC",
       "company": "TRUIST FINANCIAL CORP",
@@ -20,27 +10,27 @@
       "filed": "2026-09-18",
       "value": 1015576.7999999999,
       "price": 48.45000076293945,
-      "score": 0.676717032967033
+      "score": 0.6819047619047618
     },
     {
-      "ticker": "EQPT",
-      "company": "EquipmentShare.com Inc",
-      "insider": "Schlacks Jabbok",
-      "title": "Founder & CEO",
-      "filed": "2026-09-16",
-      "value": 406704.00000000006,
-      "price": 17.68000030517578,
-      "score": 0.6670725108225108
+      "ticker": "BWMX",
+      "company": "BETTERWARE DE MEXICO, S.A.P.I. DE C.V",
+      "insider": "CHEVALLIER ANDRES CAMPOS",
+      "title": "CHIEF EXECUTIVE OFFICER",
+      "filed": "2026-09-17",
+      "value": 247494.0,
+      "price": 16.1299991607666,
+      "score": 0.6563822751322752
     },
     {
-      "ticker": "FOX",
-      "company": "Fox Corp",
-      "insider": "MURDOCH LACHLAN K",
-      "title": "Executive Chair, CEO",
-      "filed": "2026-09-16",
-      "value": 10274977.02,
-      "price": 60.34000015258789,
-      "score": 0.6557521645021646
+      "ticker": "TPVG",
+      "company": "TriplePoint Venture Growth BDC Corp.",
+      "insider": "Labe James",
+      "title": "Chief Executive Officer",
+      "filed": "2026-09-22",
+      "value": 1477081.111842,
+      "price": 4.849999904632568,
+      "score": 0.6411796536796537
     },
     {
       "ticker": "BORR",
@@ -50,7 +40,7 @@
       "filed": "2026-09-21",
       "value": 200200.00000000003,
       "price": 4.460000038146973,
-      "score": 0.6107207207207207
+      "score": 0.5854166666666666
     },
     {
       "ticker": "NXH",
@@ -60,7 +50,7 @@
       "filed": "2026-09-17",
       "value": 101296.97,
       "price": 4.619999885559082,
-      "score": 0.524516129032258
+      "score": 0.5262896825396826
     }
   ]
 }
