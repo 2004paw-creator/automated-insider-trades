@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-23T14:33:13+00:00",
-  "count": 5,
+  "generated_at": "2026-09-24T14:27:22+00:00",
+  "count": 3,
   "signals": [
     {
       "ticker": "TFC",
@@ -10,17 +10,7 @@
       "filed": "2026-09-18",
       "value": 1015576.7999999999,
       "price": 48.45000076293945,
-      "score": 0.6819047619047618
-    },
-    {
-      "ticker": "BWMX",
-      "company": "BETTERWARE DE MEXICO, S.A.P.I. DE C.V",
-      "insider": "CHEVALLIER ANDRES CAMPOS",
-      "title": "CHIEF EXECUTIVE OFFICER",
-      "filed": "2026-09-17",
-      "value": 247494.0,
-      "price": 16.1299991607666,
-      "score": 0.6563822751322752
+      "score": 0.7169117647058824
     },
     {
       "ticker": "TPVG",
@@ -30,7 +20,7 @@
       "filed": "2026-09-22",
       "value": 1477081.111842,
       "price": 4.849999904632568,
-      "score": 0.6411796536796537
+      "score": 0.6589059934318555
     },
     {
       "ticker": "BORR",
@@ -40,17 +30,7 @@
       "filed": "2026-09-21",
       "value": 200200.00000000003,
       "price": 4.460000038146973,
-      "score": 0.5854166666666666
-    },
-    {
-      "ticker": "NXH",
-      "company": "NEIGHBORHOOD INTELLIGENCE, INC.",
-      "insider": "LEMONIS MARCUS",
-      "title": "EXECUTIVE CHAIRMAN & CEO",
-      "filed": "2026-09-17",
-      "value": 101296.97,
-      "price": 4.619999885559082,
-      "score": 0.5262896825396826
+      "score": 0.5893770702981229
     }
   ]
 }
