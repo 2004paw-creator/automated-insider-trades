@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-09-24T14:27:22+00:00",
-  "count": 3,
+  "generated_at": "2026-09-25T14:49:42+00:00",
+  "count": 2,
   "signals": [
-    {
-      "ticker": "TFC",
-      "company": "TRUIST FINANCIAL CORP",
-      "insider": "Lyons Michael P.",
-      "title": "President & CEO",
-      "filed": "2026-09-18",
-      "value": 1015576.7999999999,
-      "price": 48.45000076293945,
-      "score": 0.7169117647058824
-    },
     {
       "ticker": "TPVG",
       "company": "TriplePoint Venture Growth BDC Corp.",
@@ -20,7 +10,7 @@
       "filed": "2026-09-22",
       "value": 1477081.111842,
       "price": 4.849999904632568,
-      "score": 0.6589059934318555
+      "score": 0.6723275862068965
     },
     {
       "ticker": "BORR",
@@ -30,7 +20,7 @@
       "filed": "2026-09-21",
       "value": 200200.00000000003,
       "price": 4.460000038146973,
-      "score": 0.5893770702981229
+      "score": 0.5835238095238096
     }
   ]
 }
