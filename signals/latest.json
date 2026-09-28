@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T14:58:30+00:00",
-  "count": 3,
+  "generated_at": "2026-09-28T17:52:30+00:00",
+  "count": 2,
   "signals": [
     {
       "ticker": "TPVG",
@@ -13,16 +13,6 @@
       "score": 0.6633004926108375
     },
     {
-      "ticker": "BORR",
-      "company": "Borr Drilling Ltd",
-      "insider": "Morand De Oliveira Bruno",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-21",
-      "value": 200200.00000000003,
-      "price": 4.460000038146973,
-      "score": 0.5835238095238096
-    },
-    {
       "ticker": "NCT",
       "company": "Intercont (Cayman) Ltd",
       "insider": "Zhu Muchun",
@@ -30,7 +20,7 @@
       "filed": "2026-09-25",
       "value": 650000.0,
       "price": 4.429999828338623,
-      "score": 0.5813125695216907
+      "score": 0.6084677419354838
     }
   ]
 }
