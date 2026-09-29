@@ -1,16 +1,26 @@
 {
-  "generated_at": "2026-09-28T17:52:30+00:00",
-  "count": 2,
+  "generated_at": "2026-09-29T16:01:15+00:00",
+  "count": 3,
   "signals": [
     {
-      "ticker": "TPVG",
-      "company": "TriplePoint Venture Growth BDC Corp.",
-      "insider": "Labe James",
+      "ticker": "DMRA",
+      "company": "Damora Therapeutics, Inc.",
+      "insider": "Jarrett Jennifer",
+      "title": "Director, President and CEO",
+      "filed": "2026-09-28",
+      "value": 252875.0,
+      "price": 20.65999984741211,
+      "score": 0.8323863636363636
+    },
+    {
+      "ticker": "INBX",
+      "company": "Inhibrx Biosciences, Inc.",
+      "insider": "Lappe Mark",
       "title": "Chief Executive Officer",
-      "filed": "2026-09-22",
-      "value": 1477081.111842,
-      "price": 4.849999904632568,
-      "score": 0.6633004926108375
+      "filed": "2026-09-28",
+      "value": 305106.0,
+      "price": 101.70999908447266,
+      "score": 0.7327398989898989
     },
     {
       "ticker": "NCT",
@@ -20,7 +30,7 @@
       "filed": "2026-09-25",
       "value": 650000.0,
       "price": 4.429999828338623,
-      "score": 0.6084677419354838
+      "score": 0.5994999999999999
     }
   ]
 }
