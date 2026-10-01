@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-30T16:08:19+00:00",
-  "count": 3,
+  "generated_at": "2026-10-01T16:39:31+00:00",
+  "count": 5,
   "signals": [
     {
       "ticker": "DMRA",
@@ -10,7 +10,17 @@
       "filed": "2026-09-28",
       "value": 252875.0,
       "price": 20.65999984741211,
-      "score": 0.836472148541114
+      "score": 0.818844696969697
+    },
+    {
+      "ticker": "NYAX",
+      "company": "Nayax Ltd.",
+      "insider": "Nechmad Yair",
+      "title": "CEO, Co Founder & Chairman",
+      "filed": "2026-09-30",
+      "value": 124134.2065,
+      "price": 44.56999969482422,
+      "score": 0.7452075310226787
     },
     {
       "ticker": "INBX",
@@ -20,7 +30,7 @@
       "filed": "2026-09-28",
       "value": 305106.0,
       "price": 101.70999908447266,
-      "score": 0.7321819859301119
+      "score": 0.7231309808612439
     },
     {
       "ticker": "NCT",
@@ -30,7 +40,17 @@
       "filed": "2026-09-25",
       "value": 650000.0,
       "price": 4.429999828338623,
-      "score": 0.5985
+      "score": 0.6095394736842106
+    },
+    {
+      "ticker": "MNSO",
+      "company": "MINISO Group Holding Ltd",
+      "insider": "Zhang Jingjing Eason",
+      "title": "VP and Chief Financial Officer",
+      "filed": "2026-09-30",
+      "value": 340099.98000000004,
+      "price": 9.220000267028809,
+      "score": 0.6025673940949936
     }
   ]
 }
