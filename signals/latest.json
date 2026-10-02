@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-01T16:39:31+00:00",
-  "count": 5,
+  "generated_at": "2026-10-02T16:04:27+00:00",
+  "count": 6,
   "signals": [
     {
       "ticker": "DMRA",
@@ -10,7 +10,17 @@
       "filed": "2026-09-28",
       "value": 252875.0,
       "price": 20.65999984741211,
-      "score": 0.818844696969697
+      "score": 0.8188636363636365
+    },
+    {
+      "ticker": "XENE",
+      "company": "Xenon Pharmaceuticals Inc.",
+      "insider": "MORTIMER IAN",
+      "title": "PRESIDENT & CEO",
+      "filed": "2026-10-01",
+      "value": 1121400.0,
+      "price": 37.189998626708984,
+      "score": 0.7969479555575547
     },
     {
       "ticker": "NYAX",
@@ -20,7 +30,7 @@
       "filed": "2026-09-30",
       "value": 124134.2065,
       "price": 44.56999969482422,
-      "score": 0.7452075310226787
+      "score": 0.7267588325652842
     },
     {
       "ticker": "INBX",
@@ -30,17 +40,7 @@
       "filed": "2026-09-28",
       "value": 305106.0,
       "price": 101.70999908447266,
-      "score": 0.7231309808612439
-    },
-    {
-      "ticker": "NCT",
-      "company": "Intercont (Cayman) Ltd",
-      "insider": "Zhu Muchun",
-      "title": "CEO and Chairman",
-      "filed": "2026-09-25",
-      "value": 650000.0,
-      "price": 4.429999828338623,
-      "score": 0.6095394736842106
+      "score": 0.7130347593582887
     },
     {
       "ticker": "MNSO",
@@ -50,7 +50,17 @@
       "filed": "2026-09-30",
       "value": 340099.98000000004,
       "price": 9.220000267028809,
-      "score": 0.6025673940949936
+      "score": 0.5949769585253456
+    },
+    {
+      "ticker": "GTLB",
+      "company": "Gitlab Inc.",
+      "insider": "Staples William",
+      "title": "Chief Executive Officer",
+      "filed": "2026-10-01",
+      "value": 124801.73999999999,
+      "price": 47.25,
+      "score": 0.4625792811839324
     }
   ]
 }
