@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-10-04T15:20:05+00:00",
-  "count": 7,
+  "generated_at": "2026-10-05T18:53:17+00:00",
+  "count": 5,
   "signals": [
-    {
-      "ticker": "DMRA",
-      "company": "Damora Therapeutics, Inc.",
-      "insider": "Jarrett Jennifer",
-      "title": "Director, President and CEO",
-      "filed": "2026-09-28",
-      "value": 252875.0,
-      "price": 20.65999984741211,
-      "score": 0.8271710526315789
-    },
     {
       "ticker": "XENE",
       "company": "Xenon Pharmaceuticals Inc.",
@@ -31,16 +21,6 @@
       "value": 888934.732,
       "price": 47.709999084472656,
       "score": 0.7451322115384614
-    },
-    {
-      "ticker": "INBX",
-      "company": "Inhibrx Biosciences, Inc.",
-      "insider": "Lappe Mark",
-      "title": "Chief Executive Officer",
-      "filed": "2026-09-28",
-      "value": 305106.0,
-      "price": 101.70999908447266,
-      "score": 0.7171052631578948
     },
     {
       "ticker": "MNSO",
