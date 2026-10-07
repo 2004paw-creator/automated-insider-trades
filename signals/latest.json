@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-06T16:32:11+00:00",
-  "count": 5,
+  "generated_at": "2026-10-07T17:03:18+00:00",
+  "count": 4,
   "signals": [
     {
       "ticker": "XENE",
@@ -10,7 +10,7 @@
       "filed": "2026-10-01",
       "value": 1121400.0,
       "price": 37.189998626708984,
-      "score": 0.797563025210084
+      "score": 0.8097537878787878
     },
     {
       "ticker": "NYAX",
@@ -20,17 +20,7 @@
       "filed": "2026-10-02",
       "value": 888934.732,
       "price": 47.709999084472656,
-      "score": 0.7333809523809524
-    },
-    {
-      "ticker": "MNSO",
-      "company": "MINISO Group Holding Ltd",
-      "insider": "Zhang Jingjing Eason",
-      "title": "VP and Chief Financial Officer",
-      "filed": "2026-09-30",
-      "value": 340099.98000000004,
-      "price": 9.220000267028809,
-      "score": 0.5954202898550724
+      "score": 0.7317559523809524
     },
     {
       "ticker": "GME",
@@ -40,7 +30,7 @@
       "filed": "2026-10-02",
       "value": 17084270.0,
       "price": 24.700000762939453,
-      "score": 0.5751428571428572
+      "score": 0.5752678571428571
     },
     {
       "ticker": "GTLB",
@@ -50,7 +40,7 @@
       "filed": "2026-10-01",
       "value": 124801.73999999999,
       "price": 47.25,
-      "score": 0.4685714285714285
+      "score": 0.4727272727272727
     }
   ]
 }
