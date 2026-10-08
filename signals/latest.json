@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-10-07T17:03:18+00:00",
-  "count": 4,
+  "generated_at": "2026-10-08T17:00:15+00:00",
+  "count": 2,
   "signals": [
-    {
-      "ticker": "XENE",
-      "company": "Xenon Pharmaceuticals Inc.",
-      "insider": "MORTIMER IAN",
-      "title": "PRESIDENT & CEO",
-      "filed": "2026-10-01",
-      "value": 1121400.0,
-      "price": 37.189998626708984,
-      "score": 0.8097537878787878
-    },
     {
       "ticker": "NYAX",
       "company": "Nayax Ltd.",
@@ -20,7 +10,7 @@
       "filed": "2026-10-02",
       "value": 888934.732,
       "price": 47.709999084472656,
-      "score": 0.7317559523809524
+      "score": 0.7220823798627002
     },
     {
       "ticker": "GME",
@@ -30,17 +20,7 @@
       "filed": "2026-10-02",
       "value": 17084270.0,
       "price": 24.700000762939453,
-      "score": 0.5752678571428571
-    },
-    {
-      "ticker": "GTLB",
-      "company": "Gitlab Inc.",
-      "insider": "Staples William",
-      "title": "Chief Executive Officer",
-      "filed": "2026-10-01",
-      "value": 124801.73999999999,
-      "price": 47.25,
-      "score": 0.4727272727272727
+      "score": 0.5729977116704805
     }
   ]
 }
