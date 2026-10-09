@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-10-08T17:00:15+00:00",
+  "generated_at": "2026-10-09T16:31:43+00:00",
   "count": 2,
   "signals": [
     {
-      "ticker": "NYAX",
-      "company": "Nayax Ltd.",
-      "insider": "Nechmad Yair",
-      "title": "CEO, Co Founder & Chairman",
-      "filed": "2026-10-02",
-      "value": 888934.732,
-      "price": 47.709999084472656,
-      "score": 0.7220823798627002
+      "ticker": "COE",
+      "company": "51Talk Online Education Group",
+      "insider": "Huang Jack Jiajia",
+      "title": "Chief Executive Officer",
+      "filed": "2026-10-08",
+      "value": 14117400.0,
+      "price": 11.670000076293945,
+      "score": 0.6305043859649122
     },
     {
-      "ticker": "GME",
-      "company": "GameStop Corp.",
-      "insider": "Cohen Ryan",
-      "title": "President, CEO and Chairman",
-      "filed": "2026-10-02",
-      "value": 17084270.0,
-      "price": 24.700000762939453,
-      "score": 0.5729977116704805
+      "ticker": "IMMR",
+      "company": "IMMERSION CORP",
+      "insider": "Singer Eric",
+      "title": "President and CEO",
+      "filed": "2026-10-08",
+      "value": 192692.5,
+      "price": 7.260000228881836,
+      "score": 0.5211622807017544
     }
   ]
 }
