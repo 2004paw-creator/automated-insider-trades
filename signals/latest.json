@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-10-14T14:40:46+00:00",
-  "count": 5,
+  "generated_at": "2026-10-15T14:20:12+00:00",
+  "count": 3,
   "signals": [
-    {
-      "ticker": "COE",
-      "company": "51Talk Online Education Group",
-      "insider": "Huang Jack Jiajia",
-      "title": "Chief Executive Officer",
-      "filed": "2026-10-08",
-      "value": 14117400.0,
-      "price": 11.670000076293945,
-      "score": 0.6418560606060606
-    },
     {
       "ticker": "SAR",
       "company": "SARATOGA INVESTMENT CORP.",
@@ -20,7 +10,7 @@
       "filed": "2026-10-13",
       "value": 222450.0,
       "price": 15.029999732971191,
-      "score": 0.6101388888888889
+      "score": 0.6341666666666667
     },
     {
       "ticker": "GME",
@@ -30,7 +20,7 @@
       "filed": "2026-10-13",
       "value": 20979000.0,
       "price": 27.219999313354492,
-      "score": 0.6004166666666666
+      "score": 0.6115
     },
     {
       "ticker": "RTSN",
@@ -40,17 +30,7 @@
       "filed": "2026-10-13",
       "value": 249600.0,
       "price": 11.630000114440918,
-      "score": 0.5895833333333332
-    },
-    {
-      "ticker": "IMMR",
-      "company": "IMMERSION CORP",
-      "insider": "Singer Eric",
-      "title": "President and CEO",
-      "filed": "2026-10-08",
-      "value": 192692.5,
-      "price": 7.260000228881836,
-      "score": 0.48238636363636356
+      "score": 0.6074999999999999
     }
   ]
 }
