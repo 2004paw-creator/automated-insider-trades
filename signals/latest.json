@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-21T14:43:23+00:00",
+  "generated_at": "2026-10-22T14:43:56+00:00",
   "count": 1,
   "signals": [
     {
-      "ticker": "FLSC",
-      "company": "Frazier Life Sciences Acquisition Corp. II",
-      "insider": "Cha Albert",
-      "title": "Chief Executive Officer",
-      "filed": "2026-10-15",
-      "value": 3000000.0,
-      "price": 10.489999771118164,
-      "score": 0.6796875
+      "ticker": "RAPP",
+      "company": "Rapport Therapeutics, Inc.",
+      "insider": "Ignelzi Troy A.",
+      "title": "Chief Financial Officer",
+      "filed": "2026-10-21",
+      "value": 143550.0,
+      "price": 25.059999465942383,
+      "score": 0.8029089026915113
     }
   ]
 }
