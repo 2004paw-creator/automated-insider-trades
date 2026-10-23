@@ -1,16 +1,5 @@
 {
-  "generated_at": "2026-10-22T14:43:56+00:00",
-  "count": 1,
-  "signals": [
-    {
-      "ticker": "RAPP",
-      "company": "Rapport Therapeutics, Inc.",
-      "insider": "Ignelzi Troy A.",
-      "title": "Chief Financial Officer",
-      "filed": "2026-10-21",
-      "value": 143550.0,
-      "price": 25.059999465942383,
-      "score": 0.8029089026915113
-    }
-  ]
+  "generated_at": "2026-10-23T14:25:05+00:00",
+  "count": 0,
+  "signals": []
 }
