@@ -1,5 +1,46 @@
 {
-  "generated_at": "2026-10-27T15:32:17+00:00",
-  "count": 0,
-  "signals": []
+  "generated_at": "2026-10-28T16:10:20+00:00",
+  "count": 4,
+  "signals": [
+    {
+      "ticker": "TIPT",
+      "company": "TIPTREE INC.",
+      "insider": "Barnes Michael Gene",
+      "title": "Chairman and CEO",
+      "filed": "2026-10-27",
+      "value": 502303.19999999995,
+      "price": 16.290000915527344,
+      "score": 0.6348529411764705
+    },
+    {
+      "ticker": "NPB",
+      "company": "NORTHPOINTE BANCSHARES INC",
+      "insider": "Williams Charles Alan",
+      "title": "CHAIRMAN & CEO",
+      "filed": "2026-10-27",
+      "value": 766175.0,
+      "price": 15.229999542236328,
+      "score": 0.6184803921568627
+    },
+    {
+      "ticker": "AIOK",
+      "company": "AI OKTO Corp.",
+      "insider": "Panagiotidis Petros Panagiotis",
+      "title": "Chief Executive Officer",
+      "filed": "2026-10-27",
+      "value": 403973.449,
+      "price": 12.020000457763672,
+      "score": 0.5742647058823529
+    },
+    {
+      "ticker": "STC",
+      "company": "STEWART INFORMATION SERVICES CORP",
+      "insider": "EPPINGER FREDERICK H",
+      "title": "Chief Executive Officer",
+      "filed": "2026-10-27",
+      "value": 133350.0,
+      "price": 42.959999084472656,
+      "score": 0.5327941176470589
+    }
+  ]
 }
