@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-10-28T16:10:20+00:00",
-  "count": 4,
+  "generated_at": "2026-10-29T16:17:00+00:00",
+  "count": 6,
   "signals": [
+    {
+      "ticker": "TTMI",
+      "company": "TTM TECHNOLOGIES INC",
+      "insider": "Roks Edwin",
+      "title": "President and CEO",
+      "filed": "2026-10-28",
+      "value": 440349.99999999994,
+      "price": 90.79000091552734,
+      "score": 0.7728853754940712
+    },
     {
       "ticker": "TIPT",
       "company": "TIPTREE INC.",
@@ -10,7 +20,7 @@
       "filed": "2026-10-27",
       "value": 502303.19999999995,
       "price": 16.290000915527344,
-      "score": 0.6348529411764705
+      "score": 0.6458333333333333
     },
     {
       "ticker": "NPB",
@@ -20,7 +30,7 @@
       "filed": "2026-10-27",
       "value": 766175.0,
       "price": 15.229999542236328,
-      "score": 0.6184803921568627
+      "score": 0.6254629629629629
     },
     {
       "ticker": "AIOK",
@@ -30,7 +40,7 @@
       "filed": "2026-10-27",
       "value": 403973.449,
       "price": 12.020000457763672,
-      "score": 0.5742647058823529
+      "score": 0.5740740740740741
     },
     {
       "ticker": "STC",
@@ -40,7 +50,17 @@
       "filed": "2026-10-27",
       "value": 133350.0,
       "price": 42.959999084472656,
-      "score": 0.5327941176470589
+      "score": 0.5300925925925926
+    },
+    {
+      "ticker": "ACN",
+      "company": "Accenture plc",
+      "insider": "Sweet Julie Spellman",
+      "title": "Chair and CEO",
+      "filed": "2026-10-28",
+      "value": 2486318.01,
+      "price": 247.22999572753906,
+      "score": 0.44960474308300397
     }
   ]
 }
