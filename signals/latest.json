@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-10-30T16:05:26+00:00",
+  "generated_at": "2026-10-31T15:32:25+00:00",
   "count": 7,
   "signals": [
-    {
-      "ticker": "TTMI",
-      "company": "TTM TECHNOLOGIES INC",
-      "insider": "Roks Edwin",
-      "title": "President and CEO",
-      "filed": "2026-10-28",
-      "value": 440349.99999999994,
-      "price": 90.79000091552734,
-      "score": 0.7425
-    },
     {
       "ticker": "DINO",
       "company": "HF Sinclair Corp",
@@ -20,7 +10,17 @@
       "filed": "2026-10-29",
       "value": 1108000.0,
       "price": 111.88999938964844,
-      "score": 0.7204545454545455
+      "score": 0.7323082010582012
+    },
+    {
+      "ticker": "TTMI",
+      "company": "TTM TECHNOLOGIES INC",
+      "insider": "Roks Edwin",
+      "title": "President and CEO",
+      "filed": "2026-10-28",
+      "value": 440349.99999999994,
+      "price": 90.79000091552734,
+      "score": 0.7311204481792717
     },
     {
       "ticker": "TFC",
@@ -30,7 +30,7 @@
       "filed": "2026-10-29",
       "value": 1209050.0,
       "price": 48.41999816894531,
-      "score": 0.7115041544477029
+      "score": 0.7141814204314203
     },
     {
       "ticker": "TIPT",
@@ -40,7 +40,7 @@
       "filed": "2026-10-27",
       "value": 502303.19999999995,
       "price": 16.290000915527344,
-      "score": 0.6697916666666668
+      "score": 0.6996240601503759
     },
     {
       "ticker": "AIOK",
@@ -50,7 +50,7 @@
       "filed": "2026-10-27",
       "value": 403973.449,
       "price": 12.020000457763672,
-      "score": 0.590625
+      "score": 0.5952380952380951
     },
     {
       "ticker": "STC",
@@ -60,7 +60,7 @@
       "filed": "2026-10-27",
       "value": 133350.0,
       "price": 42.959999084472656,
-      "score": 0.534375
+      "score": 0.5355889724310776
     },
     {
       "ticker": "ACN",
@@ -70,7 +70,7 @@
       "filed": "2026-10-28",
       "value": 2486318.01,
       "price": 247.22999572753906,
-      "score": 0.4622222222222222
+      "score": 0.4650140056022409
     }
   ]
 }
