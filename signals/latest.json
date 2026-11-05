@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-11-04T17:30:47+00:00",
-  "count": 5,
+  "generated_at": "2026-11-05T17:44:24+00:00",
+  "count": 6,
   "signals": [
+    {
+      "ticker": "INTC",
+      "company": "INTEL CORP",
+      "insider": "TAN LIP BU",
+      "title": "CEO",
+      "filed": "2026-11-04",
+      "value": 9709680.0,
+      "price": 59.970001220703125,
+      "score": 0.7406912442396313
+    },
     {
       "ticker": "LSTR",
       "company": "LANDSTAR SYSTEM INC",
@@ -10,27 +20,17 @@
       "filed": "2026-11-02",
       "value": 714619.0,
       "price": 142.6999969482422,
-      "score": 0.8346785714285715
+      "score": 0.7059006211180124
     },
     {
-      "ticker": "DINO",
-      "company": "HF Sinclair Corp",
-      "insider": "MYERS FRANKLIN",
-      "title": "CEO",
-      "filed": "2026-10-29",
-      "value": 1108000.0,
-      "price": 111.88999938964844,
-      "score": 0.7250988142292489
-    },
-    {
-      "ticker": "TFC",
-      "company": "TRUIST FINANCIAL CORP",
-      "insider": "Lyons Michael P.",
-      "title": "President & CEO",
-      "filed": "2026-10-29",
-      "value": 1209050.0,
-      "price": 48.41999816894531,
-      "score": 0.7169395821569735
+      "ticker": "PAM",
+      "company": "Pampa Energy Inc.",
+      "insider": "Zuberbuhler Adolfo Fernando",
+      "title": "Chief Financial Officer",
+      "filed": "2026-11-04",
+      "value": 207320.96,
+      "price": 64.83999633789062,
+      "score": 0.634884792626728
     },
     {
       "ticker": "FCPT",
@@ -40,7 +40,17 @@
       "filed": "2026-11-02",
       "value": 226072.0,
       "price": 23.200000762939453,
-      "score": 0.6091785714285713
+      "score": 0.60879917184265
+    },
+    {
+      "ticker": "LSCC",
+      "company": "LATTICE SEMICONDUCTOR CORP",
+      "insider": "Tamer Ford",
+      "title": "President & CEO",
+      "filed": "2026-11-04",
+      "value": 124078.56,
+      "price": 107.25,
+      "score": 0.6055299539170507
     },
     {
       "ticker": "SITE",
@@ -50,7 +60,7 @@
       "filed": "2026-11-03",
       "value": 503594.00000000006,
       "price": 110.87000274658203,
-      "score": 0.4271209712386183
+      "score": 0.5293229166666666
     }
   ]
 }
