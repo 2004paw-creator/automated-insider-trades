@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-08T16:25:10+00:00",
-  "count": 12,
+  "generated_at": "2026-11-09T20:09:37+00:00",
+  "count": 10,
   "signals": [
     {
       "ticker": "INTC",
@@ -10,17 +10,7 @@
       "filed": "2026-11-04",
       "value": 9709680.0,
       "price": 59.970001220703125,
-      "score": 0.8922658862876254
-    },
-    {
-      "ticker": "LSTR",
-      "company": "LANDSTAR SYSTEM INC",
-      "insider": "Lonegro Frank A",
-      "title": "President & CEO",
-      "filed": "2026-11-02",
-      "value": 714619.0,
-      "price": 142.6999969482422,
-      "score": 0.8563492063492063
+      "score": 0.8918706293706293
     },
     {
       "ticker": "KMT",
@@ -40,7 +30,7 @@
       "filed": "2026-11-04",
       "value": 124078.56,
       "price": 107.25,
-      "score": 0.7494413195500151
+      "score": 0.7461663336663336
     },
     {
       "ticker": "GLXY",
@@ -71,16 +61,6 @@
       "value": 377335.0,
       "price": 14.8100004196167,
       "score": 0.6410833069369655
-    },
-    {
-      "ticker": "FCPT",
-      "company": "Four Corners Property Trust, Inc.",
-      "insider": "Lenehan William H",
-      "title": "President and CEO",
-      "filed": "2026-11-02",
-      "value": 226072.0,
-      "price": 23.200000762939453,
-      "score": 0.6119047619047618
     },
     {
       "ticker": "FBRT",
