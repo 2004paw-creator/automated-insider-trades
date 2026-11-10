@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T20:09:37+00:00",
-  "count": 10,
+  "generated_at": "2026-11-10T17:20:47+00:00",
+  "count": 13,
   "signals": [
     {
       "ticker": "INTC",
@@ -10,17 +10,7 @@
       "filed": "2026-11-04",
       "value": 9709680.0,
       "price": 59.970001220703125,
-      "score": 0.8918706293706293
-    },
-    {
-      "ticker": "KMT",
-      "company": "KENNAMETAL INC",
-      "insider": "Chowbey Sanjay",
-      "title": "President and CEO",
-      "filed": "2026-11-06",
-      "value": 165368.0,
-      "price": 23.219999313354492,
-      "score": 0.7504679144385027
+      "score": 0.8860645933014354
     },
     {
       "ticker": "LSCC",
@@ -30,7 +20,7 @@
       "filed": "2026-11-04",
       "value": 124078.56,
       "price": 107.25,
-      "score": 0.7461663336663336
+      "score": 0.7416068580542265
     },
     {
       "ticker": "GLXY",
@@ -40,7 +30,17 @@
       "filed": "2026-11-05",
       "value": 3152304.576,
       "price": 12.979999542236328,
-      "score": 0.6625182134938233
+      "score": 0.6783158665765157
+    },
+    {
+      "ticker": "SOPH",
+      "company": "SOPHiA GENETICS SA",
+      "insider": "Muken Ross",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-09",
+      "value": 137188.0,
+      "price": 7.139999866485596,
+      "score": 0.6738484541699193
     },
     {
       "ticker": "TRNS",
@@ -50,7 +50,17 @@
       "filed": "2026-11-06",
       "value": 230366.5,
       "price": 100.37999725341797,
-      "score": 0.6560828877005347
+      "score": 0.6548029556650246
+    },
+    {
+      "ticker": "CMCO",
+      "company": "COLUMBUS MCKINNON CORP",
+      "insider": "Wilson David J.",
+      "title": "President & CEO",
+      "filed": "2026-11-09",
+      "value": 281349.60000000003,
+      "price": 16.46000099182129,
+      "score": 0.6480651712529274
     },
     {
       "ticker": "LBRT",
@@ -60,7 +70,37 @@
       "filed": "2026-11-05",
       "value": 377335.0,
       "price": 14.8100004196167,
-      "score": 0.6410833069369655
+      "score": 0.6476870633310796
+    },
+    {
+      "ticker": "ROK",
+      "company": "ROCKWELL AUTOMATION, INC",
+      "insider": "Moret Blake D.",
+      "title": "President and CEO",
+      "filed": "2026-11-09",
+      "value": 213089.47,
+      "price": 389.3599853515625,
+      "score": 0.6337146069151703
+    },
+    {
+      "ticker": "LUMN",
+      "company": "Lumen Technologies, Inc.",
+      "insider": "Johnson Kathleen E",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-09",
+      "value": 396890.0,
+      "price": 3.990000009536743,
+      "score": 0.6147574526736925
+    },
+    {
+      "ticker": "DKNG",
+      "company": "DraftKings Inc.",
+      "insider": "Ellingson Alan Wayne",
+      "title": "Chief Financial Officer",
+      "filed": "2026-11-09",
+      "value": 349987.08,
+      "price": 18.700000762939453,
+      "score": 0.5934894816874837
     },
     {
       "ticker": "FBRT",
@@ -70,7 +110,7 @@
       "filed": "2026-11-05",
       "value": 998364.0,
       "price": 6.190000057220459,
-      "score": 0.5278523915109281
+      "score": 0.539770678386297
     },
     {
       "ticker": "BXMT",
@@ -80,27 +120,17 @@
       "filed": "2026-11-05",
       "value": 1035351.0,
       "price": 11.630000114440918,
-      "score": 0.5158694963573013
-    },
-    {
-      "ticker": "SITE",
-      "company": "SiteOne Landscape Supply, Inc.",
-      "insider": "BLACK DOUG",
-      "title": "CEO",
-      "filed": "2026-11-03",
-      "value": 503594.00000000006,
-      "price": 110.87000274658203,
-      "score": 0.40546376811594204
+      "score": 0.5251605814739688
     },
     {
       "ticker": "UPBD",
       "company": "UPBOUND GROUP, INC.",
       "insider": "Karam Fahmi",
       "title": "Chief Executive Officer",
-      "filed": "2026-11-05",
-      "value": 100082.97,
-      "price": 22.459999084472656,
-      "score": 0.3623661704149509
+      "filed": "2026-11-09",
+      "value": 299988.9,
+      "price": 24.8799991607666,
+      "score": 0.49665554661072076
     }
   ]
 }
