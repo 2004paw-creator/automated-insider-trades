@@ -1,37 +1,7 @@
 {
-  "generated_at": "2026-11-10T17:20:47+00:00",
-  "count": 13,
+  "generated_at": "2026-11-11T17:24:45+00:00",
+  "count": 11,
   "signals": [
-    {
-      "ticker": "INTC",
-      "company": "INTEL CORP",
-      "insider": "TAN LIP BU",
-      "title": "CEO",
-      "filed": "2026-11-04",
-      "value": 9709680.0,
-      "price": 59.970001220703125,
-      "score": 0.8860645933014354
-    },
-    {
-      "ticker": "LSCC",
-      "company": "LATTICE SEMICONDUCTOR CORP",
-      "insider": "Tamer Ford",
-      "title": "President & CEO",
-      "filed": "2026-11-04",
-      "value": 124078.56,
-      "price": 107.25,
-      "score": 0.7416068580542265
-    },
-    {
-      "ticker": "GLXY",
-      "company": "Galaxy Digital Inc.",
-      "insider": "Novogratz Michael",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-05",
-      "value": 3152304.576,
-      "price": 12.979999542236328,
-      "score": 0.6783158665765157
-    },
     {
       "ticker": "SOPH",
       "company": "SOPHiA GENETICS SA",
@@ -40,17 +10,7 @@
       "filed": "2026-11-09",
       "value": 137188.0,
       "price": 7.139999866485596,
-      "score": 0.6738484541699193
-    },
-    {
-      "ticker": "TRNS",
-      "company": "TRANSCAT INC",
-      "insider": "IRICK JAIME A",
-      "title": "President and CEO",
-      "filed": "2026-11-06",
-      "value": 230366.5,
-      "price": 100.37999725341797,
-      "score": 0.6548029556650246
+      "score": 0.6837360198070519
     },
     {
       "ticker": "CMCO",
@@ -60,7 +20,17 @@
       "filed": "2026-11-09",
       "value": 281349.60000000003,
       "price": 16.46000099182129,
-      "score": 0.6480651712529274
+      "score": 0.666161529924016
+    },
+    {
+      "ticker": "TRNS",
+      "company": "TRANSCAT INC",
+      "insider": "IRICK JAIME A",
+      "title": "President and CEO",
+      "filed": "2026-11-06",
+      "value": 230366.5,
+      "price": 100.37999725341797,
+      "score": 0.6647817460317459
     },
     {
       "ticker": "LBRT",
@@ -70,7 +40,7 @@
       "filed": "2026-11-05",
       "value": 377335.0,
       "price": 14.8100004196167,
-      "score": 0.6476870633310796
+      "score": 0.6609265734265735
     },
     {
       "ticker": "ROK",
@@ -80,7 +50,17 @@
       "filed": "2026-11-09",
       "value": 213089.47,
       "price": 389.3599853515625,
-      "score": 0.6337146069151703
+      "score": 0.652458806454367
+    },
+    {
+      "ticker": "FLOC",
+      "company": "Flowco Holdings Inc.",
+      "insider": "EDWARDS JOSEPH R",
+      "title": "President and CEO",
+      "filed": "2026-11-10",
+      "value": 389732.0,
+      "price": 19.049999237060547,
+      "score": 0.6503261358524516
     },
     {
       "ticker": "LUMN",
@@ -90,7 +70,7 @@
       "filed": "2026-11-09",
       "value": 396890.0,
       "price": 3.990000009536743,
-      "score": 0.6147574526736925
+      "score": 0.612938615213865
     },
     {
       "ticker": "DKNG",
@@ -100,7 +80,7 @@
       "filed": "2026-11-09",
       "value": 349987.08,
       "price": 18.700000762939453,
-      "score": 0.5934894816874837
+      "score": 0.5924912490395287
     },
     {
       "ticker": "FBRT",
@@ -110,7 +90,7 @@
       "filed": "2026-11-05",
       "value": 998364.0,
       "price": 6.190000057220459,
-      "score": 0.539770678386297
+      "score": 0.5641899766899767
     },
     {
       "ticker": "BXMT",
@@ -120,17 +100,17 @@
       "filed": "2026-11-05",
       "value": 1035351.0,
       "price": 11.630000114440918,
-      "score": 0.5251605814739688
+      "score": 0.5473484848484849
     },
     {
-      "ticker": "UPBD",
-      "company": "UPBOUND GROUP, INC.",
-      "insider": "Karam Fahmi",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-09",
-      "value": 299988.9,
-      "price": 24.8799991607666,
-      "score": 0.49665554661072076
+      "ticker": "WW",
+      "company": "WW INTERNATIONAL, INC.",
+      "insider": "BYE STEPHEN J",
+      "title": "President and CEO",
+      "filed": "2026-11-10",
+      "value": 137625.0,
+      "price": 12.020000457763672,
+      "score": 0.42822387164492426
     }
   ]
 }
