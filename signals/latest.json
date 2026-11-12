@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11T17:24:45+00:00",
-  "count": 11,
+  "generated_at": "2026-11-12T17:48:46+00:00",
+  "count": 8,
   "signals": [
     {
       "ticker": "SOPH",
@@ -30,17 +30,7 @@
       "filed": "2026-11-06",
       "value": 230366.5,
       "price": 100.37999725341797,
-      "score": 0.6647817460317459
-    },
-    {
-      "ticker": "LBRT",
-      "company": "Liberty Energy Inc.",
-      "insider": "Gusek Ron",
-      "title": "CEO and President",
-      "filed": "2026-11-05",
-      "value": 377335.0,
-      "price": 14.8100004196167,
-      "score": 0.6609265734265735
+      "score": 0.663392857142857
     },
     {
       "ticker": "ROK",
@@ -81,26 +71,6 @@
       "value": 349987.08,
       "price": 18.700000762939453,
       "score": 0.5924912490395287
-    },
-    {
-      "ticker": "FBRT",
-      "company": "Franklin BSP Realty Trust, Inc.",
-      "insider": "Byrne Richard J",
-      "title": "Chairman and CEO",
-      "filed": "2026-11-05",
-      "value": 998364.0,
-      "price": 6.190000057220459,
-      "score": 0.5641899766899767
-    },
-    {
-      "ticker": "BXMT",
-      "company": "BLACKSTONE MORTGAGE TRUST, INC.",
-      "insider": "Johnson Timothy Steven",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-05",
-      "value": 1035351.0,
-      "price": 11.630000114440918,
-      "score": 0.5473484848484849
     },
     {
       "ticker": "WW",
