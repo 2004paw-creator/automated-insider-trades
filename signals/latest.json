@@ -1,7 +1,37 @@
 {
-  "generated_at": "2026-11-12T17:48:46+00:00",
-  "count": 8,
+  "generated_at": "2026-11-13T17:28:36+00:00",
+  "count": 17,
   "signals": [
+    {
+      "ticker": "TH",
+      "company": "Target Hospitality Corp.",
+      "insider": "Archer James Bradley",
+      "title": "Director and CEO and President",
+      "filed": "2026-11-12",
+      "value": 312675.0,
+      "price": 11.800000190734863,
+      "score": 0.7764958792363972
+    },
+    {
+      "ticker": "HOS",
+      "company": "HORNBECK OFFSHORE SERVICES, INC.",
+      "insider": "HORNBECK TODD M",
+      "title": "PRESIDENT & CEO",
+      "filed": "2026-11-12",
+      "value": 500028.038644,
+      "price": 5.570000171661377,
+      "score": 0.7319884786813556
+    },
+    {
+      "ticker": "BLMN",
+      "company": "Bloomin' Brands, Inc.",
+      "insider": "Spanos Mike",
+      "title": "CEO",
+      "filed": "2026-11-12",
+      "value": 501999.99999999994,
+      "price": 10.229999542236328,
+      "score": 0.6865023967706669
+    },
     {
       "ticker": "SOPH",
       "company": "SOPHiA GENETICS SA",
@@ -10,7 +40,7 @@
       "filed": "2026-11-09",
       "value": 137188.0,
       "price": 7.139999866485596,
-      "score": 0.6837360198070519
+      "score": 0.6790823211875843
     },
     {
       "ticker": "CMCO",
@@ -20,27 +50,7 @@
       "filed": "2026-11-09",
       "value": 281349.60000000003,
       "price": 16.46000099182129,
-      "score": 0.666161529924016
-    },
-    {
-      "ticker": "TRNS",
-      "company": "TRANSCAT INC",
-      "insider": "IRICK JAIME A",
-      "title": "President and CEO",
-      "filed": "2026-11-06",
-      "value": 230366.5,
-      "price": 100.37999725341797,
-      "score": 0.663392857142857
-    },
-    {
-      "ticker": "ROK",
-      "company": "ROCKWELL AUTOMATION, INC",
-      "insider": "Moret Blake D.",
-      "title": "President and CEO",
-      "filed": "2026-11-09",
-      "value": 213089.47,
-      "price": 389.3599853515625,
-      "score": 0.652458806454367
+      "score": 0.6551282051282051
     },
     {
       "ticker": "FLOC",
@@ -50,7 +60,37 @@
       "filed": "2026-11-10",
       "value": 389732.0,
       "price": 19.049999237060547,
-      "score": 0.6503261358524516
+      "score": 0.6419004241372662
+    },
+    {
+      "ticker": "TEAM",
+      "company": "Atlassian Corp",
+      "insider": "Cannon-Brookes Michael",
+      "title": "CEO, Co-Founder",
+      "filed": "2026-11-12",
+      "value": 210899.8584,
+      "price": 152.44000244140625,
+      "score": 0.6387404339416365
+    },
+    {
+      "ticker": "ROK",
+      "company": "ROCKWELL AUTOMATION, INC",
+      "insider": "Moret Blake D.",
+      "title": "President and CEO",
+      "filed": "2026-11-09",
+      "value": 213089.47,
+      "price": 389.3599853515625,
+      "score": 0.6337381916329285
+    },
+    {
+      "ticker": "ADTN",
+      "company": "ADTRAN Holdings, Inc.",
+      "insider": "STANTON THOMAS R",
+      "title": "Chairman & CEO",
+      "filed": "2026-11-12",
+      "value": 171920.0,
+      "price": 4.289999961853027,
+      "score": 0.6252932890421328
     },
     {
       "ticker": "LUMN",
@@ -60,17 +100,67 @@
       "filed": "2026-11-09",
       "value": 396890.0,
       "price": 3.990000009536743,
-      "score": 0.612938615213865
+      "score": 0.6172739541160595
     },
     {
-      "ticker": "DKNG",
-      "company": "DraftKings Inc.",
-      "insider": "Ellingson Alan Wayne",
+      "ticker": "EQPT",
+      "company": "EquipmentShare.com Inc",
+      "insider": "Schlacks Jabbok",
+      "title": "Founder & CEO",
+      "filed": "2026-11-12",
+      "value": 249989.04,
+      "price": 15.989999771118164,
+      "score": 0.6134481961147086
+    },
+    {
+      "ticker": "MTDR",
+      "company": "Matador Resources Co",
+      "insider": "Foran Joseph Wm",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-12",
+      "value": 123225.0,
+      "price": 50.34000015258789,
+      "score": 0.5955775376335042
+    },
+    {
+      "ticker": "EGBN",
+      "company": "EAGLE BANCORP INC",
+      "insider": "Curley Stephen Russell",
+      "title": "President/CEO",
+      "filed": "2026-11-12",
+      "value": 149581.65,
+      "price": 34.040000915527344,
+      "score": 0.5936548650239677
+    },
+    {
+      "ticker": "FIP",
+      "company": "FTAI Infrastructure Inc.",
+      "insider": "Nicholson Kenneth J.",
+      "title": "CEO and President",
+      "filed": "2026-11-12",
+      "value": 1530000.0,
+      "price": 3.8399999141693115,
+      "score": 0.5213922294172062
+    },
+    {
+      "ticker": "BOOT",
+      "company": "Boot Barn Holdings, Inc.",
+      "insider": "Watkins James M",
+      "title": "CFO & SECRETARY",
+      "filed": "2026-11-12",
+      "value": 270740.0,
+      "price": 133.6699981689453,
+      "score": 0.5021518375241779
+    },
+    {
+      "ticker": "NOMD",
+      "company": "Nomad Foods Ltd",
+      "insider": "BALDEW RUBEN",
       "title": "Chief Financial Officer",
-      "filed": "2026-11-09",
-      "value": 349987.08,
-      "price": 18.700000762939453,
-      "score": 0.5924912490395287
+      "filed": "2026-11-12",
+      "value": 100160.8902,
+      "price": 11.789999961853027,
+      "score": 0.47030842654108146
     },
     {
       "ticker": "WW",
@@ -80,7 +170,7 @@
       "filed": "2026-11-10",
       "value": 137625.0,
       "price": 12.020000457763672,
-      "score": 0.42822387164492426
+      "score": 0.4053957007904376
     }
   ]
 }
