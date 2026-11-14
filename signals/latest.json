@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T17:28:36+00:00",
-  "count": 17,
+  "generated_at": "2026-11-14T16:12:34+00:00",
+  "count": 25,
   "signals": [
     {
       "ticker": "TH",
@@ -10,7 +10,7 @@
       "filed": "2026-11-12",
       "value": 312675.0,
       "price": 11.800000190734863,
-      "score": 0.7764958792363972
+      "score": 0.7880131578947369
     },
     {
       "ticker": "HOS",
@@ -20,7 +20,27 @@
       "filed": "2026-11-12",
       "value": 500028.038644,
       "price": 5.570000171661377,
-      "score": 0.7319884786813556
+      "score": 0.7428114035087718
+    },
+    {
+      "ticker": "AKAM",
+      "company": "AKAMAI TECHNOLOGIES INC",
+      "insider": "LEIGHTON F THOMSON",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-13",
+      "value": 2552400.0,
+      "price": 85.4000015258789,
+      "score": 0.739905303030303
+    },
+    {
+      "ticker": "TEAM",
+      "company": "Atlassian Corp",
+      "insider": "Cannon-Brookes Michael",
+      "title": "CEO, Co-Founder",
+      "filed": "2026-11-13",
+      "value": 845999.7,
+      "price": 152.2899932861328,
+      "score": 0.6993181818181818
     },
     {
       "ticker": "BLMN",
@@ -30,7 +50,7 @@
       "filed": "2026-11-12",
       "value": 501999.99999999994,
       "price": 10.229999542236328,
-      "score": 0.6865023967706669
+      "score": 0.6982499999999999
     },
     {
       "ticker": "SOPH",
@@ -40,7 +60,17 @@
       "filed": "2026-11-09",
       "value": 137188.0,
       "price": 7.139999866485596,
-      "score": 0.6790823211875843
+      "score": 0.6752182539682539
+    },
+    {
+      "ticker": "STWD",
+      "company": "STARWOOD PROPERTY TRUST, INC.",
+      "insider": "STERNLICHT BARRY S",
+      "title": "CEO, Chairman of the Board",
+      "filed": "2026-11-13",
+      "value": 4808563.5,
+      "price": 11.4399995803833,
+      "score": 0.6698863636363636
     },
     {
       "ticker": "CMCO",
@@ -50,7 +80,7 @@
       "filed": "2026-11-09",
       "value": 281349.60000000003,
       "price": 16.46000099182129,
-      "score": 0.6551282051282051
+      "score": 0.6575198412698412
     },
     {
       "ticker": "FLOC",
@@ -59,18 +89,8 @@
       "title": "President and CEO",
       "filed": "2026-11-10",
       "value": 389732.0,
-      "price": 19.049999237060547,
-      "score": 0.6419004241372662
-    },
-    {
-      "ticker": "TEAM",
-      "company": "Atlassian Corp",
-      "insider": "Cannon-Brookes Michael",
-      "title": "CEO, Co-Founder",
-      "filed": "2026-11-12",
-      "value": 210899.8584,
-      "price": 152.44000244140625,
-      "score": 0.6387404339416365
+      "price": 18.968704223632812,
+      "score": 0.6556655586067351
     },
     {
       "ticker": "ROK",
@@ -80,7 +100,17 @@
       "filed": "2026-11-09",
       "value": 213089.47,
       "price": 389.3599853515625,
-      "score": 0.6337381916329285
+      "score": 0.6343849206349206
+    },
+    {
+      "ticker": "UPST",
+      "company": "Upstart Holdings, Inc.",
+      "insider": "Gu Paul",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-13",
+      "value": 1028400.0000000001,
+      "price": 20.559999465942383,
+      "score": 0.6330492424242424
     },
     {
       "ticker": "ADTN",
@@ -90,17 +120,17 @@
       "filed": "2026-11-12",
       "value": 171920.0,
       "price": 4.289999961853027,
-      "score": 0.6252932890421328
+      "score": 0.6293991228070175
     },
     {
-      "ticker": "LUMN",
-      "company": "Lumen Technologies, Inc.",
-      "insider": "Johnson Kathleen E",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-09",
-      "value": 396890.0,
-      "price": 3.990000009536743,
-      "score": 0.6172739541160595
+      "ticker": "BH",
+      "company": "Biglari Holdings Inc.",
+      "insider": "BIGLARI, SARDAR",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-13",
+      "value": 222908.6,
+      "price": 362.30999755859375,
+      "score": 0.6287689393939393
     },
     {
       "ticker": "EQPT",
@@ -110,7 +140,17 @@
       "filed": "2026-11-12",
       "value": 249989.04,
       "price": 15.989999771118164,
-      "score": 0.6134481961147086
+      "score": 0.6203640350877193
+    },
+    {
+      "ticker": "LUMN",
+      "company": "Lumen Technologies, Inc.",
+      "insider": "Johnson Kathleen E",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-09",
+      "value": 396890.0,
+      "price": 3.990000009536743,
+      "score": 0.6166865079365079
     },
     {
       "ticker": "MTDR",
@@ -120,7 +160,7 @@
       "filed": "2026-11-12",
       "value": 123225.0,
       "price": 50.34000015258789,
-      "score": 0.5955775376335042
+      "score": 0.6023114035087719
     },
     {
       "ticker": "EGBN",
@@ -130,7 +170,27 @@
       "filed": "2026-11-12",
       "value": 149581.65,
       "price": 34.040000915527344,
-      "score": 0.5936548650239677
+      "score": 0.5984605263157894
+    },
+    {
+      "ticker": "NXGL",
+      "company": "NEXGEL, INC.",
+      "insider": "Kieser Brian Joseph",
+      "title": "Interim CEO",
+      "filed": "2026-11-13",
+      "value": 732688.0,
+      "price": 3.5799999237060547,
+      "score": 0.5846401515151515
+    },
+    {
+      "ticker": "FCPT",
+      "company": "Four Corners Property Trust, Inc.",
+      "insider": "Lenehan William H",
+      "title": "President and CEO",
+      "filed": "2026-11-13",
+      "value": 149992.2732,
+      "price": 23.31999969482422,
+      "score": 0.5497348484848483
     },
     {
       "ticker": "FIP",
@@ -140,7 +200,17 @@
       "filed": "2026-11-12",
       "value": 1530000.0,
       "price": 3.8399999141693115,
-      "score": 0.5213922294172062
+      "score": 0.5308377192982455
+    },
+    {
+      "ticker": "CTEV",
+      "company": "Claritev Corp",
+      "insider": "Dalton Travis",
+      "title": "Pres., CEO & Executive Chair",
+      "filed": "2026-11-13",
+      "value": 149927.4,
+      "price": 28.209999084472656,
+      "score": 0.5156818181818181
     },
     {
       "ticker": "BOOT",
@@ -150,7 +220,7 @@
       "filed": "2026-11-12",
       "value": 270740.0,
       "price": 133.6699981689453,
-      "score": 0.5021518375241779
+      "score": 0.5063026315789473
     },
     {
       "ticker": "NOMD",
@@ -160,7 +230,7 @@
       "filed": "2026-11-12",
       "value": 100160.8902,
       "price": 11.789999961853027,
-      "score": 0.47030842654108146
+      "score": 0.4682236842105263
     },
     {
       "ticker": "WW",
@@ -170,7 +240,17 @@
       "filed": "2026-11-10",
       "value": 137625.0,
       "price": 12.020000457763672,
-      "score": 0.4053957007904376
+      "score": 0.42096401214048274
+    },
+    {
+      "ticker": "NTHI",
+      "company": "NEONC TECHNOLOGIES HOLDINGS, INC.",
+      "insider": "Heshmatpour Amir F",
+      "title": "CEO, President",
+      "filed": "2026-11-13",
+      "value": 150501.0,
+      "price": 4.909999847412109,
+      "score": 0.3944128787878788
     }
   ]
 }
