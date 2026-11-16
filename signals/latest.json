@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T16:44:20+00:00",
-  "count": 25,
+  "generated_at": "2026-11-16T19:53:26+00:00",
+  "count": 21,
   "signals": [
     {
       "ticker": "TH",
@@ -53,16 +53,6 @@
       "score": 0.6982499999999999
     },
     {
-      "ticker": "SOPH",
-      "company": "SOPHiA GENETICS SA",
-      "insider": "Muken Ross",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-09",
-      "value": 137188.0,
-      "price": 7.139999866485596,
-      "score": 0.6752182539682539
-    },
-    {
       "ticker": "STWD",
       "company": "STARWOOD PROPERTY TRUST, INC.",
       "insider": "STERNLICHT BARRY S",
@@ -73,16 +63,6 @@
       "score": 0.6698863636363636
     },
     {
-      "ticker": "CMCO",
-      "company": "COLUMBUS MCKINNON CORP",
-      "insider": "Wilson David J.",
-      "title": "President & CEO",
-      "filed": "2026-11-09",
-      "value": 281349.60000000003,
-      "price": 16.46000099182129,
-      "score": 0.6575198412698412
-    },
-    {
       "ticker": "FLOC",
       "company": "Flowco Holdings Inc.",
       "insider": "EDWARDS JOSEPH R",
@@ -90,17 +70,7 @@
       "filed": "2026-11-10",
       "value": 389732.0,
       "price": 18.968704223632812,
-      "score": 0.6556655586067351
-    },
-    {
-      "ticker": "ROK",
-      "company": "ROCKWELL AUTOMATION, INC",
-      "insider": "Moret Blake D.",
-      "title": "President and CEO",
-      "filed": "2026-11-09",
-      "value": 213089.47,
-      "price": 389.3599853515625,
-      "score": 0.6343849206349206
+      "score": 0.6548244266994268
     },
     {
       "ticker": "UPST",
@@ -141,16 +111,6 @@
       "value": 249989.04,
       "price": 15.989999771118164,
       "score": 0.6203640350877193
-    },
-    {
-      "ticker": "LUMN",
-      "company": "Lumen Technologies, Inc.",
-      "insider": "Johnson Kathleen E",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-09",
-      "value": 396890.0,
-      "price": 3.990000009536743,
-      "score": 0.6166865079365079
     },
     {
       "ticker": "MTDR",
@@ -240,7 +200,7 @@
       "filed": "2026-11-10",
       "value": 137625.0,
       "price": 12.020000457763672,
-      "score": 0.42096401214048274
+      "score": 0.41572225634725635
     },
     {
       "ticker": "NTHI",
