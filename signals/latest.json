@@ -1,26 +1,16 @@
 {
-  "generated_at": "2026-11-16T19:53:26+00:00",
-  "count": 21,
+  "generated_at": "2026-11-17T18:53:07+00:00",
+  "count": 23,
   "signals": [
     {
-      "ticker": "TH",
-      "company": "Target Hospitality Corp.",
-      "insider": "Archer James Bradley",
-      "title": "Director and CEO and President",
-      "filed": "2026-11-12",
-      "value": 312675.0,
-      "price": 11.800000190734863,
-      "score": 0.7880131578947369
-    },
-    {
-      "ticker": "HOS",
-      "company": "HORNBECK OFFSHORE SERVICES, INC.",
-      "insider": "HORNBECK TODD M",
-      "title": "PRESIDENT & CEO",
-      "filed": "2026-11-12",
-      "value": 500028.038644,
-      "price": 5.570000171661377,
-      "score": 0.7428114035087718
+      "ticker": "TEAM",
+      "company": "Atlassian Corp",
+      "insider": "Cannon-Brookes Michael",
+      "title": "CEO, Co-Founder",
+      "filed": "2026-11-16",
+      "value": 1199771.1330000001,
+      "price": 149.99000549316406,
+      "score": 0.7441163657782841
     },
     {
       "ticker": "AKAM",
@@ -30,17 +20,17 @@
       "filed": "2026-11-13",
       "value": 2552400.0,
       "price": 85.4000015258789,
-      "score": 0.739905303030303
+      "score": 0.7436997440485628
     },
     {
-      "ticker": "TEAM",
-      "company": "Atlassian Corp",
-      "insider": "Cannon-Brookes Michael",
-      "title": "CEO, Co-Founder",
-      "filed": "2026-11-13",
-      "value": 845999.7,
-      "price": 152.2899932861328,
-      "score": 0.6993181818181818
+      "ticker": "HOS",
+      "company": "HORNBECK OFFSHORE SERVICES, INC.",
+      "insider": "HORNBECK TODD M",
+      "title": "PRESIDENT & CEO",
+      "filed": "2026-11-16",
+      "value": 500000.94239089993,
+      "price": 5.929999828338623,
+      "score": 0.7203170730210803
     },
     {
       "ticker": "BLMN",
@@ -50,7 +40,7 @@
       "filed": "2026-11-12",
       "value": 501999.99999999994,
       "price": 10.229999542236328,
-      "score": 0.6982499999999999
+      "score": 0.6890538290788013
     },
     {
       "ticker": "STWD",
@@ -60,17 +50,37 @@
       "filed": "2026-11-13",
       "value": 4808563.5,
       "price": 11.4399995803833,
-      "score": 0.6698863636363636
+      "score": 0.6738740779330601
     },
     {
-      "ticker": "FLOC",
-      "company": "Flowco Holdings Inc.",
-      "insider": "EDWARDS JOSEPH R",
+      "ticker": "KURA",
+      "company": "Kura Oncology, Inc.",
+      "insider": "WILSON TROY EDWARD",
       "title": "President and CEO",
-      "filed": "2026-11-10",
-      "value": 389732.0,
-      "price": 18.968704223632812,
-      "score": 0.6548244266994268
+      "filed": "2026-11-16",
+      "value": 750302.98,
+      "price": 7.090000152587891,
+      "score": 0.6727086703712718
+    },
+    {
+      "ticker": "OIG",
+      "company": "Orion180 Insurance Group Inc.",
+      "insider": "Gregg Kenneth",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-16",
+      "value": 1024689.7799999999,
+      "price": 10.699999809265137,
+      "score": 0.6655339805825242
+    },
+    {
+      "ticker": "BRSP",
+      "company": "BrightSpire Capital, Inc.",
+      "insider": "Mazzei Michael",
+      "title": "CEO",
+      "filed": "2026-11-16",
+      "value": 749358.6399999999,
+      "price": 3.2699999809265137,
+      "score": 0.6399341638357184
     },
     {
       "ticker": "UPST",
@@ -80,17 +90,7 @@
       "filed": "2026-11-13",
       "value": 1028400.0000000001,
       "price": 20.559999465942383,
-      "score": 0.6330492424242424
-    },
-    {
-      "ticker": "ADTN",
-      "company": "ADTRAN Holdings, Inc.",
-      "insider": "STANTON THOMAS R",
-      "title": "Chairman & CEO",
-      "filed": "2026-11-12",
-      "value": 171920.0,
-      "price": 4.289999961853027,
-      "score": 0.6293991228070175
+      "score": 0.6359743897559023
     },
     {
       "ticker": "BH",
@@ -100,17 +100,37 @@
       "filed": "2026-11-13",
       "value": 222908.6,
       "price": 362.30999755859375,
-      "score": 0.6287689393939393
+      "score": 0.6325239529774174
     },
     {
-      "ticker": "EQPT",
-      "company": "EquipmentShare.com Inc",
-      "insider": "Schlacks Jabbok",
-      "title": "Founder & CEO",
+      "ticker": "ADTN",
+      "company": "ADTRAN Holdings, Inc.",
+      "insider": "STANTON THOMAS R",
+      "title": "Chairman & CEO",
       "filed": "2026-11-12",
-      "value": 249989.04,
-      "price": 15.989999771118164,
-      "score": 0.6203640350877193
+      "value": 171920.0,
+      "price": 4.289999961853027,
+      "score": 0.6315642084926214
+    },
+    {
+      "ticker": "NSLR",
+      "company": "Neostellar Capital Corp.",
+      "insider": "Klein Mark D",
+      "title": "Chairman, CEO and President",
+      "filed": "2026-11-16",
+      "value": 202300.0,
+      "price": 5.400000095367432,
+      "score": 0.610480405611311
+    },
+    {
+      "ticker": "CRMD",
+      "company": "CorMedix Inc.",
+      "insider": "Todisco Joseph",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-16",
+      "value": 391200.0,
+      "price": 4.659999847412109,
+      "score": 0.6088507611347791
     },
     {
       "ticker": "MTDR",
@@ -120,7 +140,7 @@
       "filed": "2026-11-12",
       "value": 123225.0,
       "price": 50.34000015258789,
-      "score": 0.6023114035087719
+      "score": 0.6031297529493977
     },
     {
       "ticker": "EGBN",
@@ -130,7 +150,7 @@
       "filed": "2026-11-12",
       "value": 149581.65,
       "price": 34.040000915527344,
-      "score": 0.5984605263157894
+      "score": 0.5981126937148025
     },
     {
       "ticker": "NXGL",
@@ -140,7 +160,17 @@
       "filed": "2026-11-13",
       "value": 732688.0,
       "price": 3.5799999237060547,
-      "score": 0.5846401515151515
+      "score": 0.5929149018097806
+    },
+    {
+      "ticker": "MP",
+      "company": "MP Materials Corp. / DE",
+      "insider": "Corbett Ryan",
+      "title": "Chief Financial Officer",
+      "filed": "2026-11-16",
+      "value": 128625.0,
+      "price": 36.09000015258789,
+      "score": 0.55010829527489
     },
     {
       "ticker": "FCPT",
@@ -150,7 +180,7 @@
       "filed": "2026-11-13",
       "value": 149992.2732,
       "price": 23.31999969482422,
-      "score": 0.5497348484848483
+      "score": 0.5414441248197391
     },
     {
       "ticker": "FIP",
@@ -160,17 +190,17 @@
       "filed": "2026-11-12",
       "value": 1530000.0,
       "price": 3.8399999141693115,
-      "score": 0.5308377192982455
+      "score": 0.5290310149216919
     },
     {
-      "ticker": "CTEV",
-      "company": "Claritev Corp",
-      "insider": "Dalton Travis",
-      "title": "Pres., CEO & Executive Chair",
-      "filed": "2026-11-13",
-      "value": 149927.4,
-      "price": 28.209999084472656,
-      "score": 0.5156818181818181
+      "ticker": "HUBS",
+      "company": "HUBSPOT INC",
+      "insider": "Halligan Brian",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-16",
+      "value": 4997858.4,
+      "price": 217.25,
+      "score": 0.5023279904937406
     },
     {
       "ticker": "BOOT",
@@ -180,7 +210,7 @@
       "filed": "2026-11-12",
       "value": 270740.0,
       "price": 133.6699981689453,
-      "score": 0.5063026315789473
+      "score": 0.5013303119990135
     },
     {
       "ticker": "NOMD",
@@ -190,17 +220,7 @@
       "filed": "2026-11-12",
       "value": 100160.8902,
       "price": 11.789999961853027,
-      "score": 0.4682236842105263
-    },
-    {
-      "ticker": "WW",
-      "company": "WW INTERNATIONAL, INC.",
-      "insider": "BYE STEPHEN J",
-      "title": "President and CEO",
-      "filed": "2026-11-10",
-      "value": 137625.0,
-      "price": 12.020000457763672,
-      "score": 0.41572225634725635
+      "score": 0.46044467053068605
     },
     {
       "ticker": "NTHI",
@@ -210,7 +230,7 @@
       "filed": "2026-11-13",
       "value": 150501.0,
       "price": 4.909999847412109,
-      "score": 0.3944128787878788
+      "score": 0.3937461777163695
     }
   ]
 }
