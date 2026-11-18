@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-11-17T18:53:07+00:00",
-  "count": 23,
+  "generated_at": "2026-11-18T18:31:43+00:00",
+  "count": 22,
   "signals": [
-    {
-      "ticker": "TEAM",
-      "company": "Atlassian Corp",
-      "insider": "Cannon-Brookes Michael",
-      "title": "CEO, Co-Founder",
-      "filed": "2026-11-16",
-      "value": 1199771.1330000001,
-      "price": 149.99000549316406,
-      "score": 0.7441163657782841
-    },
     {
       "ticker": "AKAM",
       "company": "AKAMAI TECHNOLOGIES INC",
@@ -20,7 +10,17 @@
       "filed": "2026-11-13",
       "value": 2552400.0,
       "price": 85.4000015258789,
-      "score": 0.7436997440485628
+      "score": 0.7416762878662928
+    },
+    {
+      "ticker": "LPG",
+      "company": "DORIAN LPG LTD.",
+      "insider": "HADJIPATERAS JOHN C",
+      "title": "President and CEO",
+      "filed": "2026-11-17",
+      "value": 961460.0,
+      "price": 48.16999816894531,
+      "score": 0.72155193693293
     },
     {
       "ticker": "HOS",
@@ -30,7 +30,7 @@
       "filed": "2026-11-16",
       "value": 500000.94239089993,
       "price": 5.929999828338623,
-      "score": 0.7203170730210803
+      "score": 0.7195385629531971
     },
     {
       "ticker": "BLMN",
@@ -40,7 +40,17 @@
       "filed": "2026-11-12",
       "value": 501999.99999999994,
       "price": 10.229999542236328,
-      "score": 0.6890538290788013
+      "score": 0.6916119909502263
+    },
+    {
+      "ticker": "KURA",
+      "company": "Kura Oncology, Inc.",
+      "insider": "WILSON TROY EDWARD",
+      "title": "President and CEO",
+      "filed": "2026-11-17",
+      "value": 750302.98,
+      "price": 7.090000152587891,
+      "score": 0.6847300858388187
     },
     {
       "ticker": "STWD",
@@ -50,17 +60,7 @@
       "filed": "2026-11-13",
       "value": 4808563.5,
       "price": 11.4399995803833,
-      "score": 0.6738740779330601
-    },
-    {
-      "ticker": "KURA",
-      "company": "Kura Oncology, Inc.",
-      "insider": "WILSON TROY EDWARD",
-      "title": "President and CEO",
-      "filed": "2026-11-16",
-      "value": 750302.98,
-      "price": 7.090000152587891,
-      "score": 0.6727086703712718
+      "score": 0.676001429435373
     },
     {
       "ticker": "OIG",
@@ -70,7 +70,7 @@
       "filed": "2026-11-16",
       "value": 1024689.7799999999,
       "price": 10.699999809265137,
-      "score": 0.6655339805825242
+      "score": 0.6673780487804878
     },
     {
       "ticker": "BRSP",
@@ -80,27 +80,7 @@
       "filed": "2026-11-16",
       "value": 749358.6399999999,
       "price": 3.2699999809265137,
-      "score": 0.6399341638357184
-    },
-    {
-      "ticker": "UPST",
-      "company": "Upstart Holdings, Inc.",
-      "insider": "Gu Paul",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-13",
-      "value": 1028400.0000000001,
-      "price": 20.559999465942383,
-      "score": 0.6359743897559023
-    },
-    {
-      "ticker": "BH",
-      "company": "Biglari Holdings Inc.",
-      "insider": "BIGLARI, SARDAR",
-      "title": "Chairman and CEO",
-      "filed": "2026-11-13",
-      "value": 222908.6,
-      "price": 362.30999755859375,
-      "score": 0.6325239529774174
+      "score": 0.6540326301911668
     },
     {
       "ticker": "ADTN",
@@ -110,17 +90,27 @@
       "filed": "2026-11-12",
       "value": 171920.0,
       "price": 4.289999961853027,
-      "score": 0.6315642084926214
+      "score": 0.6300297888386124
     },
     {
-      "ticker": "NSLR",
-      "company": "Neostellar Capital Corp.",
-      "insider": "Klein Mark D",
-      "title": "Chairman, CEO and President",
-      "filed": "2026-11-16",
-      "value": 202300.0,
-      "price": 5.400000095367432,
-      "score": 0.610480405611311
+      "ticker": "BH",
+      "company": "Biglari Holdings Inc.",
+      "insider": "BIGLARI, SARDAR",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-13",
+      "value": 222908.6,
+      "price": 362.30999755859375,
+      "score": 0.6276265874979383
+    },
+    {
+      "ticker": "UPST",
+      "company": "Upstart Holdings, Inc.",
+      "insider": "Gu Paul",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-17",
+      "value": 950000.0,
+      "price": 19.09000015258789,
+      "score": 0.6233857965664472
     },
     {
       "ticker": "CRMD",
@@ -130,7 +120,17 @@
       "filed": "2026-11-16",
       "value": 391200.0,
       "price": 4.659999847412109,
-      "score": 0.6088507611347791
+      "score": 0.6210810810810811
+    },
+    {
+      "ticker": "NSLR",
+      "company": "Neostellar Capital Corp.",
+      "insider": "Klein Mark D",
+      "title": "Chairman, CEO and President",
+      "filed": "2026-11-16",
+      "value": 202300.0,
+      "price": 5.400000095367432,
+      "score": 0.6168111404087014
     },
     {
       "ticker": "MTDR",
@@ -140,7 +140,7 @@
       "filed": "2026-11-12",
       "value": 123225.0,
       "price": 50.34000015258789,
-      "score": 0.6031297529493977
+      "score": 0.6022688536953242
     },
     {
       "ticker": "EGBN",
@@ -150,7 +150,7 @@
       "filed": "2026-11-12",
       "value": 149581.65,
       "price": 34.040000915527344,
-      "score": 0.5981126937148025
+      "score": 0.6005147058823529
     },
     {
       "ticker": "NXGL",
@@ -160,17 +160,7 @@
       "filed": "2026-11-13",
       "value": 732688.0,
       "price": 3.5799999237060547,
-      "score": 0.5929149018097806
-    },
-    {
-      "ticker": "MP",
-      "company": "MP Materials Corp. / DE",
-      "insider": "Corbett Ryan",
-      "title": "Chief Financial Officer",
-      "filed": "2026-11-16",
-      "value": 128625.0,
-      "price": 36.09000015258789,
-      "score": 0.55010829527489
+      "score": 0.596338446313706
     },
     {
       "ticker": "FCPT",
@@ -180,7 +170,7 @@
       "filed": "2026-11-13",
       "value": 149992.2732,
       "price": 23.31999969482422,
-      "score": 0.5414441248197391
+      "score": 0.5380510198471603
     },
     {
       "ticker": "FIP",
@@ -190,7 +180,7 @@
       "filed": "2026-11-12",
       "value": 1530000.0,
       "price": 3.8399999141693115,
-      "score": 0.5290310149216919
+      "score": 0.5352552790346907
     },
     {
       "ticker": "HUBS",
@@ -200,7 +190,7 @@
       "filed": "2026-11-16",
       "value": 4997858.4,
       "price": 217.25,
-      "score": 0.5023279904937406
+      "score": 0.5084030982201714
     },
     {
       "ticker": "BOOT",
@@ -210,7 +200,7 @@
       "filed": "2026-11-12",
       "value": 270740.0,
       "price": 133.6699981689453,
-      "score": 0.5013303119990135
+      "score": 0.5062861990950226
     },
     {
       "ticker": "NOMD",
@@ -220,7 +210,7 @@
       "filed": "2026-11-12",
       "value": 100160.8902,
       "price": 11.789999961853027,
-      "score": 0.46044467053068605
+      "score": 0.4597379336349924
     },
     {
       "ticker": "NTHI",
@@ -230,7 +220,7 @@
       "filed": "2026-11-13",
       "value": 150501.0,
       "price": 4.909999847412109,
-      "score": 0.3937461777163695
+      "score": 0.39071746660069273
     }
   ]
 }
