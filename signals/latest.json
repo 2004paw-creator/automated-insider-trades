@@ -1,37 +1,7 @@
 {
-  "generated_at": "2026-11-19T18:44:46+00:00",
+  "generated_at": "2026-11-20T18:15:53+00:00",
   "count": 15,
   "signals": [
-    {
-      "ticker": "AKAM",
-      "company": "AKAMAI TECHNOLOGIES INC",
-      "insider": "LEIGHTON F THOMSON",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-13",
-      "value": 2552400.0,
-      "price": 85.4000015258789,
-      "score": 0.7502296414061119
-    },
-    {
-      "ticker": "TEAM",
-      "company": "Atlassian Corp",
-      "insider": "Cannon-Brookes Michael",
-      "title": "CEO, Co-Founder",
-      "filed": "2026-11-18",
-      "value": 213024.0,
-      "price": 140.97999572753906,
-      "score": 0.7219133478634172
-    },
-    {
-      "ticker": "LPG",
-      "company": "DORIAN LPG LTD.",
-      "insider": "HADJIPATERAS JOHN C",
-      "title": "President and CEO",
-      "filed": "2026-11-17",
-      "value": 961460.0,
-      "price": 48.16999816894531,
-      "score": 0.719873454127121
-    },
     {
       "ticker": "HOS",
       "company": "HORNBECK OFFSHORE SERVICES, INC.",
@@ -40,37 +10,7 @@
       "filed": "2026-11-16",
       "value": 500000.94239089993,
       "price": 5.929999828338623,
-      "score": 0.7090327582864896
-    },
-    {
-      "ticker": "CGON",
-      "company": "CG Oncology, Inc.",
-      "insider": "Kuan Arthur",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-18",
-      "value": 2366425.2416,
-      "price": 80.0,
-      "score": 0.7003639125553133
-    },
-    {
-      "ticker": "KURA",
-      "company": "Kura Oncology, Inc.",
-      "insider": "WILSON TROY EDWARD",
-      "title": "President and CEO",
-      "filed": "2026-11-17",
-      "value": 750302.98,
-      "price": 7.090000152587891,
-      "score": 0.6872217428817946
-    },
-    {
-      "ticker": "BH",
-      "company": "Biglari Holdings Inc.",
-      "insider": "BIGLARI, SARDAR",
-      "title": "Chairman and CEO",
-      "filed": "2026-11-18",
-      "value": 172502.4,
-      "price": 368.6000061035156,
-      "score": 0.6497463839904893
+      "score": 0.7032941176470588
     },
     {
       "ticker": "BRSP",
@@ -80,27 +20,17 @@
       "filed": "2026-11-16",
       "value": 749358.6399999999,
       "price": 3.2699999809265137,
-      "score": 0.6476481230212574
+      "score": 0.6970196078431372
     },
     {
-      "ticker": "UPST",
-      "company": "Upstart Holdings, Inc.",
-      "insider": "Gu Paul",
-      "title": "Chief Executive Officer",
+      "ticker": "KURA",
+      "company": "Kura Oncology, Inc.",
+      "insider": "WILSON TROY EDWARD",
+      "title": "President and CEO",
       "filed": "2026-11-17",
-      "value": 950000.0,
-      "price": 19.09000015258789,
-      "score": 0.6313287316652286
-    },
-    {
-      "ticker": "NXGL",
-      "company": "NEXGEL, INC.",
-      "insider": "Kieser Brian Joseph",
-      "title": "Interim CEO",
-      "filed": "2026-11-13",
-      "value": 732688.0,
-      "price": 3.5799999237060547,
-      "score": 0.6169316375198728
+      "value": 750302.98,
+      "price": 7.090000152587891,
+      "score": 0.6727725366876312
     },
     {
       "ticker": "NSLR",
@@ -110,27 +40,37 @@
       "filed": "2026-11-16",
       "value": 202300.0,
       "price": 5.400000095367432,
-      "score": 0.608396330038121
+      "score": 0.6672549019607844
     },
     {
-      "ticker": "EFC",
-      "company": "Ellington Financial Inc.",
-      "insider": "Penn Laurence",
-      "title": "CEO and President",
-      "filed": "2026-11-18",
-      "value": 106540.0,
-      "price": 10.680000305175781,
-      "score": 0.5716260484776435
+      "ticker": "UPST",
+      "company": "Upstart Holdings, Inc.",
+      "insider": "Gu Paul",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-17",
+      "value": 950000.0,
+      "price": 19.09000015258789,
+      "score": 0.6630939902166316
     },
     {
-      "ticker": "FCPT",
-      "company": "Four Corners Property Trust, Inc.",
-      "insider": "Lenehan William H",
-      "title": "President and CEO",
-      "filed": "2026-11-13",
-      "value": 149992.2732,
-      "price": 23.31999969482422,
-      "score": 0.5458311252428899
+      "ticker": "CTGO",
+      "company": "Contango Silver & Gold Inc.",
+      "insider": "Van Nieuwenhuyse Rick",
+      "title": "CEO",
+      "filed": "2026-11-19",
+      "value": 101097.36,
+      "price": 10.520000457763672,
+      "score": 0.6622508398656215
+    },
+    {
+      "ticker": "TEAM",
+      "company": "Atlassian Corp",
+      "insider": "Cannon-Brookes Michael",
+      "title": "CEO, Co-Founder",
+      "filed": "2026-11-19",
+      "value": 786955.1328,
+      "price": 135.0500030517578,
+      "score": 0.6529563269876819
     },
     {
       "ticker": "HUBS",
@@ -140,17 +80,77 @@
       "filed": "2026-11-16",
       "value": 4997858.4,
       "price": 217.25,
-      "score": 0.5113717128642501
+      "score": 0.6096078431372549
     },
     {
-      "ticker": "NTHI",
-      "company": "NEONC TECHNOLOGIES HOLDINGS, INC.",
-      "insider": "Heshmatpour Amir F",
-      "title": "CEO, President",
-      "filed": "2026-11-13",
-      "value": 150501.0,
-      "price": 4.909999847412109,
-      "score": 0.4128069245716305
+      "ticker": "SCM",
+      "company": "Stellus Capital Investment Corp",
+      "insider": "Ladd Robert T.",
+      "title": "President and CEO",
+      "filed": "2026-11-19",
+      "value": 197100.0,
+      "price": 6.579999923706055,
+      "score": 0.5992497200447928
+    },
+    {
+      "ticker": "AVK",
+      "company": "ADVENT CONVERTIBLE & INCOME FUND",
+      "insider": "MAITLAND TRACY V",
+      "title": "CHAIRMAN, PRESIDENT & CEO",
+      "filed": "2026-11-19",
+      "value": 202979.99999999997,
+      "price": 10.0600004196167,
+      "score": 0.5922956326987682
+    },
+    {
+      "ticker": "CGON",
+      "company": "CG Oncology, Inc.",
+      "insider": "Kuan Arthur",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-18",
+      "value": 2366425.2416,
+      "price": 80.0,
+      "score": 0.5774886557005104
+    },
+    {
+      "ticker": "LPG",
+      "company": "DORIAN LPG LTD.",
+      "insider": "HADJIPATERAS JOHN C",
+      "title": "President and CEO",
+      "filed": "2026-11-17",
+      "value": 961460.0,
+      "price": 48.16999816894531,
+      "score": 0.5714622641509434
+    },
+    {
+      "ticker": "MTDR",
+      "company": "Matador Resources Co",
+      "insider": "Foran Joseph Wm",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-19",
+      "value": 127449.99999999999,
+      "price": 50.5,
+      "score": 0.5690481522956327
+    },
+    {
+      "ticker": "BH",
+      "company": "Biglari Holdings Inc.",
+      "insider": "BIGLARI, SARDAR",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-18",
+      "value": 172502.4,
+      "price": 368.6000061035156,
+      "score": 0.5481494611457742
+    },
+    {
+      "ticker": "BGS",
+      "company": "B&G Foods, Inc.",
+      "insider": "Mills Robert D",
+      "title": "President & CEO",
+      "filed": "2026-11-19",
+      "value": 249713.6796,
+      "price": 3.5899999141693115,
+      "score": 0.5300223964165732
     }
   ]
 }
