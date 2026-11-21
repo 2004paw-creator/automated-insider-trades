@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-20T18:15:53+00:00",
-  "count": 15,
+  "generated_at": "2026-11-21T17:20:48+00:00",
+  "count": 17,
   "signals": [
     {
       "ticker": "HOS",
@@ -10,107 +10,7 @@
       "filed": "2026-11-16",
       "value": 500000.94239089993,
       "price": 5.929999828338623,
-      "score": 0.7032941176470588
-    },
-    {
-      "ticker": "BRSP",
-      "company": "BrightSpire Capital, Inc.",
-      "insider": "Mazzei Michael",
-      "title": "CEO",
-      "filed": "2026-11-16",
-      "value": 749358.6399999999,
-      "price": 3.2699999809265137,
-      "score": 0.6970196078431372
-    },
-    {
-      "ticker": "KURA",
-      "company": "Kura Oncology, Inc.",
-      "insider": "WILSON TROY EDWARD",
-      "title": "President and CEO",
-      "filed": "2026-11-17",
-      "value": 750302.98,
-      "price": 7.090000152587891,
-      "score": 0.6727725366876312
-    },
-    {
-      "ticker": "NSLR",
-      "company": "Neostellar Capital Corp.",
-      "insider": "Klein Mark D",
-      "title": "Chairman, CEO and President",
-      "filed": "2026-11-16",
-      "value": 202300.0,
-      "price": 5.400000095367432,
-      "score": 0.6672549019607844
-    },
-    {
-      "ticker": "UPST",
-      "company": "Upstart Holdings, Inc.",
-      "insider": "Gu Paul",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-17",
-      "value": 950000.0,
-      "price": 19.09000015258789,
-      "score": 0.6630939902166316
-    },
-    {
-      "ticker": "CTGO",
-      "company": "Contango Silver & Gold Inc.",
-      "insider": "Van Nieuwenhuyse Rick",
-      "title": "CEO",
-      "filed": "2026-11-19",
-      "value": 101097.36,
-      "price": 10.520000457763672,
-      "score": 0.6622508398656215
-    },
-    {
-      "ticker": "TEAM",
-      "company": "Atlassian Corp",
-      "insider": "Cannon-Brookes Michael",
-      "title": "CEO, Co-Founder",
-      "filed": "2026-11-19",
-      "value": 786955.1328,
-      "price": 135.0500030517578,
-      "score": 0.6529563269876819
-    },
-    {
-      "ticker": "HUBS",
-      "company": "HUBSPOT INC",
-      "insider": "Halligan Brian",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-16",
-      "value": 4997858.4,
-      "price": 217.25,
-      "score": 0.6096078431372549
-    },
-    {
-      "ticker": "SCM",
-      "company": "Stellus Capital Investment Corp",
-      "insider": "Ladd Robert T.",
-      "title": "President and CEO",
-      "filed": "2026-11-19",
-      "value": 197100.0,
-      "price": 6.579999923706055,
-      "score": 0.5992497200447928
-    },
-    {
-      "ticker": "AVK",
-      "company": "ADVENT CONVERTIBLE & INCOME FUND",
-      "insider": "MAITLAND TRACY V",
-      "title": "CHAIRMAN, PRESIDENT & CEO",
-      "filed": "2026-11-19",
-      "value": 202979.99999999997,
-      "price": 10.0600004196167,
-      "score": 0.5922956326987682
-    },
-    {
-      "ticker": "CGON",
-      "company": "CG Oncology, Inc.",
-      "insider": "Kuan Arthur",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-18",
-      "value": 2366425.2416,
-      "price": 80.0,
-      "score": 0.5774886557005104
+      "score": 0.7130252659574468
     },
     {
       "ticker": "LPG",
@@ -120,17 +20,57 @@
       "filed": "2026-11-17",
       "value": 961460.0,
       "price": 48.16999816894531,
-      "score": 0.5714622641509434
+      "score": 0.7053729320396704
+    },
+    {
+      "ticker": "CGON",
+      "company": "CG Oncology, Inc.",
+      "insider": "Kuan Arthur",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-18",
+      "value": 2366425.2416,
+      "price": 80.0,
+      "score": 0.6979384862449378
+    },
+    {
+      "ticker": "ADTN",
+      "company": "ADTRAN Holdings, Inc.",
+      "insider": "STANTON THOMAS R",
+      "title": "Chairman & CEO",
+      "filed": "2026-11-20",
+      "value": 600900.0,
+      "price": 4.039999961853027,
+      "score": 0.6970061091215505
+    },
+    {
+      "ticker": "BFH",
+      "company": "BREAD FINANCIAL HOLDINGS, INC.",
+      "insider": "Beberman Perry S",
+      "title": "EVP, Chief Financial Officer",
+      "filed": "2026-11-20",
+      "value": 111150.0,
+      "price": 93.55000305175781,
+      "score": 0.6824815673056667
+    },
+    {
+      "ticker": "KURA",
+      "company": "Kura Oncology, Inc.",
+      "insider": "WILSON TROY EDWARD",
+      "title": "President and CEO",
+      "filed": "2026-11-17",
+      "value": 750302.98,
+      "price": 7.090000152587891,
+      "score": 0.6700546436331561
     },
     {
       "ticker": "MTDR",
       "company": "Matador Resources Co",
       "insider": "Foran Joseph Wm",
       "title": "Chairman and CEO",
-      "filed": "2026-11-19",
-      "value": 127449.99999999999,
-      "price": 50.5,
-      "score": 0.5690481522956327
+      "filed": "2026-11-20",
+      "value": 123050.0,
+      "price": 49.369998931884766,
+      "score": 0.6649627132926058
     },
     {
       "ticker": "BH",
@@ -140,7 +80,87 @@
       "filed": "2026-11-18",
       "value": 172502.4,
       "price": 368.6000061035156,
-      "score": 0.5481494611457742
+      "score": 0.6597859935763162
+    },
+    {
+      "ticker": "BRSP",
+      "company": "BrightSpire Capital, Inc.",
+      "insider": "Mazzei Michael",
+      "title": "CEO",
+      "filed": "2026-11-16",
+      "value": 749358.6399999999,
+      "price": 3.2699999809265137,
+      "score": 0.6529986702127659
+    },
+    {
+      "ticker": "AVK",
+      "company": "ADVENT CONVERTIBLE & INCOME FUND",
+      "insider": "MAITLAND TRACY V",
+      "title": "CHAIRMAN, PRESIDENT & CEO",
+      "filed": "2026-11-19",
+      "value": 202979.99999999997,
+      "price": 10.0600004196167,
+      "score": 0.6431539520069268
+    },
+    {
+      "ticker": "SEI",
+      "company": "Solaris Energy Infrastructure, Inc.",
+      "insider": "Brock Amanda M",
+      "title": "Co-Chief Executive Officer",
+      "filed": "2026-11-20",
+      "value": 268900.0,
+      "price": 54.66999816894531,
+      "score": 0.6383286286075416
+    },
+    {
+      "ticker": "TISI",
+      "company": "TEAM INC",
+      "insider": "Hill Gary L.",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-20",
+      "value": 150000.0,
+      "price": 24.790000915527344,
+      "score": 0.6258508531704234
+    },
+    {
+      "ticker": "EQPT",
+      "company": "EquipmentShare.com Inc",
+      "insider": "Schlacks Jabbok",
+      "title": "Founder & CEO",
+      "filed": "2026-11-20",
+      "value": 180364.05,
+      "price": 14.109999656677246,
+      "score": 0.6059009900990099
+    },
+    {
+      "ticker": "NSLR",
+      "company": "Neostellar Capital Corp.",
+      "insider": "Klein Mark D",
+      "title": "Chairman, CEO and President",
+      "filed": "2026-11-16",
+      "value": 202300.0,
+      "price": 5.400000095367432,
+      "score": 0.5971609042553191
+    },
+    {
+      "ticker": "LEGN",
+      "company": "Legend Biotech Corp",
+      "insider": "Zhang Ingrid",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-20",
+      "value": 163200.0,
+      "price": 16.110000610351562,
+      "score": 0.5441072256161786
+    },
+    {
+      "ticker": "HUBS",
+      "company": "HUBSPOT INC",
+      "insider": "Halligan Brian",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-16",
+      "value": 4997858.4,
+      "price": 217.25,
+      "score": 0.5151573581560283
     },
     {
       "ticker": "BGS",
@@ -150,7 +170,7 @@
       "filed": "2026-11-19",
       "value": 249713.6796,
       "price": 3.5899999141693115,
-      "score": 0.5300223964165732
+      "score": 0.47419869812604365
     }
   ]
 }
