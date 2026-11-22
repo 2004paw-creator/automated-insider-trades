@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-21T17:20:48+00:00",
-  "count": 17,
+  "generated_at": "2026-11-22T17:42:34+00:00",
+  "count": 18,
   "signals": [
     {
       "ticker": "HOS",
@@ -100,7 +100,7 @@
       "filed": "2026-11-19",
       "value": 202979.99999999997,
       "price": 10.0600004196167,
-      "score": 0.6431539520069268
+      "score": 0.6437437343358395
     },
     {
       "ticker": "SEI",
@@ -143,6 +143,16 @@
       "score": 0.5971609042553191
     },
     {
+      "ticker": "SCM",
+      "company": "Stellus Capital Investment Corp",
+      "insider": "Ladd Robert T.",
+      "title": "President and CEO",
+      "filed": "2026-11-19",
+      "value": 197100.0,
+      "price": 6.579999923706055,
+      "score": 0.5624718045112782
+    },
+    {
       "ticker": "LEGN",
       "company": "Legend Biotech Corp",
       "insider": "Zhang Ingrid",
@@ -170,7 +180,7 @@
       "filed": "2026-11-19",
       "value": 249713.6796,
       "price": 3.5899999141693115,
-      "score": 0.47419869812604365
+      "score": 0.4729204260651628
     }
   ]
 }
