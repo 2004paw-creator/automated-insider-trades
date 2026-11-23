@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-11-22T17:42:34+00:00",
-  "count": 18,
+  "generated_at": "2026-11-23T21:46:52+00:00",
+  "count": 14,
   "signals": [
-    {
-      "ticker": "HOS",
-      "company": "HORNBECK OFFSHORE SERVICES, INC.",
-      "insider": "HORNBECK TODD M",
-      "title": "PRESIDENT & CEO",
-      "filed": "2026-11-16",
-      "value": 500000.94239089993,
-      "price": 5.929999828338623,
-      "score": 0.7130252659574468
-    },
     {
       "ticker": "LPG",
       "company": "DORIAN LPG LTD.",
@@ -30,7 +20,7 @@
       "filed": "2026-11-18",
       "value": 2366425.2416,
       "price": 80.0,
-      "score": 0.6979384862449378
+      "score": 0.6976351107908485
     },
     {
       "ticker": "ADTN",
@@ -80,17 +70,7 @@
       "filed": "2026-11-18",
       "value": 172502.4,
       "price": 368.6000061035156,
-      "score": 0.6597859935763162
-    },
-    {
-      "ticker": "BRSP",
-      "company": "BrightSpire Capital, Inc.",
-      "insider": "Mazzei Michael",
-      "title": "CEO",
-      "filed": "2026-11-16",
-      "value": 749358.6399999999,
-      "price": 3.2699999809265137,
-      "score": 0.6529986702127659
+      "score": 0.6598040893532696
     },
     {
       "ticker": "AVK",
@@ -133,16 +113,6 @@
       "score": 0.6059009900990099
     },
     {
-      "ticker": "NSLR",
-      "company": "Neostellar Capital Corp.",
-      "insider": "Klein Mark D",
-      "title": "Chairman, CEO and President",
-      "filed": "2026-11-16",
-      "value": 202300.0,
-      "price": 5.400000095367432,
-      "score": 0.5971609042553191
-    },
-    {
       "ticker": "SCM",
       "company": "Stellus Capital Investment Corp",
       "insider": "Ladd Robert T.",
@@ -161,16 +131,6 @@
       "value": 163200.0,
       "price": 16.110000610351562,
       "score": 0.5441072256161786
-    },
-    {
-      "ticker": "HUBS",
-      "company": "HUBSPOT INC",
-      "insider": "Halligan Brian",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-16",
-      "value": 4997858.4,
-      "price": 217.25,
-      "score": 0.5151573581560283
     },
     {
       "ticker": "BGS",
