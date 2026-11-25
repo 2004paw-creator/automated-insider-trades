@@ -1,7 +1,27 @@
 {
-  "generated_at": "2026-11-24T20:33:21+00:00",
-  "count": 11,
+  "generated_at": "2026-11-25T19:38:29+00:00",
+  "count": 16,
   "signals": [
+    {
+      "ticker": "PRE",
+      "company": "Prenetics Global Ltd",
+      "insider": "Rosin Brian J",
+      "title": "CFO of IM8 (US) LLC",
+      "filed": "2026-11-24",
+      "value": 100000.0,
+      "price": 9.770000457763672,
+      "score": 0.7799874843554443
+    },
+    {
+      "ticker": "TEN",
+      "company": "TSAKOS ENERGY NAVIGATION LTD",
+      "insider": "TSAKOS NIKOLAOS",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-24",
+      "value": 853966.0000000001,
+      "price": 42.5,
+      "score": 0.7355492045469206
+    },
     {
       "ticker": "BH",
       "company": "Biglari Holdings Inc.",
@@ -10,17 +30,17 @@
       "filed": "2026-11-23",
       "value": 2914380.36,
       "price": 363.9800109863281,
-      "score": 0.7221484237665533
+      "score": 0.7283694799823831
     },
     {
-      "ticker": "CGON",
-      "company": "CG Oncology, Inc.",
-      "insider": "Kuan Arthur",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-18",
-      "value": 2366425.2416,
-      "price": 80.0,
-      "score": 0.70441977004477
+      "ticker": "MTDR",
+      "company": "Matador Resources Co",
+      "insider": "Foran Joseph Wm",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-24",
+      "value": 143490.0,
+      "price": 47.459999084472656,
+      "score": 0.7084880585267667
     },
     {
       "ticker": "ADTN",
@@ -30,7 +50,27 @@
       "filed": "2026-11-23",
       "value": 171920.0,
       "price": 4.289999961853027,
-      "score": 0.6773391538731982
+      "score": 0.6916059746704908
+    },
+    {
+      "ticker": "HSHP",
+      "company": "Himalaya Shipping Ltd.",
+      "insider": "Svensen Lars-Christian",
+      "title": "Contracted CEO",
+      "filed": "2026-11-24",
+      "value": 103088.0,
+      "price": 15.289999961853027,
+      "score": 0.6897784601886378
+    },
+    {
+      "ticker": "RNA",
+      "company": "Atrium Therapeutics, Inc.",
+      "insider": "Winslow Brendan R.",
+      "title": "Chief Financial Officer",
+      "filed": "2026-11-24",
+      "value": 249417.0,
+      "price": 6.920000076293945,
+      "score": 0.6871463040140382
     },
     {
       "ticker": "BFH",
@@ -40,7 +80,7 @@
       "filed": "2026-11-20",
       "value": 111150.0,
       "price": 93.55000305175781,
-      "score": 0.6758833937971261
+      "score": 0.6670318268790255
     },
     {
       "ticker": "AVK",
@@ -50,7 +90,7 @@
       "filed": "2026-11-19",
       "value": 202979.99999999997,
       "price": 10.0600004196167,
-      "score": 0.6461458963500705
+      "score": 0.6499151583710406
     },
     {
       "ticker": "SEI",
@@ -60,7 +100,7 @@
       "filed": "2026-11-20",
       "value": 268900.0,
       "price": 54.66999816894531,
-      "score": 0.6320996052069995
+      "score": 0.6274166599293934
     },
     {
       "ticker": "TISI",
@@ -70,7 +110,7 @@
       "filed": "2026-11-20",
       "value": 150000.0,
       "price": 24.790000915527344,
-      "score": 0.6162625373452837
+      "score": 0.6025439943945886
     },
     {
       "ticker": "EQPT",
@@ -80,7 +120,17 @@
       "filed": "2026-11-20",
       "value": 180364.05,
       "price": 14.109999656677246,
-      "score": 0.6065776604068858
+      "score": 0.6007424475166411
+    },
+    {
+      "ticker": "OTF",
+      "company": "Blue Owl Technology Finance Corp.",
+      "insider": "Packer Craig",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-24",
+      "value": 501201.9999,
+      "price": 9.119999885559082,
+      "score": 0.595091157761635
     },
     {
       "ticker": "SCM",
@@ -90,7 +140,7 @@
       "filed": "2026-11-19",
       "value": 197100.0,
       "price": 6.579999923706055,
-      "score": 0.5597020568663036
+      "score": 0.5611990950226244
     },
     {
       "ticker": "LEGN",
@@ -100,7 +150,7 @@
       "filed": "2026-11-20",
       "value": 163200.0,
       "price": 16.110000610351562,
-      "score": 0.538274470052639
+      "score": 0.531373460533053
     },
     {
       "ticker": "BGS",
@@ -110,7 +160,7 @@
       "filed": "2026-11-19",
       "value": 249713.6796,
       "price": 3.5899999141693115,
-      "score": 0.47089382940108887
+      "score": 0.47747926093514326
     }
   ]
 }
