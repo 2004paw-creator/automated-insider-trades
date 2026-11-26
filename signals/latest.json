@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-11-25T19:38:29+00:00",
-  "count": 16,
+  "generated_at": "2026-11-26T19:22:58+00:00",
+  "count": 14,
   "signals": [
-    {
-      "ticker": "PRE",
-      "company": "Prenetics Global Ltd",
-      "insider": "Rosin Brian J",
-      "title": "CFO of IM8 (US) LLC",
-      "filed": "2026-11-24",
-      "value": 100000.0,
-      "price": 9.770000457763672,
-      "score": 0.7799874843554443
-    },
     {
       "ticker": "TEN",
       "company": "TSAKOS ENERGY NAVIGATION LTD",
@@ -20,7 +10,7 @@
       "filed": "2026-11-24",
       "value": 853966.0000000001,
       "price": 42.5,
-      "score": 0.7355492045469206
+      "score": 0.735285678994918
     },
     {
       "ticker": "BH",
@@ -30,17 +20,7 @@
       "filed": "2026-11-23",
       "value": 2914380.36,
       "price": 363.9800109863281,
-      "score": 0.7283694799823831
-    },
-    {
-      "ticker": "MTDR",
-      "company": "Matador Resources Co",
-      "insider": "Foran Joseph Wm",
-      "title": "Chairman and CEO",
-      "filed": "2026-11-24",
-      "value": 143490.0,
-      "price": 47.459999084472656,
-      "score": 0.7084880585267667
+      "score": 0.7258869583869583
     },
     {
       "ticker": "ADTN",
@@ -50,7 +30,17 @@
       "filed": "2026-11-23",
       "value": 171920.0,
       "price": 4.289999961853027,
-      "score": 0.6916059746704908
+      "score": 0.7093361218361218
+    },
+    {
+      "ticker": "MTDR",
+      "company": "Matador Resources Co",
+      "insider": "Foran Joseph Wm",
+      "title": "Chairman and CEO",
+      "filed": "2026-11-24",
+      "value": 143490.0,
+      "price": 47.459999084472656,
+      "score": 0.7060786631846414
     },
     {
       "ticker": "HSHP",
@@ -60,7 +50,7 @@
       "filed": "2026-11-24",
       "value": 103088.0,
       "price": 15.289999961853027,
-      "score": 0.6897784601886378
+      "score": 0.6887459415584416
     },
     {
       "ticker": "RNA",
@@ -70,7 +60,7 @@
       "filed": "2026-11-24",
       "value": 249417.0,
       "price": 6.920000076293945,
-      "score": 0.6871463040140382
+      "score": 0.6810592532467533
     },
     {
       "ticker": "BFH",
@@ -80,17 +70,7 @@
       "filed": "2026-11-20",
       "value": 111150.0,
       "price": 93.55000305175781,
-      "score": 0.6670318268790255
-    },
-    {
-      "ticker": "AVK",
-      "company": "ADVENT CONVERTIBLE & INCOME FUND",
-      "insider": "MAITLAND TRACY V",
-      "title": "CHAIRMAN, PRESIDENT & CEO",
-      "filed": "2026-11-19",
-      "value": 202979.99999999997,
-      "price": 10.0600004196167,
-      "score": 0.6499151583710406
+      "score": 0.6750280969030968
     },
     {
       "ticker": "SEI",
@@ -100,7 +80,27 @@
       "filed": "2026-11-20",
       "value": 268900.0,
       "price": 54.66999816894531,
-      "score": 0.6274166599293934
+      "score": 0.6294074675324676
+    },
+    {
+      "ticker": "GLXY",
+      "company": "Galaxy Digital Inc.",
+      "insider": "Paquette Anthony",
+      "title": "Chief Financial Officer",
+      "filed": "2026-11-25",
+      "value": 268450.0,
+      "price": 11.5600004196167,
+      "score": 0.6266466112180911
+    },
+    {
+      "ticker": "AVEX",
+      "company": "AEVEX Corp.",
+      "insider": "Wells Charles Roger IV",
+      "title": "Chief Executive Officer",
+      "filed": "2026-11-25",
+      "value": 124926.78,
+      "price": 12.119999885559082,
+      "score": 0.6088408931494038
     },
     {
       "ticker": "TISI",
@@ -110,7 +110,7 @@
       "filed": "2026-11-20",
       "value": 150000.0,
       "price": 24.790000915527344,
-      "score": 0.6025439943945886
+      "score": 0.6067501248751249
     },
     {
       "ticker": "EQPT",
@@ -120,7 +120,7 @@
       "filed": "2026-11-20",
       "value": 180364.05,
       "price": 14.109999656677246,
-      "score": 0.6007424475166411
+      "score": 0.6021347402597403
     },
     {
       "ticker": "OTF",
@@ -130,17 +130,7 @@
       "filed": "2026-11-24",
       "value": 501201.9999,
       "price": 9.119999885559082,
-      "score": 0.595091157761635
-    },
-    {
-      "ticker": "SCM",
-      "company": "Stellus Capital Investment Corp",
-      "insider": "Ladd Robert T.",
-      "title": "President and CEO",
-      "filed": "2026-11-19",
-      "value": 197100.0,
-      "price": 6.579999923706055,
-      "score": 0.5611990950226244
+      "score": 0.6002793266516092
     },
     {
       "ticker": "LEGN",
@@ -150,17 +140,7 @@
       "filed": "2026-11-20",
       "value": 163200.0,
       "price": 16.110000610351562,
-      "score": 0.531373460533053
-    },
-    {
-      "ticker": "BGS",
-      "company": "B&G Foods, Inc.",
-      "insider": "Mills Robert D",
-      "title": "President & CEO",
-      "filed": "2026-11-19",
-      "value": 249713.6796,
-      "price": 3.5899999141693115,
-      "score": 0.47747926093514326
+      "score": 0.5259065934065934
     }
   ]
 }
