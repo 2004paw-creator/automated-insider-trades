@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T19:22:58+00:00",
-  "count": 14,
+  "generated_at": "2026-11-27T19:13:58+00:00",
+  "count": 9,
   "signals": [
     {
       "ticker": "TEN",
@@ -10,7 +10,7 @@
       "filed": "2026-11-24",
       "value": 853966.0000000001,
       "price": 42.5,
-      "score": 0.735285678994918
+      "score": 0.7350103021978022
     },
     {
       "ticker": "BH",
@@ -40,7 +40,7 @@
       "filed": "2026-11-24",
       "value": 143490.0,
       "price": 47.459999084472656,
-      "score": 0.7060786631846414
+      "score": 0.7054613095238095
     },
     {
       "ticker": "HSHP",
@@ -50,7 +50,7 @@
       "filed": "2026-11-24",
       "value": 103088.0,
       "price": 15.289999961853027,
-      "score": 0.6887459415584416
+      "score": 0.688213141025641
     },
     {
       "ticker": "RNA",
@@ -60,27 +60,7 @@
       "filed": "2026-11-24",
       "value": 249417.0,
       "price": 6.920000076293945,
-      "score": 0.6810592532467533
-    },
-    {
-      "ticker": "BFH",
-      "company": "BREAD FINANCIAL HOLDINGS, INC.",
-      "insider": "Beberman Perry S",
-      "title": "EVP, Chief Financial Officer",
-      "filed": "2026-11-20",
-      "value": 111150.0,
-      "price": 93.55000305175781,
-      "score": 0.6750280969030968
-    },
-    {
-      "ticker": "SEI",
-      "company": "Solaris Energy Infrastructure, Inc.",
-      "insider": "Brock Amanda M",
-      "title": "Co-Chief Executive Officer",
-      "filed": "2026-11-20",
-      "value": 268900.0,
-      "price": 54.66999816894531,
-      "score": 0.6294074675324676
+      "score": 0.6790945512820513
     },
     {
       "ticker": "GLXY",
@@ -103,26 +83,6 @@
       "score": 0.6088408931494038
     },
     {
-      "ticker": "TISI",
-      "company": "TEAM INC",
-      "insider": "Hill Gary L.",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-20",
-      "value": 150000.0,
-      "price": 24.790000915527344,
-      "score": 0.6067501248751249
-    },
-    {
-      "ticker": "EQPT",
-      "company": "EquipmentShare.com Inc",
-      "insider": "Schlacks Jabbok",
-      "title": "Founder & CEO",
-      "filed": "2026-11-20",
-      "value": 180364.05,
-      "price": 14.109999656677246,
-      "score": 0.6021347402597403
-    },
-    {
       "ticker": "OTF",
       "company": "Blue Owl Technology Finance Corp.",
       "insider": "Packer Craig",
@@ -130,17 +90,7 @@
       "filed": "2026-11-24",
       "value": 501201.9999,
       "price": 9.119999885559082,
-      "score": 0.6002793266516092
-    },
-    {
-      "ticker": "LEGN",
-      "company": "Legend Biotech Corp",
-      "insider": "Zhang Ingrid",
-      "title": "Chief Executive Officer",
-      "filed": "2026-11-20",
-      "value": 163200.0,
-      "price": 16.110000610351562,
-      "score": 0.5259065934065934
+      "score": 0.5975789835164835
     }
   ]
 }
